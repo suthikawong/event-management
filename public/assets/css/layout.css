@@ -1,0 +1,13 @@
+#main-container {
+  flex: 1;
+}
+
+footer {
+  background-color: var(--deep-koamaru);
+}
+
+@media (min-width: 992px) {
+  #main-container {
+    margin: 0 40px;
+  }
+}

@@ -44,4 +44,6 @@ body {
   display: flex;
   flex-direction: column;
   font-size: 16px;
+  color: var(--dark-color);
+  background-color: var(--gray-lightest);
 }
