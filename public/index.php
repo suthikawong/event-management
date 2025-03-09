@@ -1,11 +1,8 @@
 <?php
-$title = 'Home';
-?>
 
-<?php ob_start(); ?>
-<h3>Home</h3>
-<div>HTML goes here...</div>
-<div>More HTML...</div>
-<?php $content = ob_get_clean(); ?>
+session_start();
 
-<?php include '../includes/layout.php'; ?>
+require '../app/core/init.php';
+
+$app = new App();
+$app->loadController();
