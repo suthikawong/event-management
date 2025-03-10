@@ -1,0 +1,12 @@
+.app-button {
+  padding: 0 20px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--primary-color);
+  color: var(--light-color);
+}
+
+.app-button:hover {
+  background-color: var(--primary-hover-color);
+}

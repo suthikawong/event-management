@@ -1,6 +1,7 @@
 :root {
   --deep-koamaru: #10107b;
   --electric-violet: #7848f4;
+  --fuchsia-blue: #7a57fb;
   --brink-pink: #ff5c81;
   --lynch: #687c94;
   --gray: #7e7e7e;
@@ -9,6 +10,7 @@
   --gray-lightest: #f8f8fa;
 
   --primary-color: var(--electric-violet);
+  --primary-hover-color: var(--fuchsia-blue);
   --secondary-color: var(--brink-pink);
   --success-color: #28a745;
   --info-color: #17a2b8;
@@ -25,7 +27,8 @@
   --text-2xl: 1.5rem;
   --text-3xl: 1.875rem;
   --text-4xl: 2.25rem;
-  --text-5xl: 3.75rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
 
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
@@ -43,7 +46,10 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
+  flex: 1;
   font-size: 16px;
   color: var(--dark-color);
   background-color: var(--gray-lightest);
+  align-items: center;
+  position: relative;
 }

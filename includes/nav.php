@@ -1,4 +1,4 @@
-<nav>
+<nav class="app-navbar">
   <div class="desktop-nav-container">
     <h1>Logo</h1>
     <div class="menu-container">

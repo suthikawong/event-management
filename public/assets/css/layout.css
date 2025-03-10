@@ -1,13 +1,32 @@
 #main-container {
+  position: relative;
+  flex: 1;
+}
+
+#page-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   flex: 1;
 }
 
 footer {
+  width: 100%;
   background-color: var(--deep-koamaru);
 }
 
 @media (min-width: 992px) {
-  #main-container {
-    margin: 0 40px;
+  #page-container {
+    padding: 0 40px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #page-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1400px;
+    justify-content: center;
+    align-items: center;
   }
 }
