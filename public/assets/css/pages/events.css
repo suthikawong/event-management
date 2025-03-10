@@ -1,98 +1,69 @@
-.home-page .hero-container {
-  position: relative;
-}
-
-.home-page .hero-img {
-  width: 100%;
-  height: 100%;
-  min-height: 400px;
-  object-fit: cover;
-}
-
-.home-page .hero-title {
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: var(--light-color);
-  font-size: var(--text-4xl);
-  width: 420px;
-  padding: 0 20px;
-}
-
-.home-page .search-bar {
-  position: absolute;
-  left: 50%;
-  top: 100%;
-  transform: translate(-50%, -50%);
+.events-page .search-bar {
   display: flex;
   gap: 20px;
   background-color: var(--deep-koamaru);
   border-radius: 20px;
   padding: 20px 30px;
   align-items: center;
-  /* margin: 0 40px; */
-  width: 90%;
 }
 
-.home-page .search-bar > div > h6 {
+.events-page .search-bar > div > h6 {
   color: var(--light-color);
 }
 
-.home-page .input-container {
+.events-page .input-container {
   display: flex;
   flex-direction: column;
   gap: 6px;
   flex: 1;
 }
 
-.home-page .search-button {
+.events-page .search-button {
   width: 70px;
   height: 70px;
 }
 
-.home-page .search-icon {
+.events-page .search-icon {
   font-size: 24px;
 }
 
-.home-page .event-container {
+.events-page .event-container {
   position: relative;
-  margin-top: 100px;
   padding: 20px;
   display: flex;
   flex-direction: column;
 }
 
-.home-page .event-header {
+.events-page .event-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 
-.home-page .event-card-container {
+.events-page .event-card-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   width: 100%;
   gap: 20px;
 }
 
-.home-page .event-title {
+.events-page .event-title {
   display: flex;
   gap: 10px;
 }
 
-.home-page .event-title > h1 {
+.events-page .event-title > h1 {
   font-size: var(--text-4xl);
   font-weight: 700;
 }
 
-.home-page .event-title > h1:last-child {
+.events-page .event-title > h1:last-child {
   color: var(--primary-color);
 }
 
-.home-page .event-card {
+.events-page .event-card {
   border-radius: 5px;
   padding: 20px;
   background-color: var(--light-color);
@@ -103,70 +74,51 @@
   cursor: pointer;
 }
 
-.home-page .event-card:hover {
+.events-page .event-card:hover {
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3);
 }
 
-.home-page .event-img {
+.events-page .event-img {
   width: 100%;
   height: 240px;
   object-fit: cover;
   border-radius: 5px;
 }
 
-.home-page .event-name {
+.events-page .event-name {
   font-weight: 600;
 }
 
-.home-page .event-date {
+.events-page .event-date {
   font-size: var(--text-xs);
   color: var(--primary-color);
   font-weight: 500;
 }
 
-.home-page .event-where {
+.events-page .event-where {
   font-size: var(--text-xs);
   color: var(--gray);
   font-weight: 500;
 }
 
-.home-page .load-button {
+.events-page .load-button {
   align-self: center;
   margin-top: 40px;
 }
 
 @media (min-width: 576px) {
-  .home-page .hero-title {
-    width: 500px;
-    font-size: var(--text-5xl);
-  }
-  .home-page .search-bar {
+  .events-page .search-bar {
     padding: 30px 40px;
   }
 }
 
 @media (min-width: 992px) {
-  .home-page .hero-img {
-    border-radius: 10px;
-  }
-
-  .home-page .hero-title {
-    font-size: var(--text-6xl);
-    width: 700px;
-  }
-
-  .home-page .search-bar {
+  .events-page .search-bar {
     padding: 30px 70px;
   }
 
-  .home-page .search-bar > div > h6 {
+  .events-page .search-bar > div > h6 {
     display: block;
     color: var(--light-color);
-  }
-}
-
-@media (min-width: 1200px) {
-  .home-page .hero-title {
-    width: 100%;
   }
 }

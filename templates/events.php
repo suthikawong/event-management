@@ -1,12 +1,10 @@
 <?php
-$title = 'Home';
+$title = 'Events';
 ?>
 
 <?php ob_start(); ?>
-<div class="home-page">
-  <section class="hero-container">
-    <img class="hero-img" src="../public/assets/images/hero-page-img.png" alt="hero image">
-    <h1 class="hero-title">MADE FOR THOSE WHO DO</h1>
+<div class="events-page">
+  <section>
     <div class="search-bar">
       <div class="input-container">
         <h6>Looking for</h6>
@@ -18,8 +16,8 @@ $title = 'Home';
   <section class="event-container">
     <div class="event-header">
       <span class="event-title">
-        <h1>Upcoming</h1>
         <h1>Event</h1>
+        <h1>List</h1>
       </span>
     </div>
     <div class="event-card-container">
@@ -57,7 +55,6 @@ $title = 'Home';
     <button class="app-button load-button">Load more</button>
   </section>
 </div>
-
 <?php $content = ob_get_clean(); ?>
 
 <?php include '../includes/layout.php'; ?>
