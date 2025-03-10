@@ -1,3 +1,3 @@
 <footer>
-  <p>Footer</p>
+  <p>© 2024 Copyright: Footer</p>
 </footer>
