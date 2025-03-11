@@ -3,10 +3,13 @@
   height: 40px;
   border: none;
   border-radius: 5px;
-  background-color: var(--primary-color);
-  color: var(--light-color);
 }
 
-.app-button:hover {
+.app-button.primary:hover {
   background-color: var(--primary-hover-color);
+}
+
+.app-button.primary {
+  background-color: var(--primary-color);
+  color: var(--light-color);
 }

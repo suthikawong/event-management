@@ -12,7 +12,7 @@ $title = 'Home';
         <h6>Looking for</h6>
         <input type="text" class="app-text-input" placeholder="Choose event type">
       </div>
-      <button class="app-button search-button"><i class="fa fa-search search-icon"></i></button>
+      <button class="app-button primary  search-button"><i class="fa fa-search search-icon"></i></button>
     </div>
   </section>
   <section class="event-container">
@@ -54,7 +54,7 @@ $title = 'Home';
         <div class="event-where">ONLINE EVENT - Attend anywhere</div>
       </div>
     </div>
-    <button class="app-button load-button">Load more</button>
+    <button class="app-button primary load-button">Load more</button>
   </section>
 </div>
 

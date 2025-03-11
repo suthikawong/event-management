@@ -1,0 +1,32 @@
+#main-container {
+  position: relative;
+  flex: 1;
+  width: 100%;
+}
+
+#page-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex: 1;
+}
+
+footer {
+  width: 100%;
+  background-color: var(--deep-koamaru);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+
+footer > p {
+  color: var(--light-color);
+  margin: 0;
+}
+
+@media (min-width: 992px) {
+  #page-container {
+    flex-direction: row;
+  }
+}

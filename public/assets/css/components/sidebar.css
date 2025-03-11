@@ -1,12 +1,8 @@
-.app-navbar {
-  width: 100%;
-}
-
-.app-navbar .desktop-nav-container {
+.app-sidebar .desktop-sidebar-container {
   display: none;
 }
 
-.app-navbar .ham-btn {
+.app-sidebar .ham-btn {
   border: none;
   background-color: transparent;
   width: 50px;
@@ -15,17 +11,17 @@
   color: var(--primary-color);
 }
 
-.app-navbar .offcanvas-header {
+.app-sidebar .offcanvas-header {
   padding: 20px 0;
 }
 
-.app-navbar .offcanvas-body {
+.app-sidebar .offcanvas-body {
   padding: 0;
   display: flex;
   flex-direction: column;
 }
 
-.app-navbar .menu-header-container {
+.app-sidebar .menu-header-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -34,17 +30,16 @@
   width: 100%;
 }
 
-.app-navbar .menu-header-container > button {
+.app-sidebar .menu-header-container > button {
   align-self: flex-start;
 }
 
-.app-navbar .menu-list {
+.app-sidebar .menu-list {
   list-style-type: none;
   padding: 0;
-  margin: 0;
 }
 
-.app-navbar a {
+.app-sidebar a {
   text-decoration-line: none;
   color: var(--dark-color);
   font-weight: 500;
@@ -53,32 +48,33 @@
   gap: 12px;
 }
 
-.app-navbar .menu-list .menu-item {
+.app-sidebar .menu-list .menu-item {
   border-left: 4px solid transparent;
 }
 
-.app-navbar .menu-list .menu-item:hover {
+.app-sidebar .menu-list .menu-item:hover {
   border-left: 4px solid var(--primary-color);
 }
 
-.app-navbar .menu-item:hover > a {
+.app-sidebar .menu-item:hover > a {
   color: var(--primary-color);
 }
 
-.app-navbar .menu-item {
+.app-sidebar .menu-item {
   margin: 10px 0;
   padding: 10px 0;
   padding-left: 30px;
 }
 
-.app-navbar .profile-container {
+.app-sidebar .profile-container {
+  margin-top: 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 16px;
 }
 
-.app-navbar .profile-img {
+.app-sidebar .profile-img {
   width: 50px;
   height: 50px;
   color: var(--light-color);
@@ -90,81 +86,86 @@
   font-size: var(--text-xl);
 }
 
-.app-navbar .profile-name {
+.app-sidebar .profile-name {
   font-weight: 600;
 }
 
-.app-navbar .profile-role {
+.app-sidebar .profile-role {
   font-weight: 400;
   color: var(--gray);
   font-size: var(--text-xs);
 }
 
-.app-navbar .body-container {
+.app-sidebar .body-container {
   display: flex;
   flex-direction: column;
   flex: 1;
 }
 
-.app-navbar .divider {
+.app-sidebar .divider {
   border-top: 1px solid var(--gray-light);
   width: 100%;
 }
 
 @media (min-width: 992px) {
-  .app-navbar .mobile-nav-container > * {
+  .app-sidebar .mobile-sidebar-container > * {
     display: none;
   }
 
-  .app-navbar .desktop-nav-container {
+  .app-sidebar {
+    max-width: 260px;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: white;
+    flex: 1;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }
+
+  .app-sidebar .desktop-sidebar-container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 0;
-    margin: 0 40px;
+    flex-direction: column;
+    height: 100%;
   }
 
-  .app-navbar .menu-container {
+  .app-sidebar .menu-header-container {
     display: flex;
-    gap: 40px;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    margin: 20px 0;
+    margin-left: 30px;
   }
 
-  .app-navbar .menu-list {
+  .app-sidebar .menu-title {
     display: flex;
-    align-items: center;
-    gap: 20px;
+    gap: 10px;
   }
 
-  .app-navbar .menu-list .menu-item {
-    padding: 0 6px;
-    padding-bottom: 4px;
-    border-left: none;
-    border-bottom: 4px solid transparent;
+  .app-sidebar .menu-title > h1 {
+    font-size: var(--text-3xl);
+    font-weight: 700;
   }
 
-  .app-navbar .menu-list .menu-item:hover {
-    border-left: none;
-    border-bottom: 4px solid var(--primary-color);
-  }
-
-  .app-navbar .menu-item:hover > a {
+  .app-sidebar .menu-title > h1:last-child {
     color: var(--primary-color);
   }
 
-  .app-navbar .profile-container {
+  .app-sidebar .profile-container {
     display: flex;
     align-items: center;
     gap: 10px;
   }
 
-  .app-navbar .profile-name {
-    margin-top: 0;
+  .app-sidebar .profile-img {
+    width: 40px;
+    height: 40px;
   }
-}
 
-@media (min-width: 1200px) {
-  .app-navbar .desktop-nav-container {
-    margin: 0 60px;
+  .app-sidebar .profile-name {
+    margin-top: 0;
   }
 }

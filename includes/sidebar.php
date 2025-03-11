@@ -1,17 +1,39 @@
-<nav class="app-navbar">
-  <div class="desktop-nav-container">
-    <div class="menu-container">
-      <h1>Logo</h1>
-      <div class="menu-list">
-        <div class="menu-item"><a href="#">Home</a></div>
+<div class="app-sidebar">
+  <div class="desktop-sidebar-container">
+    <div class="menu-header-container">
+      <div class="profile-container">
+        <div class="profile-img">SR</div>
+        <div>
+          <div class="profile-name">Sophia Rose</div>
+          <div class="profile-role">Administrator</div>
+        </div>
       </div>
     </div>
-    <div class="profile-container">
-      <div class="profile-img">SR</div>
-      <div class="profile-name">Sophia Rose</div>
+    <div class="body-container">
+      <div class="menu-list">
+        <div class="menu-item">
+          <a href="#">
+            <i class="fa-solid fa-calendar"></i>
+            <div>Event Management</div>
+          </a>
+        </div>
+        <div class="menu-item">
+          <a href="#">
+            <i class="fa-solid fa-user"></i>
+            <div>User Management</div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="menu-item">
+      <a href="#">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        <div>Logout</div>
+      </a>
     </div>
   </div>
-  <div class="mobile-nav-container">
+  <div class="mobile-sidebar-container">
     <button class="ham-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#sideMenu">
       <i class="fa fa-bars"></i>
     </button>
@@ -33,8 +55,14 @@
           <div class="menu-list">
             <div class="menu-item">
               <a href="#">
-                <i class="fa-solid fa-house"></i>
-                <div>Home</div>
+                <i class="fa-solid fa-calendar"></i>
+                <div>Event Management</div>
+              </a>
+            </div>
+            <div class="menu-item">
+              <a href="#">
+                <i class="fa-solid fa-user"></i>
+                <div>User Management</div>
               </a>
             </div>
           </div>
@@ -49,4 +77,4 @@
       </div>
     </div>
   </div>
-</nav>
+</div>
