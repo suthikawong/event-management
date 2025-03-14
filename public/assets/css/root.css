@@ -3,6 +3,7 @@
   --electric-violet: #7848f4;
   --fuchsia-blue: #7a57fb;
   --blue-chalk: #ebe8ff;
+  --magnolia: #f4f3ff;
   --brink-pink: #ff5c81;
   --lynch: #687c94;
   --dove-gray: #6d6d6d;
@@ -11,6 +12,9 @@
   --gray-lighter: #ececec;
   --gray-lightest: #f8f8fa;
   --white-lilac: #f9faff;
+  --red-ribbon: #dc3545;
+  --well-read: #b7192c;
+  --lavender-blush: #fff1f3;
 
   --primary-color: var(--electric-violet);
   --primary-hover-color: var(--fuchsia-blue);
@@ -18,7 +22,8 @@
   --success-color: #28a745;
   --info-color: #17a2b8;
   --warning-color: #ffc107;
-  --danger-color: #dc3545;
+  --danger-color: var(--red-ribbon);
+  --danger-hover-color: var(--well-read);
   --light-color: white;
   --dark-color: #343a40;
 

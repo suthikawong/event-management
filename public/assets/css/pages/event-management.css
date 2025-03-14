@@ -29,6 +29,12 @@
   display: none;
 }
 
+.event-management-page h1.title {
+  margin: 16px 0;
+  font-weight: 600;
+  font-size: var(--text-xl);
+}
+
 @media (min-width: 768px) {
   .event-management-page .filter-container {
     gap: 10px;
@@ -58,5 +64,9 @@
 
   .event-management-page .search-bar {
     margin-top: 40px;
+  }
+
+  .event-management-page h1.title {
+    display: none;
   }
 }

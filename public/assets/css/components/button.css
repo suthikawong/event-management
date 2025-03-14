@@ -5,6 +5,14 @@
   border-radius: 5px;
 }
 
+.app-button.sm {
+  padding: 0 6px;
+  height: 28px;
+  border: none;
+  border-radius: 5px;
+  font-size: var(--text-sm);
+}
+
 .app-button.primary {
   background-color: var(--primary-color);
   color: var(--light-color);
@@ -22,4 +30,33 @@
 
 .app-button.outline:hover {
   background-color: var(--light-color);
+}
+
+.app-button.outline-primary {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.app-button.outline-primary:hover {
+  background-color: var(--magnolia);
+}
+
+.app-button.danger {
+  background-color: var(--danger-color);
+  color: var(--light-color);
+}
+
+.app-button.danger:hover {
+  background-color: var(--danger-hover-color);
+}
+
+.app-button.outline-danger {
+  background-color: transparent;
+  color: var(--danger-color);
+  border: 1px solid var(--danger-color);
+}
+
+.app-button.outline-danger:hover {
+  background-color: var(--lavender-blush);
 }
