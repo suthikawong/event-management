@@ -112,6 +112,10 @@
 }
 
 @media (min-width: 992px) {
+  #eventTable_wrapper {
+    margin: 0 12px;
+  }
+
   #eventTable_wrapper > div:first-child {
     border: 1px solid var(--gray-light);
     border-top-left-radius: 10px;
