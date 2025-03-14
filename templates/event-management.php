@@ -12,7 +12,16 @@ $title = 'Event Management';
 
 <?php ob_start(); ?>
 <div class="event-management-page">
-  <h1>Event Management</h1>
+  <!-- Header -->
+  <div class="event-header">
+    <h1>Event Management</h1>
+    <button type="button" class="app-button primary add-button" data-bs-toggle="modal" data-bs-target="#formModal">
+      <i class="fa-solid fa-plus"></i>
+      <div class="add-button-name">Add Event</div>
+    </button>
+  </div>
+
+  <!-- Search bar -->
   <div class="search-bar">
     <input class="app-text-input" type="text" placeholder="Search for events">
     <div class="filter-container">
@@ -21,13 +30,16 @@ $title = 'Event Management';
         <option value="upcoming">Upcoming</option>
         <option value="past">Past</option>
       </select>
-      <button class="app-button primary search-button">
+      <button class="app-button outline-primary search-button">
         <i class="fa-solid fa-magnifying-glass"></i>
         <div>Search</div>
       </button>
     </div>
   </div>
+
   <h1 class="title">Event List</h1>
+
+  <!-- Event table -->
   <table id="eventTable" class="table app-table" style="width:100%">
     <thead>
       <tr>
@@ -381,6 +393,42 @@ $title = 'Event Management';
       </tr>
     </tbody>
   </table>
+
+  <!-- Event form modal -->
+  <div class="modal fade app-modal" id="formModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form action="POST" class="app-form">
+            <div class="form-item">
+              <label class="form-item-label">Event name</label>
+              <input class="app-text-input" type="text">
+            </div>
+            <div class="form-item">
+              <label class="form-item-label">Description</label>
+              <textarea class="app-text-area"></textarea>
+            </div>
+            <div class="form-item">
+              <label class="form-item-label">Start date</label>
+              <input class="app-text-input" type="text">
+            </div>
+            <div class="form-item">
+              <label class="form-item-label">End date</label>
+              <input class="app-text-input" type="text">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="app-button outline-primary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="app-button primary">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </div>
 <?php $content = ob_get_clean(); ?>

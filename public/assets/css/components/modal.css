@@ -1,0 +1,15 @@
+.app-modal .modal-dialog {
+  max-width: 1000px;
+}
+
+@media (min-width: 576px) {
+  .app-modal .modal-dialog {
+    margin: 28px 50px;
+  }
+}
+
+@media (min-width: 992px) {
+  .app-modal .modal-dialog {
+    margin: 28px calc((100vw - 1000px) / 2);
+  }
+}

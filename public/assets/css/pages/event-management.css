@@ -5,6 +5,22 @@
   flex: 1;
 }
 
+.event-management-page .event-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.event-management-page .add-button-name {
+  display: none;
+}
+
+.event-management-page .add-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .event-management-page .search-bar {
   display: flex;
   flex-direction: row;
@@ -36,6 +52,10 @@
 }
 
 @media (min-width: 768px) {
+  .event-management-page .add-button-name {
+    display: block;
+  }
+
   .event-management-page .filter-container {
     gap: 10px;
   }

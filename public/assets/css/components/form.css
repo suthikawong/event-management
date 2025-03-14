@@ -1,0 +1,11 @@
+.app-form {
+  width: 100%;
+}
+
+.app-form .form-item:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.app-form .form-item > .form-item-label {
+  margin-bottom: 10px;
+}
