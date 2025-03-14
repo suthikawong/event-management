@@ -76,318 +76,8 @@ $title = 'Event Management';
             <button><i class="fa-solid fa-trash"></i></button>
           </div>
           <div class="table-action-container">
-            <button class="app-button sm outline-primary">Edit</button>
-            <button class="app-button sm outline-danger">Delete</button>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div class="card-content-container">
-            <div class="card-content-title">Event:</div>
-            <div>BestSelller Book Bootcamp -write, Market & Publish Your Book -Lucknow</div>
-          </div>
-        </td>
-        <td>
-          <div class="card-content-container">
-            <div class="card-content-title">Start date: </div>
-            <div>Saturdat, March 18, 9.30PM</div>
-          </div>
-        </td>
-        <td>
-          <div class="card-content-container">
-            <div class="card-content-title">End date: </div>
-            <div>Saturdat, March 18, 9.30PM</div>
-          </div>
-        </td>
-        <td>
-          <div class="card-action-container">
-            <button><i class="fa-solid fa-pen"></i></button>
-            <div class="card-divider"></div>
-            <button><i class="fa-solid fa-trash"></i></button>
-          </div>
-          <div class="table-action-container">
-            <button class="app-button sm outline-primary">Edit</button>
-            <button class="app-button sm outline-danger">Delete</button>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div class="card-content-container">
-            <div class="card-content-title">Event:</div>
-            <div>BestSelller Book Bootcamp -write, Market & Publish Your Book -Lucknow</div>
-          </div>
-        </td>
-        <td>
-          <div class="card-content-container">
-            <div class="card-content-title">Start date: </div>
-            <div>Saturdat, March 18, 9.30PM</div>
-          </div>
-        </td>
-        <td>
-          <div class="card-content-container">
-            <div class="card-content-title">End date: </div>
-            <div>Saturdat, March 18, 9.30PM</div>
-          </div>
-        </td>
-        <td>
-          <div class="card-action-container">
-            <button><i class="fa-solid fa-pen"></i></button>
-            <div class="card-divider"></div>
-            <button><i class="fa-solid fa-trash"></i></button>
-          </div>
-          <div class="table-action-container">
-            <button class="app-button sm outline-primary">Edit</button>
-            <button class="app-button sm outline-danger">Delete</button>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div class="card-content-container">
-            <div class="card-content-title">Event:</div>
-            <div>BestSelller Book Bootcamp -write, Market & Publish Your Book -Lucknow</div>
-          </div>
-        </td>
-        <td>
-          <div class="card-content-container">
-            <div class="card-content-title">Start date: </div>
-            <div>Saturdat, March 18, 9.30PM</div>
-          </div>
-        </td>
-        <td>
-          <div class="card-content-container">
-            <div class="card-content-title">End date: </div>
-            <div>Saturdat, March 18, 9.30PM</div>
-          </div>
-        </td>
-        <td>
-          <div class="card-action-container">
-            <button><i class="fa-solid fa-pen"></i></button>
-            <div class="card-divider"></div>
-            <button><i class="fa-solid fa-trash"></i></button>
-          </div>
-          <div class="table-action-container">
-            <button class="app-button sm outline-primary">Edit</button>
-            <button class="app-button sm outline-danger">Delete</button>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div class="card-content-container">
-            <div class="card-content-title">Event:</div>
-            <div>BestSelller Book Bootcamp -write, Market & Publish Your Book -Lucknow</div>
-          </div>
-        </td>
-        <td>
-          <div class="card-content-container">
-            <div class="card-content-title">Start date: </div>
-            <div>Saturdat, March 18, 9.30PM</div>
-          </div>
-        </td>
-        <td>
-          <div class="card-content-container">
-            <div class="card-content-title">End date: </div>
-            <div>Saturdat, March 18, 9.30PM</div>
-          </div>
-        </td>
-        <td>
-          <div class="card-action-container">
-            <button><i class="fa-solid fa-pen"></i></button>
-            <div class="card-divider"></div>
-            <button><i class="fa-solid fa-trash"></i></button>
-          </div>
-          <div class="table-action-container">
-            <button class="app-button sm outline-primary">Edit</button>
-            <button class="app-button sm outline-danger">Delete</button>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div class="card-content-container">
-            <div class="card-content-title">Event:</div>
-            <div>BestSelller Book Bootcamp -write, Market & Publish Your Book -Lucknow</div>
-          </div>
-        </td>
-        <td>
-          <div class="card-content-container">
-            <div class="card-content-title">Start date: </div>
-            <div>Saturdat, March 18, 9.30PM</div>
-          </div>
-        </td>
-        <td>
-          <div class="card-content-container">
-            <div class="card-content-title">End date: </div>
-            <div>Saturdat, March 18, 9.30PM</div>
-          </div>
-        </td>
-        <td>
-          <div class="card-action-container">
-            <button><i class="fa-solid fa-pen"></i></button>
-            <div class="card-divider"></div>
-            <button><i class="fa-solid fa-trash"></i></button>
-          </div>
-          <div class="table-action-container">
-            <button class="app-button sm outline-primary">Edit</button>
-            <button class="app-button sm outline-danger">Delete</button>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div class="card-content-container">
-            <div class="card-content-title">Event:</div>
-            <div>BestSelller Book Bootcamp -write, Market & Publish Your Book -Lucknow</div>
-          </div>
-        </td>
-        <td>
-          <div class="card-content-container">
-            <div class="card-content-title">Start date: </div>
-            <div>Saturdat, March 18, 9.30PM</div>
-          </div>
-        </td>
-        <td>
-          <div class="card-content-container">
-            <div class="card-content-title">End date: </div>
-            <div>Saturdat, March 18, 9.30PM</div>
-          </div>
-        </td>
-        <td>
-          <div class="card-action-container">
-            <button><i class="fa-solid fa-pen"></i></button>
-            <div class="card-divider"></div>
-            <button><i class="fa-solid fa-trash"></i></button>
-          </div>
-          <div class="table-action-container">
-            <button class="app-button sm outline-primary">Edit</button>
-            <button class="app-button sm outline-danger">Delete</button>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div class="card-content-container">
-            <div class="card-content-title">Event:</div>
-            <div>BestSelller Book Bootcamp -write, Market & Publish Your Book -Lucknow</div>
-          </div>
-        </td>
-        <td>
-          <div class="card-content-container">
-            <div class="card-content-title">Start date: </div>
-            <div>Saturdat, March 18, 9.30PM</div>
-          </div>
-        </td>
-        <td>
-          <div class="card-content-container">
-            <div class="card-content-title">End date: </div>
-            <div>Saturdat, March 18, 9.30PM</div>
-          </div>
-        </td>
-        <td>
-          <div class="card-action-container">
-            <button><i class="fa-solid fa-pen"></i></button>
-            <div class="card-divider"></div>
-            <button><i class="fa-solid fa-trash"></i></button>
-          </div>
-          <div class="table-action-container">
-            <button class="app-button sm outline-primary">Edit</button>
-            <button class="app-button sm outline-danger">Delete</button>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div class="card-content-container">
-            <div class="card-content-title">Event:</div>
-            <div>BestSelller Book Bootcamp -write, Market & Publish Your Book -Lucknow</div>
-          </div>
-        </td>
-        <td>
-          <div class="card-content-container">
-            <div class="card-content-title">Start date: </div>
-            <div>Saturdat, March 18, 9.30PM</div>
-          </div>
-        </td>
-        <td>
-          <div class="card-content-container">
-            <div class="card-content-title">End date: </div>
-            <div>Saturdat, March 18, 9.30PM</div>
-          </div>
-        </td>
-        <td>
-          <div class="card-action-container">
-            <button><i class="fa-solid fa-pen"></i></button>
-            <div class="card-divider"></div>
-            <button><i class="fa-solid fa-trash"></i></button>
-          </div>
-          <div class="table-action-container">
-            <button class="app-button sm outline-primary">Edit</button>
-            <button class="app-button sm outline-danger">Delete</button>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div class="card-content-container">
-            <div class="card-content-title">Event:</div>
-            <div>BestSelller Book Bootcamp -write, Market & Publish Your Book -Lucknow</div>
-          </div>
-        </td>
-        <td>
-          <div class="card-content-container">
-            <div class="card-content-title">Start date: </div>
-            <div>Saturdat, March 18, 9.30PM</div>
-          </div>
-        </td>
-        <td>
-          <div class="card-content-container">
-            <div class="card-content-title">End date: </div>
-            <div>Saturdat, March 18, 9.30PM</div>
-          </div>
-        </td>
-        <td>
-          <div class="card-action-container">
-            <button><i class="fa-solid fa-pen"></i></button>
-            <div class="card-divider"></div>
-            <button><i class="fa-solid fa-trash"></i></button>
-          </div>
-          <div class="table-action-container">
-            <button class="app-button sm outline-primary">Edit</button>
-            <button class="app-button sm outline-danger">Delete</button>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div class="card-content-container">
-            <div class="card-content-title">Event:</div>
-            <div>BestSelller Book Bootcamp -write, Market & Publish Your Book -Lucknow</div>
-          </div>
-        </td>
-        <td>
-          <div class="card-content-container">
-            <div class="card-content-title">Start date: </div>
-            <div>Saturdat, March 18, 9.30PM</div>
-          </div>
-        </td>
-        <td>
-          <div class="card-content-container">
-            <div class="card-content-title">End date: </div>
-            <div>Saturdat, March 18, 9.30PM</div>
-          </div>
-        </td>
-        <td>
-          <div class="card-action-container">
-            <button><i class="fa-solid fa-pen"></i></button>
-            <div class="card-divider"></div>
-            <button><i class="fa-solid fa-trash"></i></button>
-          </div>
-          <div class="table-action-container">
-            <button class="app-button sm outline-primary">Edit</button>
-            <button class="app-button sm outline-danger">Delete</button>
+            <button type="button" class="app-button sm outline-primary" data-bs-toggle="modal" data-bs-target="#formModal">Edit</button>
+            <button type="button" class="app-button sm outline-danger" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">Delete</button>
           </div>
         </td>
       </tr>
@@ -425,6 +115,25 @@ $title = 'Event Management';
         <div class="modal-footer">
           <button type="button" class="app-button outline-primary" data-bs-dismiss="modal">Cancel</button>
           <button type="button" class="app-button primary">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete event modal -->
+  <div class="modal fade app-modal confirm" id="confirmDeleteModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5">Delete Confirmation</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to delete this event</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="app-button outline-danger" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="app-button danger">Delete</button>
         </div>
       </div>
     </div>

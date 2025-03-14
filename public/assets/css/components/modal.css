@@ -2,9 +2,17 @@
   max-width: 1000px;
 }
 
+.app-modal.confirm .modal-dialog {
+  max-width: 500px;
+}
+
 @media (min-width: 576px) {
   .app-modal .modal-dialog {
     margin: 28px 50px;
+  }
+
+  .app-modal.confirm .modal-dialog {
+    margin: 28px calc((100vw - 500px) / 2);
   }
 }
 
