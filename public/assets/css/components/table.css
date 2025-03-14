@@ -1,0 +1,75 @@
+#eventTable_wrapper {
+  margin: 0 12px;
+}
+
+#eventTable_wrapper > div:first-child {
+  border: 1px solid var(--gray-light);
+  /* border-radius: 10px; */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom: none;
+  margin-top: 0 !important;
+  overflow: hidden;
+}
+
+#eventTable_wrapper > div:nth-child(2) {
+  margin-top: 0 !important;
+  border: 1px solid var(--gray-light);
+  border-top: none;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 10px 20px;
+  gap: 10px;
+}
+
+#eventTable_wrapper .dt-paging > nav > ul {
+  margin-bottom: 0;
+}
+
+#eventTable_wrapper .dt-paging > nav > ul > li > button:focus {
+  box-shadow: none;
+}
+
+#eventTable_wrapper .dt-paging > nav > ul > li:not(.disabled) > button {
+  color: var(--primary-color);
+}
+
+#eventTable_wrapper .dt-paging > nav > ul > li.active > button {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--light-color);
+}
+
+.app-table.table {
+  margin: 0;
+}
+
+.app-table.table > :not(:last-child) > :last-child > * {
+  border-bottom-color: var(--gray-light);
+}
+
+#eventTable_wrapper > div > * {
+  padding: 0;
+}
+
+.app-table.table > thead > tr > th {
+  background-color: var(--white-lilac);
+  color: var(--dove-gray);
+  font-weight: 400;
+}
+
+.app-table.table > thead > tr > th:first-child {
+  padding-left: 20px;
+}
+
+.app-table.table > thead > tr > th:last-child {
+  padding-right: 20px;
+}
+
+.app-table.table > tbody > tr > td:first-child {
+  padding-left: 20px;
+}
+
+.app-table.table > tbody > tr > td:last-child {
+  padding-right: 20px;
+}

@@ -1,7 +1,10 @@
 @import './root.css';
 @import './components/input.css';
+@import './components/select.css';
 @import './components/button.css';
 @import './components/nav.css';
 @import './components/sidebar.css';
+@import './components/table.css';
 @import './pages/home.css';
 @import './pages/events.css';
+@import './pages/event-management.css';

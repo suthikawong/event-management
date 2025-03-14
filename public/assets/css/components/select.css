@@ -1,16 +1,16 @@
-.app-text-input {
+.app-select {
   width: 100%;
   padding: 8px;
   border: 1px solid var(--gray-light);
   border-radius: 5px;
-  min-width: 170px;
+  min-width: 80px;
 }
 
-.app-text-input:focus {
+.app-select:focus {
   outline: none;
   border-color: var(--primary-color);
 }
 
-.app-text-input:active {
+.app-select:active {
   border-color: var(--primary-color);
 }

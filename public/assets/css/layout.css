@@ -1,14 +1,14 @@
-#main-container {
-  position: relative;
-  flex: 1;
-  width: 100%;
-}
-
 #page-container {
   display: flex;
   flex-direction: column;
   width: 100%;
   flex: 1;
+}
+
+#main-container {
+  position: relative;
+  flex: 1;
+  width: 100%;
 }
 
 footer {

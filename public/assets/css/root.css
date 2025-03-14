@@ -2,12 +2,15 @@
   --deep-koamaru: #10107b;
   --electric-violet: #7848f4;
   --fuchsia-blue: #7a57fb;
+  --blue-chalk: #ebe8ff;
   --brink-pink: #ff5c81;
   --lynch: #687c94;
+  --dove-gray: #6d6d6d;
   --gray: #7e7e7e;
   --gray-light: #c5c5c5;
   --gray-lighter: #ececec;
   --gray-lightest: #f8f8fa;
+  --white-lilac: #f9faff;
 
   --primary-color: var(--electric-violet);
   --primary-hover-color: var(--fuchsia-blue);
@@ -16,7 +19,7 @@
   --info-color: #17a2b8;
   --warning-color: #ffc107;
   --danger-color: #dc3545;
-  --light-color: #f8f9fa;
+  --light-color: white;
   --dark-color: #343a40;
 
   --text-xs: 0.75rem;
