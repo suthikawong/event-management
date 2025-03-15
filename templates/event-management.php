@@ -99,12 +99,8 @@ $title = 'Event Management';
               <textarea class="app-text-area"></textarea>
             </div>
             <div class="form-item">
-              <label class="form-item-label">Start date</label>
-              <input class="app-text-input" type="text">
-            </div>
-            <div class="form-item">
-              <label class="form-item-label">End date</label>
-              <input class="app-text-input" type="text">
+              <label class="form-item-label">Event duration</label>
+              <input type="text" name="datetimes" class="app-date-picker" />
             </div>
           </form>
         </div>
