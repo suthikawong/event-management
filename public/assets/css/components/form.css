@@ -3,7 +3,7 @@
 }
 
 .app-form .form-item:not(:last-child) {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .app-form .form-item > .form-item-label {

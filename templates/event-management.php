@@ -7,10 +7,6 @@ $title = 'Event Management';
 <?php $jsFiles = ob_get_clean(); ?>
 
 <?php ob_start(); ?>
-
-<?php $searchButton = ob_get_clean(); ?>
-
-<?php ob_start(); ?>
 <div class="event-management-page">
   <!-- Header -->
   <div class="event-header">
@@ -114,7 +110,7 @@ $title = 'Event Management';
         </div>
         <div class="modal-footer">
           <button type="button" class="app-button outline-primary" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="app-button primary">Save</button>
+          <button type="submit" class="app-button primary">Save</button>
         </div>
       </div>
     </div>
