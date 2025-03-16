@@ -3,7 +3,7 @@ $title = 'Event Management';
 ?>
 
 <?php ob_start(); ?>
-<script defer src="../public/assets/js/event-management.js"></script>
+<script defer src="<?= APP_URL ?>/assets/js/event-management.js"></script>
 <?php $jsFiles = ob_get_clean(); ?>
 
 <?php ob_start(); ?>
@@ -134,4 +134,4 @@ $title = 'Event Management';
 </div>
 <?php $content = ob_get_clean(); ?>
 
-<?php include '../includes/dashboard-layout.php'; ?>
+<?php include '../components/layout/dashboard.php'; ?>

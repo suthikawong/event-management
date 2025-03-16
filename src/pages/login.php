@@ -4,7 +4,7 @@ $title = 'Login';
 
 <?php ob_start(); ?>
 <div class="login-page">
-  <img class="login-image" src="../public/assets/images/login-bg.jpg" alt="event image">
+  <img class="login-image" src="<?= APP_URL ?>/assets/images/login-bg.jpg" alt="event image">
   <div class="login-form-container">
     <h1>Login</h1>
     <form action="POST" class="app-form">
@@ -22,4 +22,4 @@ $title = 'Login';
 </div>
 <?php $content = ob_get_clean(); ?>
 
-<?php include '../includes/login-layout.php'; ?>
+<?php include '../components/layout/auth.php'; ?>

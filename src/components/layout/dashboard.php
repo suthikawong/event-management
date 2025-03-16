@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=\, initial-scale=1.0">
   <title><?php echo $title; ?></title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <link rel="stylesheet" href="../public/assets/css/styles.css">
-  <link rel="stylesheet" href="../public/assets/css/dashboard-layout.css">
+  <link rel="stylesheet" href="<?= APP_URL ?>/assets/css/styles.css">
+  <link rel="stylesheet" href="<?= APP_URL ?>/assets/css/layout/dashboard.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.bootstrap5.css"> -->
@@ -25,7 +25,7 @@
 
 <body>
   <div id='page-container'>
-    <?php require '../includes/sidebar.php'; ?>
+    <?php require '../components/sidebar.php'; ?>
     <main id='main-container'>
       <?php
       echo $content;
