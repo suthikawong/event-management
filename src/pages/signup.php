@@ -4,6 +4,7 @@ $title = 'Signup';
 
 <?php ob_start(); ?>
 <div class="signup-page">
+  <div class="overlay"></div>
   <div class="signup-form-container">
     <h1>Signup</h1>
     <form action="includes/signup.inc.php" method="POST" class="app-form">

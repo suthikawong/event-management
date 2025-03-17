@@ -8,11 +8,7 @@
 }
 
 .signup-page .overlay {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  background-color: black;
-  opacity: 0.4;
+  display: none;
 }
 
 .signup-page .signup-form-container {
@@ -41,6 +37,15 @@
     background-size: cover;
     background-position: center;
     padding: 10px;
+  }
+
+  .signup-page .overlay {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: black;
+    opacity: 0.4;
   }
 
   .signup-page .signup-form-container {
