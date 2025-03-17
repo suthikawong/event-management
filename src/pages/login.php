@@ -4,20 +4,20 @@ $title = 'Login';
 
 <?php ob_start(); ?>
 <div class="login-page">
-  <img class="login-image" src="<?= APP_URL ?>/assets/images/login-bg.jpg" alt="event image">
+  <div class="overlay"></div>
   <div class="login-form-container">
     <h1>Login</h1>
-    <form action="POST" class="app-form">
+    <form action="includes/login.inc.php" method="POST" class="app-form">
       <div class="form-item">
-        <label class="form-item-label">Email</label>
-        <input type="text" class="app-text-input" placeholder="Email">
+        <label class="form-item-label">Username</label>
+        <input type="text" name="username" class="app-text-input">
       </div>
       <div class="form-item">
         <label class="form-item-label">Password</label>
-        <input type="password" class="app-text-input" placeholder="Password">
+        <input type="password" name="password" class="app-text-input">
       </div>
+      <button type="submit" name="submit" class="app-button primary submit-button">Sign In</button>
     </form>
-    <button type="submit" class="app-button primary">Sign In</button>
   </div>
 </div>
 <?php $content = ob_get_clean(); ?>
