@@ -3,6 +3,10 @@ $title = 'Home';
 ?>
 
 <?php ob_start(); ?>
+<script defer src="<?= APP_URL ?>/assets/js/home.js"></script>
+<?php $jsFiles = ob_get_clean(); ?>
+
+<?php ob_start(); ?>
 <div class="home-page">
   <section class="hero-container">
     <img class="hero-img" src="<?= APP_URL ?>/assets/images/hero-page-img.png" alt="hero image">
@@ -22,37 +26,7 @@ $title = 'Home';
         <h1>Event</h1>
       </span>
     </div>
-    <div class="event-card-container">
-      <div class="event-card">
-        <img class="event-img" src="<?= APP_URL ?>/assets/images/event-img.jpg" alt="event image">
-        <div class="event-name">BestSelller Book Bootcamp -write, Market & Publish Your Book -Lucknow</div>
-        <div class="event-date">Saturdat, March 18, 9.30PM</div>
-        <div class="event-where">ONLINE EVENT - Attend anywhere</div>
-      </div>
-      <div class="event-card">
-        <img class="event-img" src="<?= APP_URL ?>/assets/images/event-img.jpg" alt="event image">
-        <div class="event-name">BestSelller Book Bootcamp -write, Market & Publish Your Book -Lucknow</div>
-        <div class="event-date">Saturdat, March 18, 9.30PM</div>
-        <div class="event-where">ONLINE EVENT - Attend anywhere</div>
-      </div>
-      <div class="event-card">
-        <img class="event-img" src="<?= APP_URL ?>/assets/images/event-img.jpg" alt="event image">
-        <div class="event-name">BestSelller Book Bootcamp -write, Market & Publish Your Book -Lucknow</div>
-        <div class="event-date">Saturdat, March 18, 9.30PM</div>
-        <div class="event-where">ONLINE EVENT - Attend anywhere</div>
-      </div>
-      <div class="event-card">
-        <img class="event-img" src="<?= APP_URL ?>/assets/images/event-img.jpg" alt="event image">
-        <div class="event-name">BestSelller Book Bootcamp -write, Market & Publish Your Book -Lucknow</div>
-        <div class="event-date">Saturdat, March 18, 9.30PM</div>
-        <div class="event-where">ONLINE EVENT - Attend anywhere</div>
-      </div>
-      <div class="event-card">
-        <img class="event-img" src="<?= APP_URL ?>/assets/images/event-img.jpg" alt="event image">
-        <div class="event-name">BestSelller Book Bootcamp -write, Market & Publish Your Book -Lucknow</div>
-        <div class="event-date">Saturdat, March 18, 9.30PM</div>
-        <div class="event-where">ONLINE EVENT - Attend anywhere</div>
-      </div>
+    <div id="event-card-container">
     </div>
     <button class="app-button primary load-button">Load more</button>
   </section>

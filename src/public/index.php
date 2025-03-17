@@ -1,5 +1,6 @@
 <?php
 require '../config.php';
+session_start();
 
 function splitUrl()
 {
@@ -10,10 +11,16 @@ function splitUrl()
 function loadController()
 {
   $url = splitUrl();
-  $filename = "../pages/" . $url[0] . ".php";
+  $filename = explode('.', $url[0]);
+  $filepath = "../pages/" . $url[0] . ".php";
+
+  // fix redirect to <filename>.inc.php
+  if (count($filename) > 1 && $filename[1] == 'inc') {
+    require "../includes/" . $url[0];
+  }
   // if path match controller name
-  if (file_exists($filename)) {
-    require $filename;
+  else if (file_exists($filepath)) {
+    require $filepath;
   }
   // if path not match any controller then show 404 page
   else {
