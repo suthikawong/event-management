@@ -1,9 +1,9 @@
 const onSubmitForm = (e) => {
   $('.submit-button').attr('disabled', 'disabled')
   e.preventDefault()
-  const formData = new FormData($('#signup-form')[0])
+  const formData = new FormData($('#login-form')[0])
   $.ajax({
-    url: 'signup.inc.php?action=insertData',
+    url: 'login.inc.php?action=login',
     type: 'POST',
     data: formData,
     contentType: false,
@@ -22,12 +22,12 @@ const onSubmitForm = (e) => {
   })
 }
 
-const onClickLoginLink = () => {
-  window.location.href = '../public/login'
+const onClickSignupLink = () => {
+  window.location.href = '../public/signup'
 }
 
 $(document).ready(function (e) {
   $('#error-message').hide()
-  $('#signup-form').on('submit', (e) => onSubmitForm(e))
-  $('.login-text > a').click(onClickLoginLink)
+  $('#login-form').on('submit', (e) => onSubmitForm(e))
+  $('.signup-text > a').click(onClickSignupLink)
 })

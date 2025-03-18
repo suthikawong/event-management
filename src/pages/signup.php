@@ -38,9 +38,10 @@ $title = 'Signup';
           <input type="password" name="confirmPassword" class="app-text-input">
         </div>
       </div>
-      <div id="error-message">MESSAGE</div>
+      <div id="error-message"></div>
       <button type="submit" name="submit" class="app-button primary submit-button">Sign Up</button>
     </form>
+    <div class="login-text">Already have an account? <a>Log In</a></div>
   </div>
 </div>
 <?php $content = ob_get_clean(); ?>

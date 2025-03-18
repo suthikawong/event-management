@@ -35,4 +35,24 @@
 
 .login-page .submit-button {
   width: 100%;
+  margin-top: 20px;
+}
+
+.login-page #error-message {
+  color: var(--danger-color);
+}
+
+.login-page .signup-text {
+  margin: auto;
+}
+
+.login-page .signup-text > a {
+  color: var(--primary-color);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.login-page .signup-text > a:hover {
+  color: var(--primary-color);
+  text-decoration-line: underline;
 }

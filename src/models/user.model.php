@@ -12,9 +12,9 @@ class User extends DB
       throw new Exception("Something went wrong. Please try again.", 500);
     }
 
-    if ($statement->rowCount() > 0) {
+    if ($statement->rowCount() == 0) {
       $statement = null;
-      throw new Exception("User not found.", 404);
+      throw new Exception("Incorrect username or password", 400);
     }
 
     $user = $statement->fetchAll(PDO::FETCH_ASSOC);

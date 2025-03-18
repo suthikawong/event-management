@@ -31,6 +31,21 @@
   color: var(--danger-color);
 }
 
+.signup-page .login-text {
+  margin: auto;
+}
+
+.signup-page .login-text > a {
+  color: var(--primary-color);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.signup-page .login-text > a:hover {
+  color: var(--primary-color);
+  text-decoration-line: underline;
+}
+
 @media (min-width: 992px) {
   .signup-page {
     justify-content: center;
