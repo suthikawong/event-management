@@ -3,19 +3,23 @@ $title = 'Signup';
 ?>
 
 <?php ob_start(); ?>
+<script defer src="<?= APP_URL ?>/assets/js/signup.js"></script>
+<?php $jsFiles = ob_get_clean(); ?>
+
+<?php ob_start(); ?>
 <div class="signup-page">
   <div class="overlay"></div>
   <div class="signup-form-container">
     <h1>Signup</h1>
-    <form action="includes/signup.inc.php" method="POST" class="app-form">
+    <form method="POST" id="signup-form" class="app-form">
       <div class="input-form">
         <div class="form-item">
           <label class="form-item-label">First Name</label>
-          <input type="text" name="firstname" class="app-text-input">
+          <input type="text" name="firstName" class="app-text-input">
         </div>
         <div class="form-item">
           <label class="form-item-label">Last Name</label>
-          <input type="text" name="lastname" class="app-text-input">
+          <input type="text" name="lastName" class="app-text-input">
         </div>
         <div class="form-item">
           <label class="form-item-label">Email</label>
@@ -34,7 +38,8 @@ $title = 'Signup';
           <input type="password" name="confirmPassword" class="app-text-input">
         </div>
       </div>
-      <button type="submit" name="submit" class="app-button primary submit-button">Sign In</button>
+      <div id="error-message">MESSAGE</div>
+      <button type="submit" name="submit" class="app-button primary submit-button">Sign Up</button>
     </form>
   </div>
 </div>

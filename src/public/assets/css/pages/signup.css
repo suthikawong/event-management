@@ -27,6 +27,10 @@
   margin-top: 20px;
 }
 
+.signup-page #error-message {
+  color: var(--danger-color);
+}
+
 @media (min-width: 992px) {
   .signup-page {
     justify-content: center;
