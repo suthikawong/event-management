@@ -5,9 +5,11 @@ class DB
   protected function connect()
   {
     try {
-      $username = "root";
-      $password = "";
-      $db = new PDO('mysql:host=localhost;dbname=em_db', $username, $password);
+      $host = DB_HOST;
+      $databaseName = DB_NAME;
+      $username = DB_USERNAME;
+      $password = DB_PASSWORD;
+      $db = new PDO("mysql:host=$host;dbname=$databaseName", $username, $password);
       return $db;
     } catch (PDOException $e) {
       print("Error: " . $e->getMessage()() . "<br/>");
