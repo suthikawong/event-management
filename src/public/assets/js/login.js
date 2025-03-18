@@ -12,7 +12,11 @@ const onSubmitForm = (e) => {
     success: function (response) {
       const res = JSON.parse(response)
       if (res.statusCode === 200) {
-        window.location.href = '../public/home'
+        if (res.user['is_admin']) {
+          window.location.href = '../public/event-management'
+        } else {
+          window.location.href = '../public/home'
+        }
       } else {
         $('#error-message').text(res.message)
         $('#error-message').show()

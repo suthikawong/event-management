@@ -107,6 +107,14 @@
   width: 100%;
 }
 
+.app-sidebar .login-button {
+  cursor: pointer;
+}
+
+.app-sidebar .logout-button {
+  cursor: pointer;
+}
+
 @media (min-width: 992px) {
   .app-sidebar .mobile-sidebar-container > * {
     display: none;

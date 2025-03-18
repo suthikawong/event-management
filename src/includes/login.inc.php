@@ -13,9 +13,11 @@ if ($_GET['action'] === 'login') {
   try {
     $login = new LoginController($username, $password);
     $login->login();
+    $user = $login->getUserByUserId($_SESSION["userId"]);
     echo json_encode([
       "statusCode" => 200,
-      "message" => "Login sucessfully"
+      "message" => "Login sucessfully",
+      "user" => $user
     ]);
   } catch (Exception $e) {
     echo json_encode([

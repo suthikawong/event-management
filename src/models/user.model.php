@@ -20,7 +20,7 @@ class User extends DB
     $user = $statement->fetchAll(PDO::FETCH_ASSOC);
     $statement = null;
 
-    return $user;
+    return $user[0];
   }
 
   protected function insertUser($username, $hashedPassword, $email, $firstName, $lastName)
@@ -48,5 +48,25 @@ class User extends DB
     }
 
     return true;
+  }
+
+  protected function getUserById($userId)
+  {
+    $statement = $this->connect()->prepare('SELECT * FROM users WHERE user_id = ?;');
+
+    if (!$statement->execute(array($userId))) {
+      $statement = null;
+      throw new Exception("Something went wrong. Please try again.", 500);
+    }
+
+    if ($statement->rowCount() == 0) {
+      $statement = null;
+      throw new Exception("User not found", 404);
+    }
+
+    $user = $statement->fetchAll(PDO::FETCH_ASSOC);
+    $statement = null;
+
+    return $user[0];
   }
 }

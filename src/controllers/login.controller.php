@@ -18,18 +18,23 @@ class LoginController extends User
     }
 
     $user = $this->getUserByUsername($this->username);
-    $checkPassword = password_verify($this->password, $user[0]['password']);
+    $checkPassword = password_verify($this->password, $user['password']);
 
     if ($checkPassword == false) {
       throw new Exception("Incorrect username or password", 400);
     }
 
-    $_SESSION["userId"] = $user[0]['user_id'];
-    $_SESSION["username"] = $user[0]['username'];
-    $_SESSION["firstName"] = $user[0]['first_name'];
-    $_SESSION["lastName"] = $user[0]['last_name'];
-    $_SESSION["email"] = $user[0]['email'];
-    $_SESSION["isAdmin"] = $user[0]['is_admin'];
+    $_SESSION["userId"] = $user['user_id'];
+    $_SESSION["username"] = $user['username'];
+    $_SESSION["firstName"] = $user['first_name'];
+    $_SESSION["lastName"] = $user['last_name'];
+    $_SESSION["email"] = $user['email'];
+    $_SESSION["isAdmin"] = $user['is_admin'];
+  }
+
+  public function getUserByUserId($userId)
+  {
+    return $this->getUserById($userId);
   }
 
   private function checkEmptyInput()

@@ -1,3 +1,11 @@
+<?php
+
+// only allow admin to access dashboard
+if (!isset($_SESSION["userId"]) || !$_SESSION["isAdmin"]) {
+  header("Location: ../public/home");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,6 +27,7 @@
   <script defer src="https://cdn.datatables.net/2.2.2/js/dataTables.bootstrap5.js"></script>
   <script defer type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
   <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <script defer src="<?= APP_URL ?>/assets/js/components/sidebar.js"></script>
 
   <?php echo $jsFiles; ?>
 </head>

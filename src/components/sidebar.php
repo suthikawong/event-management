@@ -1,11 +1,23 @@
+<?php
+
+if (isset($_SESSION["userId"])) {
+  $abbreviation = strtoupper($_SESSION["firstName"][0]) . strtoupper($_SESSION["lastName"][0]);
+  $fullname = $_SESSION["firstName"] . " " . $_SESSION["lastName"];
+  $role = 'User';
+  if ($_SESSION["isAdmin"]) {
+    $role = 'Administrator';
+  }
+}
+?>
+
 <div class="app-sidebar">
   <div class="desktop-sidebar-container">
     <div class="menu-header-container">
       <div class="profile-container">
-        <div class="profile-img">SR</div>
+        <div class="profile-img"><?= $abbreviation ?></div>
         <div>
-          <div class="profile-name">Sophia Rose</div>
-          <div class="profile-role">Administrator</div>
+          <div class="profile-name"><?= $fullname ?></div>
+          <div class="profile-role"><?= $role ?></div>
         </div>
       </div>
     </div>
@@ -27,7 +39,7 @@
     </div>
     <div class="divider"></div>
     <div class="menu-item">
-      <a href="#">
+      <a class="logout-button">
         <i class="fa-solid fa-arrow-right-from-bracket"></i>
         <div>Logout</div>
       </a>
@@ -41,10 +53,10 @@
       <div class="offcanvas-header">
         <div class="menu-header-container">
           <div class="profile-container">
-            <div class="profile-img">SR</div>
+            <div class="profile-img"><?= $abbreviation ?></div>
             <div>
-              <div class="profile-name">Sophia Rose</div>
-              <div class="profile-role">Administrator</div>
+              <div class="profile-name"><?= $fullname ?></div>
+              <div class="profile-role"><?= $role ?></div>
             </div>
           </div>
           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
@@ -69,7 +81,7 @@
         </div>
         <div class="divider"></div>
         <div class="menu-item">
-          <a href="#">
+          <a class="logout-button">
             <i class="fa-solid fa-arrow-right-from-bracket"></i>
             <div>Logout</div>
           </a>
