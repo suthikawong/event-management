@@ -133,6 +133,7 @@
 
 .home-page .load-button {
   align-self: center;
+  display: none;
 }
 
 @media (min-width: 576px) {

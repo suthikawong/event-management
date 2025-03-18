@@ -25,6 +25,7 @@
       ?>
     </main>
   </div>
+  <?php include '../components/toast.php'; ?>
   <?php require '../components/footer.php'; ?>
 </body>
 

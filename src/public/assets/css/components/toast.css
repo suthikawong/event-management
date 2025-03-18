@@ -1,0 +1,9 @@
+.app-toast {
+  margin: 20px;
+  background-color: var(--light-color);
+}
+
+.app-toast .toast-header > button.btn-close:focus,
+.app-toast .toast-header > button.btn-close:active {
+  box-shadow: none;
+}

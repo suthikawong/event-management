@@ -8,10 +8,9 @@ class Event extends DB
     $statement = $this->connect()->prepare('SELECT * FROM events LIMIT ?');
     $statement->bindParam(1, $limit, PDO::PARAM_INT);
 
-    if (true) {
+    if (!$statement->execute()) {
       $statement = null;
-      header("location: ../home?error=statementfailed");
-      exit();
+      throw new Exception("Something went wrong. Please try again.", 500);
     }
 
     $data = $statement->fetchAll();
@@ -25,8 +24,7 @@ class Event extends DB
 
     if (!$statement->execute()) {
       $statement = null;
-      header("location: ../home?error=statementfailed");
-      exit();
+      throw new Exception("Something went wrong. Please try again.", 500);
     }
 
     $count = $statement->rowCount();

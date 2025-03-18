@@ -18,6 +18,10 @@ function loadController()
   if (count($filename) > 1 && $filename[1] == 'inc') {
     require "../includes/" . $url[0];
   }
+  // fix redirect to components/*
+  else if (count($url) > 1 && $url[0] === 'components' && file_exists("../" . join('/', $url))) {
+    require "../" . join('/', $url);
+  }
   // if path match controller name
   else if (file_exists($filepath)) {
     require $filepath;
