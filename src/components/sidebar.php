@@ -24,15 +24,15 @@ if (isset($_SESSION["userId"])) {
     <div class="body-container">
       <div class="menu-list">
         <div class="menu-item">
-          <a href="#">
+          <a href="../public/event-management">
             <i class="fa-solid fa-calendar"></i>
-            <div>Event Management</div>
+            Event Management
           </a>
         </div>
         <div class="menu-item">
-          <a href="#">
+          <a href="../public/user-management">
             <i class="fa-solid fa-user"></i>
-            <div>User Management</div>
+            User Management
           </a>
         </div>
       </div>
@@ -66,15 +66,15 @@ if (isset($_SESSION["userId"])) {
         <div class="body-container">
           <div class="menu-list">
             <div class="menu-item">
-              <a href="#">
+              <a href="../public/event-management">
                 <i class="fa-solid fa-calendar"></i>
-                <div>Event Management</div>
+                Event Management
               </a>
             </div>
             <div class="menu-item">
-              <a href="#">
+              <a href="../public/user-management">
                 <i class="fa-solid fa-user"></i>
-                <div>User Management</div>
+                User Management
               </a>
             </div>
           </div>

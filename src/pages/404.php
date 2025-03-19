@@ -1,5 +1,6 @@
 <?php
 $title = 'Not Found';
+$jsFiles = '';
 ?>
 
 <?php ob_start(); ?>

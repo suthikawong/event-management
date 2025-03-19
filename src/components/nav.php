@@ -15,7 +15,7 @@ if (isset($_SESSION["userId"])) {
     <div class="menu-container">
       <h1>Logo</h1>
       <div class="menu-list">
-        <div class="menu-item"><a href="#">Home</a></div>
+        <div class="menu-item"><a href="../public/home">Home</a></div>
       </div>
     </div>
     <?php
@@ -89,9 +89,9 @@ if (isset($_SESSION["userId"])) {
         <div class="body-container">
           <div class="menu-list">
             <div class="menu-item">
-              <a href="#">
+              <a href="../public/home">
                 <i class="fa-solid fa-house"></i>
-                <div>Home</div>
+                Home
               </a>
             </div>
           </div>

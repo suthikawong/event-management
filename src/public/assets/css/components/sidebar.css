@@ -52,11 +52,15 @@
   border-left: 4px solid transparent;
 }
 
-.app-sidebar .menu-list .menu-item:hover {
+.app-sidebar .menu-item:hover > a {
+  color: var(--primary-color);
+}
+
+.app-sidebar .menu-list .menu-item.active {
   border-left: 4px solid var(--primary-color);
 }
 
-.app-sidebar .menu-item:hover > a {
+.app-sidebar .menu-item.active > a {
   color: var(--primary-color);
 }
 
@@ -121,7 +125,7 @@
   }
 
   .app-sidebar {
-    max-width: 260px;
+    max-width: 280px;
     width: 100%;
     height: 100%;
     position: fixed;
