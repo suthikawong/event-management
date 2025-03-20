@@ -23,9 +23,16 @@ if ($_GET['action'] === 'insertData') {
       "message" => "Create user sucessfully"
     ]);
   } catch (Exception $e) {
-    echo json_encode([
-      "statusCode" => $e->getCode(),
-      "message" => $e->getMessage()
-    ]);
+    if ($e->getCode()) {
+      echo json_encode([
+        "statusCode" => $e->getCode(),
+        "message" => $e->getMessage()
+      ]);
+    } else {
+      echo json_encode([
+        "statusCode" => 500,
+        "message" => "Something went wrong. Please try again."
+      ]);
+    }
   }
 }

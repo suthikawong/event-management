@@ -12,8 +12,7 @@ class DB
       $db = new PDO("mysql:host=$host;dbname=$databaseName", $username, $password);
       return $db;
     } catch (PDOException $e) {
-      print("Error: " . $e->getMessage()() . "<br/>");
-      die();
+      throw new Exception("Something went wrong. Please try again.", 500);
     }
   }
 }
