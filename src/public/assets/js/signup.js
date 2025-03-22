@@ -26,7 +26,7 @@ const onClickLoginLink = () => {
   window.location.href = '../public/login'
 }
 
-$(document).ready(function (e) {
+$(document).ready(function () {
   $('#error-message').hide()
   $('#signup-form').on('submit', (e) => onSubmitForm(e))
   $('.login-text > a').click(onClickLoginLink)

@@ -3,7 +3,7 @@ $title = 'Event Management';
 ?>
 
 <?php ob_start(); ?>
-<script defer src="<?= APP_URL ?>/assets/js/event-management.js"></script>
+<script defer src="<?= PUBLIC_PATH ?>/assets/js/event-management.js"></script>
 <?php $jsFiles = ob_get_clean(); ?>
 
 <?php ob_start(); ?>
@@ -11,7 +11,7 @@ $title = 'Event Management';
   <!-- Header -->
   <div class="event-header">
     <h1>Event Management</h1>
-    <button type="button" class="app-button primary add-button" data-bs-toggle="modal" data-bs-target="#formModal">
+    <button type="button" class="app-button primary add-button">
       <i class="fa-solid fa-plus"></i>
       <div class="add-button-name">Add Event</div>
     </button>
@@ -36,52 +36,24 @@ $title = 'Event Management';
   <h1 class="title">Event List</h1>
 
   <!-- Event table -->
-  <table id="eventTable" class="table app-table" style="width:100%">
+  <table id="event-table" class="table app-table">
     <thead>
       <tr>
+        <th></th>
         <th>Event</th>
         <th>Start Date</th>
         <th>End Date</th>
+        <th>Time&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+        <th>Location</th>
         <th>Action</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>
-          <div class="card-content-container">
-            <div class="card-content-title">Event:</div>
-            <div>BestSelller Book Bootcamp -write, Market & Publish Your Book -Lucknow</div>
-          </div>
-        </td>
-        <td>
-          <div class="card-content-container">
-            <div class="card-content-title">Start date: </div>
-            <div>Saturdat, March 18, 9.30PM</div>
-          </div>
-        </td>
-        <td>
-          <div class="card-content-container">
-            <div class="card-content-title">End date: </div>
-            <div>Saturdat, March 18, 9.30PM</div>
-          </div>
-        </td>
-        <td>
-          <div class="card-action-container">
-            <button><i class="fa-solid fa-pen"></i></button>
-            <div class="card-divider"></div>
-            <button><i class="fa-solid fa-trash"></i></button>
-          </div>
-          <div class="table-action-container">
-            <button type="button" class="app-button sm outline-primary" data-bs-toggle="modal" data-bs-target="#formModal">Edit</button>
-            <button type="button" class="app-button sm outline-danger" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">Delete</button>
-          </div>
-        </td>
-      </tr>
     </tbody>
   </table>
 
   <!-- Event form modal -->
-  <div class="modal fade app-modal" id="formModal" tabindex="-1">
+  <div class="modal fade app-modal" id="form-modal" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -89,31 +61,50 @@ $title = 'Event Management';
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body">
-          <form action="POST" class="app-form">
+          <form action="POST" class="app-form" id="event-form">
+            <input type="hidden" name="id">
             <div class="form-item">
-              <label class="form-item-label">Event name</label>
-              <input class="app-text-input" type="text">
+              <div class="image-uploader">
+                <div class="uploader-container">
+                  <input name="image" type="file" accept="image/*" class="image app-image-uploader">
+                  <i class="fa-solid fa-cloud-arrow-up"></i>
+                  <span>Drag & Drop your image or Browse</span>
+                </div>
+                <div class="preview-image-container">
+                  <img class="preview-image" src="<?= PUBLIC_PATH ?>/assets/images/default-img.png" alt="event image">
+                  <a>Delete</a>
+                </div>
+              </div>
+            </div>
+            <div class="form-item">
+              <label class="form-item-label">Event</label>
+              <input class="app-text-input" name="event" type="text">
             </div>
             <div class="form-item">
               <label class="form-item-label">Description</label>
-              <textarea class="app-text-area"></textarea>
+              <textarea class="app-text-area" name="description"></textarea>
             </div>
             <div class="form-item">
-              <label class="form-item-label">Event duration</label>
-              <input type="text" name="datetimes" class="app-date-picker" />
+              <label class="form-item-label">Duration</label>
+              <input type="text" name="duration" class="app-date-picker" />
             </div>
+            <div class="form-item">
+              <label class="form-item-label">Location</label>
+              <input class="app-text-input" name="location" type="text">
+            </div>
+            <div id="error-message"></div>
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="app-button outline-primary" data-bs-dismiss="modal">Cancel</button>
-          <button type="submit" class="app-button primary">Save</button>
+          <button type="submit" class="app-button primary submit-button">Save</button>
         </div>
       </div>
     </div>
   </div>
 
   <!-- Delete event modal -->
-  <div class="modal fade app-modal confirm" id="confirmDeleteModal" tabindex="-1">
+  <div class="modal fade app-modal confirm" id="delete-modal" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -125,7 +116,7 @@ $title = 'Event Management';
         </div>
         <div class="modal-footer">
           <button type="button" class="app-button outline-danger" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="app-button danger">Delete</button>
+          <button type="button" class="app-button danger delete-button">Delete</button>
         </div>
       </div>
     </div>

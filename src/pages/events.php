@@ -22,31 +22,31 @@ $title = 'Events';
     </div>
     <div class="event-card-container">
       <div class="event-card">
-        <img class="event-img" src="<?= APP_URL ?>/assets/images/event-img.jpg" alt="event image">
+        <img class="event-img" src="<?= PUBLIC_PATH ?>/assets/images/event-img.jpg" alt="event image">
         <div class="event-name">BestSelller Book Bootcamp -write, Market & Publish Your Book -Lucknow</div>
         <div class="event-date">Saturdat, March 18, 9.30PM</div>
         <div class="event-where">ONLINE EVENT - Attend anywhere</div>
       </div>
       <div class="event-card">
-        <img class="event-img" src="<?= APP_URL ?>/assets/images/event-img.jpg" alt="event image">
+        <img class="event-img" src="<?= PUBLIC_PATH ?>/assets/images/event-img.jpg" alt="event image">
         <div class="event-name">BestSelller Book Bootcamp -write, Market & Publish Your Book -Lucknow</div>
         <div class="event-date">Saturdat, March 18, 9.30PM</div>
         <div class="event-where">ONLINE EVENT - Attend anywhere</div>
       </div>
       <div class="event-card">
-        <img class="event-img" src="<?= APP_URL ?>/assets/images/event-img.jpg" alt="event image">
+        <img class="event-img" src="<?= PUBLIC_PATH ?>/assets/images/event-img.jpg" alt="event image">
         <div class="event-name">BestSelller Book Bootcamp -write, Market & Publish Your Book -Lucknow</div>
         <div class="event-date">Saturdat, March 18, 9.30PM</div>
         <div class="event-where">ONLINE EVENT - Attend anywhere</div>
       </div>
       <div class="event-card">
-        <img class="event-img" src="<?= APP_URL ?>/assets/images/event-img.jpg" alt="event image">
+        <img class="event-img" src="<?= PUBLIC_PATH ?>/assets/images/event-img.jpg" alt="event image">
         <div class="event-name">BestSelller Book Bootcamp -write, Market & Publish Your Book -Lucknow</div>
         <div class="event-date">Saturdat, March 18, 9.30PM</div>
         <div class="event-where">ONLINE EVENT - Attend anywhere</div>
       </div>
       <div class="event-card">
-        <img class="event-img" src="<?= APP_URL ?>/assets/images/event-img.jpg" alt="event image">
+        <img class="event-img" src="<?= PUBLIC_PATH ?>/assets/images/event-img.jpg" alt="event image">
         <div class="event-name">BestSelller Book Bootcamp -write, Market & Publish Your Book -Lucknow</div>
         <div class="event-date">Saturdat, March 18, 9.30PM</div>
         <div class="event-where">ONLINE EVENT - Attend anywhere</div>

@@ -1,4 +1,4 @@
-const onClickLogout = () => {
+function onClickLogout() {
   $.ajax({
     url: 'logout.inc.php',
     type: 'POST',
@@ -8,7 +8,7 @@ const onClickLogout = () => {
   })
 }
 
-const styleActiveMenuItem = () => {
+function styleActiveMenuItem() {
   const splitUrl = window.location.href.split('/public/')
   const currPath = splitUrl[splitUrl.length - 1].split('/')[0]
   $('.menu-list > .menu-item > a').each(function (index) {
@@ -22,7 +22,7 @@ const styleActiveMenuItem = () => {
   })
 }
 
-$(document).ready(() => {
+$(document).ready(function () {
   styleActiveMenuItem()
   $('.logout-button').click(onClickLogout)
 })

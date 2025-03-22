@@ -1,6 +1,6 @@
 var limit = 0
 
-const fetchEvents = () => {
+function fetchEvents() {
   limit += 3
   // load event data
   $.ajax({
@@ -49,7 +49,7 @@ const fetchEvents = () => {
   })
 }
 
-const onClickLoadMore = () => {
+function onClickLoadMore() {
   fetchEvents()
 }
 

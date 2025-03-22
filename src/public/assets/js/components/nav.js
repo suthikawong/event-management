@@ -1,6 +1,6 @@
 // https://mgregchi02.medium.com/how-to-add-html-contents-and-style-to-bootstrap-5-popover-db2d910f8844
 
-const triggerPopover = () => {
+function triggerPopover() {
   var options = {
     html: true,
     trigger: 'focus',
@@ -10,11 +10,11 @@ const triggerPopover = () => {
   new bootstrap.Popover(exampleEl, options)
 }
 
-const onClickLogin = () => {
+function onClickLogin() {
   window.location.href = '../public/login'
 }
 
-const onClickLogout = () => {
+function onClickLogout() {
   $.ajax({
     url: 'logout.inc.php',
     type: 'POST',
@@ -24,7 +24,7 @@ const onClickLogout = () => {
   })
 }
 
-const styleActiveMenuItem = () => {
+function styleActiveMenuItem() {
   const splitUrl = window.location.href.split('/public/')
   const currPath = splitUrl[splitUrl.length - 1].split('/')[0]
   $('.menu-list > .menu-item > a').each(function (index) {
@@ -38,7 +38,7 @@ const styleActiveMenuItem = () => {
   })
 }
 
-$(document).ready(() => {
+$(document).ready(function () {
   styleActiveMenuItem()
   if ($('#popover-trigger-btn').length) {
     triggerPopover()

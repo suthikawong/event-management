@@ -3,13 +3,13 @@ $title = 'Home';
 ?>
 
 <?php ob_start(); ?>
-<script defer src="<?= APP_URL ?>/assets/js/home.js"></script>
+<script defer src="<?= PUBLIC_PATH ?>/assets/js/home.js"></script>
 <?php $jsFiles = ob_get_clean(); ?>
 
 <?php ob_start(); ?>
 <div class="home-page">
   <section class="hero-container">
-    <img class="hero-img" src="<?= APP_URL ?>/assets/images/hero-page-img.png" alt="hero image">
+    <img class="hero-img" src="<?= PUBLIC_PATH ?>/assets/images/hero-page-img.png" alt="hero image">
     <h1 class="hero-title">MADE FOR THOSE WHO DO</h1>
     <div class="search-bar">
       <div class="input-container">

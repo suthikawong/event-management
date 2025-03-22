@@ -3,7 +3,7 @@ $title = 'Signup';
 ?>
 
 <?php ob_start(); ?>
-<script defer src="<?= APP_URL ?>/assets/js/signup.js"></script>
+<script defer src="<?= PUBLIC_PATH ?>/assets/js/signup.js"></script>
 <?php $jsFiles = ob_get_clean(); ?>
 
 <?php ob_start(); ?>

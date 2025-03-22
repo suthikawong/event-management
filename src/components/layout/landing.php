@@ -10,9 +10,9 @@
   <script defer src="https://kit.fontawesome.com/0acac55abd.js" crossorigin="anonymous"></script>
   <script defer src="https://code.jquery.com/jquery-3.7.1.js"></script>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-  <script defer src="<?= APP_URL ?>/assets/js/components/nav.js"></script>
-  <link rel="stylesheet" href="<?= APP_URL ?>/assets/css/styles.css">
-  <link rel="stylesheet" href="<?= APP_URL ?>/assets/css/layout/landing.css">
+  <script defer src="<?= PUBLIC_PATH ?>/assets/js/components/nav.js"></script>
+  <link rel="stylesheet" href="<?= PUBLIC_PATH ?>/assets/css/styles.css">
+  <link rel="stylesheet" href="<?= PUBLIC_PATH ?>/assets/css/layout/landing.css">
 
   <?php echo $jsFiles; ?>
 </head>

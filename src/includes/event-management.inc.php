@@ -1,0 +1,164 @@
+<?php
+
+// init controller
+include "../db.php";
+include "../models/event.model.php";
+include "../controllers/event-management.controller.php";
+
+if ($_GET['action'] === 'fetchData') {
+  try {
+    $manager = new EventManagementController();
+    $data = $manager->getEvents();
+
+    echo json_encode([
+      "statusCode" => 200,
+      "message" => "Fetch events sucessfully",
+      "data" => $data,
+      "uploadPath" => UPLOADS_PATH
+    ]);
+  } catch (Exception $e) {
+    if ($e->getCode()) {
+      echo json_encode([
+        "statusCode" => $e->getCode(),
+        "message" => $e->getMessage()
+      ]);
+    } else {
+      echo json_encode([
+        "statusCode" => 500,
+        "message" => "Something went wrong. Please try again."
+      ]);
+    }
+  }
+}
+
+if ($_GET['action'] === 'fetchById') {
+  try {
+    $eventId = $_GET["id"];
+    $manager = new EventManagementController();
+    $data = $manager->getEventById((int) $eventId);
+
+    echo json_encode([
+      "statusCode" => 200,
+      "message" => "Fetch event sucessfully",
+      "data" => $data,
+      "uploadPath" => UPLOADS_PATH
+    ]);
+  } catch (Exception $e) {
+    if ($e->getCode()) {
+      echo json_encode([
+        "statusCode" => $e->getCode(),
+        "message" => $e->getMessage()
+      ]);
+    } else {
+      echo json_encode([
+        "statusCode" => 500,
+        "message" => "Something went wrong. Please try again."
+      ]);
+    }
+  }
+}
+
+function getFilePath()
+{
+  $originaImagelName = $_FILES["image"]["name"];
+  if ($originaImagelName) {
+    $newImageName = uniqid() . time() . "." . pathinfo($originaImagelName, PATHINFO_EXTENSION);
+    move_uploaded_file($_FILES["image"]['tmp_name'], UPLOADS_PATH . '/' . $newImageName);
+    return $newImageName;
+  }
+  return null;
+}
+
+if ($_GET['action'] === 'insertData') {
+  try {
+    // get form data
+    $event = $_POST["event"];
+    $description = $_POST["description"];
+    $startDate = $_POST["startDate"];
+    $endDate = $_POST["endDate"];
+    $location = $_POST["location"];
+    $image = getFilePath();
+
+    $manager = new EventManagementController();
+    $manager->insertEvent($event, $description, $image, $startDate, $endDate, $location);
+
+    echo json_encode([
+      "statusCode" => 200,
+      "message" => "Insert event sucessfully"
+    ]);
+  } catch (Exception $e) {
+    if ($e->getCode()) {
+      echo json_encode([
+        "statusCode" => $e->getCode(),
+        "message" => $e->getMessage()
+      ]);
+    } else {
+      echo json_encode([
+        "statusCode" => 500,
+        "message" => "Something went wrong. Please try again."
+      ]);
+    }
+  }
+}
+
+
+if ($_GET['action'] === 'updateData') {
+  try {
+    // get form data
+    $id = $_POST["id"];
+    $event = $_POST["event"];
+    $description = $_POST["description"];
+    $startDate = $_POST["startDate"];
+    $endDate = $_POST["endDate"];
+    $location = $_POST["location"];
+    $image = getFilePath();
+
+    $manager = new EventManagementController();
+    $manager->updateEvent((int) $id, $event, $description, $image, $startDate, $endDate, $location);
+
+    echo json_encode([
+      "statusCode" => 200,
+      "message" => "Update event sucessfully"
+    ]);
+  } catch (Exception $e) {
+    if ($e->getCode()) {
+      echo json_encode([
+        "statusCode" => $e->getCode(),
+        "message" => $e->getMessage()
+      ]);
+    } else {
+      echo json_encode([
+        "statusCode" => 500,
+        "message" => "Something went wrong. Please try again."
+      ]);
+    }
+  }
+}
+
+
+if ($_GET['action'] === 'deleteData') {
+  try {
+    // get event id
+    $id = $_POST["id"];
+
+    $manager = new EventManagementController();
+    $manager->deleteEvent((int) $id);
+
+    echo json_encode([
+      "statusCode" => 200,
+      "message" => "Delete event sucessfully"
+    ]);
+  } catch (Exception $e) {
+    if ($e->getCode()) {
+      echo json_encode([
+        "statusCode" => $e->getCode(),
+        "message" => $e->getMessage()
+      ]);
+    } else {
+      echo json_encode([
+        "statusCode" => 500,
+        "message" => "Something went wrong. Please try again."
+      ]);
+    }
+  }
+}

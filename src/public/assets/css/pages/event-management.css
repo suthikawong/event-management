@@ -51,6 +51,10 @@
   font-size: var(--text-xl);
 }
 
+.event-management-page #error-message {
+  color: var(--danger-color);
+}
+
 @media (min-width: 768px) {
   .event-management-page .add-button-name {
     display: block;

@@ -1,4 +1,4 @@
-const onSubmitForm = (e) => {
+function onSubmitForm(e) {
   $('.submit-button').attr('disabled', 'disabled')
   e.preventDefault()
   const formData = new FormData($('#login-form')[0])
@@ -26,11 +26,11 @@ const onSubmitForm = (e) => {
   })
 }
 
-const onClickSignupLink = () => {
+function onClickSignupLink() {
   window.location.href = '../public/signup'
 }
 
-$(document).ready(function (e) {
+$(document).ready(function () {
   $('#error-message').hide()
   $('#login-form').on('submit', (e) => onSubmitForm(e))
   $('.signup-text > a').click(onClickSignupLink)
