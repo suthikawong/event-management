@@ -3,17 +3,23 @@
 include "../db.php";
 include "../models/event.model.php";
 include "../controllers/home.controller.php";
-$home = new HomeController();
 
 if ($_GET['action'] === "fetchData") {
   try {
-    $events = $home->loadMoreEvents($_GET['limit']);
-    $total = $home->eventCount();
+    $limit = $_GET['length'];
+    $offset = $_GET['start'];
+    $keyword = $_GET['keyword'];
 
+    $home = new HomeController();
+    $result = $home->loadMoreEvents($keyword, (int) $limit, (int) $offset);
+
+    header('Content-Type: application/json');
     echo json_encode([
       "statusCode" => 200,
-      "events" => $events,
-      "total" => $total
+      "message" => "Fetch events sucessfully",
+      "data" => $result["data"],
+      "recordsTotal" => $result["total"],
+      "uploadPath" => UPLOADS_PATH
     ]);
   } catch (Exception $e) {
     if ($e->getCode()) {

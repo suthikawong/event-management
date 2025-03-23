@@ -1,6 +1,6 @@
 <div class="event-card">
-  <img class="event-img" src="<?= PUBLIC_PATH ?>/assets/images/event-img.jpg" alt="event image">
+  <img class="event-img" src="$image" alt="event image">
   <div class="event-name">$event_name</div>
-  <div class="event-date">Saturdat, March 18, 9.30PM</div>
-  <div class="event-where">ONLINE EVENT - Attend anywhere</div>
+  <div class="event-date">$start_date</div>
+  <div class="event-where">Location - $location</div>
 </div>

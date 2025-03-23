@@ -2,13 +2,13 @@
 
 class HomeController extends Event
 {
-  public function loadMoreEvents($limit)
+  public function loadMoreEvents($keyword = '', $limit = null, $offset = null)
   {
-    return $this->getEvents($limit);
+    return $this->get($keyword, $limit, $offset);
   }
 
   public function eventCount()
   {
-    return $this->getEventCount();
+    return $this->getCount();
   }
 }

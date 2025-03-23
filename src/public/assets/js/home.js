@@ -1,39 +1,50 @@
-var limit = 0
+var limit = 3
+var offset = -limit
+var keyword = ''
 
 function fetchEvents() {
-  limit += 3
+  offset += limit
   // load event data
   $.ajax({
-    url: `home.inc.php?action=fetchData&limit=${limit}`,
+    url: `home.inc.php?action=fetchData&length=${limit}&start=${offset}&keyword=${keyword}`,
     type: 'GET',
-    success: function (response) {
-      const res = JSON.parse(response)
+    success: function (res) {
       // load event-card.php to render event cards
       $.ajax({
         url: 'components/event-card.php',
         type: 'GET',
         success: function (element) {
           if (res.statusCode === 200) {
-            const eventCount = res.events.length
-            let html = ''
             // if there are events then replace event data in card
-            if (eventCount > 0) {
-              res.events.forEach((event) => {
-                html += element.replace('$event_name', event.event_name)
+            if (res.data.length > 0) {
+              res.data.forEach((event) => {
+                let elem = element
+                let html = ''
+                html = elem.replace('$event_name', event.event_name)
+                html = html.replace('$start_date', moment(event.start_date).format('lll'))
+                html = html.replace('$location', event.location)
+                if (event.image) {
+                  html = html.replace('$image', `${res.uploadPath}/${event.image}`)
+                } else {
+                  html = html.replace('$image', 'assets/images/default-img.png')
+                }
+                // render event cared
+                $('#event-card-container').append($(html))
               })
             }
             // if there is no event then show "No events found" message
-            else {
+            else if (offset === 0) {
               html = `
               <div></div>
               <div style="margin: auto;">No events found</div>
               <div></div>
               `
+              $('#event-card-container').html(html)
             }
-            // render event card
-            $('#event-card-container').html(html)
+
+            const eventCount = $('#event-card-container .event-card').length
             // hide/show load more button
-            if (eventCount === 0 || eventCount === res.total) {
+            if (eventCount === 0 || eventCount === res.recordsTotal) {
               $('button.load-button').hide()
             } else {
               $('button.load-button').show()
@@ -53,7 +64,17 @@ function onClickLoadMore() {
   fetchEvents()
 }
 
+function onSearch() {
+  offset = -limit
+  keyword = $('#search-keyword').val()
+  $('#event-card-container').empty()
+  fetchEvents()
+}
+
 $(document).ready(function () {
   fetchEvents()
   $('button.load-button').click(fetchEvents)
+
+  // search
+  $('.search-button').click(onSearch)
 })
