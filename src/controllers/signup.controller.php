@@ -23,7 +23,7 @@ class SignupController extends User
   {
     $this->validateInput();
     $hashedPassword = password_hash($this->password, PASSWORD_DEFAULT);
-    return $this->insertUser($this->username, $hashedPassword, $this->email, $this->firstName, $this->lastName);
+    return $this->insert($this->username, $hashedPassword, $this->email, $this->firstName, $this->lastName, false);
   }
 
   private function validateInput()

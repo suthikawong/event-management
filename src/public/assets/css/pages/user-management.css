@@ -1,0 +1,88 @@
+.user-management-page {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.user-management-page .user-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-management-page .add-button-name {
+  display: none;
+}
+
+.user-management-page .add-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-management-page .search-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.user-management-page .filter-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-management-page .search-button > div {
+  display: none;
+}
+
+.user-management-page h1.title {
+  margin: 16px 0;
+  font-weight: 600;
+  font-size: var(--text-xl);
+}
+
+.user-management-page #error-message {
+  color: var(--danger-color);
+}
+
+@media (min-width: 768px) {
+  .user-management-page .add-button-name {
+    display: block;
+  }
+
+  .user-management-page .filter-container {
+    gap: 10px;
+  }
+
+  .user-management-page .search-bar > input {
+    max-width: 400px;
+  }
+
+  .user-management-page .search-button > i {
+    display: none;
+  }
+
+  .user-management-page .search-button > div {
+    display: block;
+  }
+}
+
+@media (min-width: 992px) {
+  .user-management-page .filter-container {
+    gap: 20px;
+  }
+
+  .user-management-page .search-bar {
+    margin-top: 40px;
+  }
+
+  .user-management-page h1.title {
+    display: none;
+  }
+}

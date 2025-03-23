@@ -2,14 +2,14 @@ var action = null
 var startDate = null
 var endDate = null
 var table
-var deleteEventId = null
+var deleteUserId = null
 const formModalElement = document.querySelector('#form-modal')
 const formModal = bootstrap.Modal.getOrCreateInstance(formModalElement)
 const deleteModalElement = document.querySelector('#delete-modal')
 const deleteModal = bootstrap.Modal.getOrCreateInstance(deleteModalElement)
 
 function showDataTable() {
-  table = new DataTable('#event-table', {
+  table = new DataTable('#user-table', {
     layout: {
       topStart: null,
       topEnd: null,
@@ -19,7 +19,7 @@ function showDataTable() {
     processing: true,
     serverSide: true,
     ajax: {
-      url: `event-management.inc.php?action=fetchData`,
+      url: `user-management.inc.php?action=fetchData`,
       type: 'GET',
       data: function (param) {
         param.keyword = $('#search-keyword').val()
@@ -36,57 +36,52 @@ function showDataTable() {
     columnDefs: [
       {
         targets: 0,
-        data: 'image',
-        render: function (data, _, _, meta) {
-          let image = 'assets/images/default-img.png'
-          const uploadPath = meta.settings.json.uploadPath
-          if (data) {
-            image = `${uploadPath}/${data}`
-          }
-          return tableImageCellElement(image)
+        data: 'name',
+        render: function (_, _, row) {
+          return tableCellElement('Name', `${row.first_name} ${row.last_name}`)
         },
       },
       {
         targets: 1,
-        data: 'event_name',
+        data: 'username',
         render: function (data) {
-          return tableCellElement('Event', data)
+          return tableCellElement('Username', data)
         },
       },
+      // {
+      //   targets: 2,
+      //   data: 'last_name',
+      //   render: function (data) {
+      //     return tableCellElement('Last name', data)
+      //   },
+      // },
       {
         targets: 2,
-        data: 'start_date',
+        data: 'email',
         render: function (data) {
-          return tableCellElement('Start', moment(data).format('DD/MM/YY hh:mm A'))
+          return tableCellElement('Email', data)
         },
       },
       {
         targets: 3,
-        data: 'end_date',
+        data: 'is_admin',
         render: function (data) {
-          return tableCellElement('End', moment(data).format('DD/MM/YY hh:mm A'))
+          return tableCellElement('Permission', data ? 'Admin' : 'User')
         },
       },
       {
         targets: 4,
-        data: 'location',
-        render: function (data) {
-          return tableCellElement('Location', data)
-        },
-      },
-      {
-        targets: 5,
         data: null,
         render: function (_, _, row) {
           return `
             <div class="card-action-container">
-              <button class="edit-button" onclick="onClickEditEvent(${row.event_id})"><i class="fa-solid fa-pen"></i></button>
-              <div class="card-divider" onclick="onClickDeleteEvent(${row.event_id})"></div>
+              <button class="edit-button" onclick="onClickEditUser(${row.user_id})"><i class="fa-solid fa-pen"></i></button>
+              <div class="card-divider" onclick="onClickDeleteUser(${row.user_id})"></div>
               <button class="delete-button"><i class="fa-solid fa-trash"></i></button>
             </div>
             <div class="table-action-container">
-              <button onclick="onClickEditEvent(${row.event_id})" class="app-button sm outline-primary edit-button">Edit</button>
-              <button onclick="onClickDeleteEvent(${row.event_id})" class="app-button sm outline-danger delete-button">Delete</button>
+              <button onclick="onClickEditUser(${row.user_id})" class="app-button sm outline-primary edit-button">Edit</button>
+              <button onclick="onClickDeleteUser(${row.user_id})" class="app-button sm outline-danger delete-button">Delete</button>
             </div>
           </div>`
         },
@@ -127,10 +122,11 @@ function setDateRangePicker(start, end) {
 
 function resetForm() {
   // clear form
-  $('#event-form').trigger('reset')
+  $('#user-form').trigger('reset')
   $('#error-message').hide()
   $('.preview-image-container').hide()
   $('.uploader-container').show()
+  $('#user-form input[name=isAdmin]').removeAttr('checked')
 
   // reset datepicker to initial value
   const start = moment().startOf('hour')
@@ -138,68 +134,22 @@ function resetForm() {
   setDateRangePicker(start, end)
 }
 
-// function fetchData() {
-//   $.ajax({
-//     url: `event-management.inc.php?action=fetchData`,
-//     type: 'GET',
-//     success: function (response) {
-//       console.log('TLOG ~ response:', response)
-//       const res = JSON.parse(response)
-//       if (res.statusCode === 200) {
-//         // load event row that will be insert in table
-//         $.ajax({
-//           url: 'components/event-row.php',
-//           type: 'GET',
-//           success: function (element) {
-//             table.clear().draw()
-//             $.each(res.data, function (_, value) {
-//               let elem = element
-//               const start = moment(value.start_date)
-//               const end = moment(value.end_date)
-//               elem = elem.replace('$event_id', value.event_id)
-//               elem = elem.replace('$event_name', value.event_name)
-//               elem = elem.replace('$start_date', start.format('DD/MM/YYYY'))
-//               elem = elem.replace('$end_date', end.format('DD/MM/YYYY'))
-//               elem = elem.replace('$time', `${start.format('H:mm')} - ${end.format('H:mm')}`)
-//               elem = elem.replace('$location', value.location)
-//               if (value.image) {
-//                 elem = elem.replace('$image', `${res.uploadPath}/${value.image}`)
-//               } else {
-//                 elem = elem.replace('$image', 'assets/images/default-img.png')
-//               }
-//               table.row.add($(elem)).draw()
-//             })
-//           },
-//         })
-//       } else {
-//         $('.toast').toast('hide')
-//         $('.toast-body').text(res.message)
-//         $('.toast').toast('show')
-//       }
-//     },
-//   })
-// }
-
-function fetchDataById($eventId) {
+function fetchDataById($userId) {
   $.ajax({
-    url: `event-management.inc.php?action=fetchById&id=${$eventId}`,
+    url: `user-management.inc.php?action=fetchById&id=${$userId}`,
     type: 'GET',
     success: function (response) {
       const res = JSON.parse(response)
       if (res.statusCode === 200) {
         const data = res.data
-        $('#event-form input[name=id]').val(data.event_id)
-        $('#event-form input[name=event]').val(data.event_name)
-        $('#event-form textarea[name=description]').val(data.description)
-        $('#event-form input[name=location]').val(data.location)
-        if (data.image) {
-          $('#event-form .uploader-container').hide()
-          $('#event-form .preview-image-container').show()
-          $('#event-form .preview-image').attr('src', `${res.uploadPath}/${data.image}`)
+        $('#user-form input[name=id]').val(data.user_id)
+        $('#user-form input[name=username]').val(data.username)
+        $('#user-form input[name=email]').val(data.email)
+        $('#user-form input[name=firstName]').val(data.first_name)
+        $('#user-form input[name=lastName]').val(data.last_name)
+        if (data.is_admin) {
+          $('#user-form input[name=isAdmin]').attr('checked', true)
         }
-        const start = moment(data.start_date)
-        const end = moment(data.end_date)
-        setDateRangePicker(start, end)
       } else {
         $('.toast').toast('hide')
         $('.toast-body').text(res.message)
@@ -213,12 +163,11 @@ function onSubmitForm() {
   if (!action) return
 
   $('.submit-button').attr('disabled', 'disabled')
-  const formData = new FormData($('#event-form')[0])
-  formData.append('startDate', startDate)
-  formData.append('endDate', endDate)
+  const formData = new FormData($('#user-form')[0])
+  formData.set('isAdmin', formData.get('isAdmin') === '' ? true : false)
 
   $.ajax({
-    url: `event-management.inc.php?action=${action}`,
+    url: `user-management.inc.php?action=${action}`,
     type: 'POST',
     data: formData,
     contentType: false,
@@ -244,13 +193,13 @@ function onSubmitForm() {
   })
 }
 
-function confirmDeleteEvent() {
+function confirmDeleteUser() {
   $('#delete-modal .delete-button').attr('disabled', 'disabled')
   $.ajax({
-    url: `event-management.inc.php?action=deleteData`,
+    url: `user-management.inc.php?action=deleteData`,
     type: 'POST',
     dataType: 'json',
-    data: { id: deleteEventId },
+    data: { id: deleteUserId },
     success: function (res) {
       try {
         if (res.statusCode === 200) {
@@ -270,28 +219,28 @@ function confirmDeleteEvent() {
   })
 }
 
-function onClickAddEvent() {
-  $('#form-modal .modal-title').text('Add Event')
+function onClickAddUser() {
+  $('#form-modal .modal-title').text('Add User')
   action = 'insertData'
   formModal.show()
 }
 
-function onClickEditEvent(eventId) {
-  $('#form-modal .modal-title').text('Edit Event')
+function onClickEditUser(userId) {
+  $('#form-modal .modal-title').text('Edit User')
   action = 'updateData'
   formModal.show()
-  fetchDataById(eventId)
+  fetchDataById(userId)
 }
 
-function onClickDeleteEvent(eventId) {
-  deleteEventId = eventId
+function onClickDeleteUser(userId) {
+  deleteUserId = userId
   deleteModal.show()
 }
 
 function onClickDeleteImage() {
-  $('#event-form input[name=image]').val('')
-  $('#event-form .uploader-container').show()
-  $('#event-form .preview-image-container').hide()
+  $('#user-form input[name=image]').val('')
+  $('#user-form .uploader-container').show()
+  $('#user-form .preview-image-container').hide()
 }
 
 function onSearch() {
@@ -303,7 +252,7 @@ $(document).ready(function () {
   resetForm()
 
   // open modal
-  $('button.add-button').click(onClickAddEvent)
+  // $('button.add-button').click(onClickAddUser)
 
   // upload image
   $('input.app-image-uploader').change(onImageChange)
@@ -320,6 +269,6 @@ $(document).ready(function () {
   // submit form
   $('.submit-button').click(onSubmitForm)
 
-  // delete event
-  $('#delete-modal .delete-button').click(confirmDeleteEvent)
+  // delete user
+  $('#delete-modal .delete-button').click(confirmDeleteUser)
 })
