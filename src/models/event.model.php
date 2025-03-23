@@ -93,6 +93,7 @@ class Event extends DB
 
   protected function update($eventId, $eventName, $description, $image, $startDate, $endDate, $location)
   {
+    $this->getById($eventId);
     $statement = $this->connect()->prepare("UPDATE events SET `event_name` = ?, `description` = ?, `image` = ?, `start_date` = ?, `end_date` = ?, `location` = ? WHERE event_id = ?");
 
     if (!$statement->execute(array($eventName, $description, $image, $startDate, $endDate, $location, $eventId))) {
@@ -104,6 +105,7 @@ class Event extends DB
 
   protected function delete($eventId)
   {
+    $this->getById($eventId);
     $statement = $this->connect()->prepare("DELETE FROM events WHERE event_id = ?");
 
     if (!$statement->execute(array($eventId))) {

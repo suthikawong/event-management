@@ -26,7 +26,6 @@ class EventManagementController extends Event
   public function updateEvent($eventId, $eventName, $description, $image, $startDate, $endDate, $location)
   {
     $this->validateInput($eventName, $startDate, $endDate, $location);
-    $this->getById($eventId);
     return $this->update($eventId, $eventName, $description, $image, $startDate, $endDate, $location);
   }
 
