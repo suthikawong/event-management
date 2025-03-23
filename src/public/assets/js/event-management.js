@@ -8,6 +8,21 @@ const formModal = bootstrap.Modal.getOrCreateInstance(formModalElement)
 const deleteModalElement = document.querySelector('#delete-modal')
 const deleteModal = bootstrap.Modal.getOrCreateInstance(deleteModalElement)
 
+function tableCellElement(title, data) {
+  return `
+  <div class="card-content-container">
+    <div class="card-content-title">${title}:</div>
+    <div>${data}</div>
+  </div>`
+}
+
+function tableImageCellElement(image) {
+  return `
+  <div class="table-image-container">
+    <img class="table-image" src="${image}" alt="event image">
+  </div>`
+}
+
 function showDataTable() {
   table = new DataTable('#event-table', {
     layout: {
@@ -16,7 +31,84 @@ function showDataTable() {
       bottomStart: 'info',
       bottomEnd: 'paging',
     },
-    pageLength: 3,
+    processing: true,
+    serverSide: true,
+    ajax: {
+      url: `event-management.inc.php?action=fetchData`,
+      type: 'GET',
+      data: function (param) {
+        param.keyword = $('#search-keyword').val()
+      },
+      dataSrc: function (res) {
+        if (res.statusCode === 200) {
+          return res.data
+        }
+        $('.toast').toast('hide')
+        $('.toast-body').text(res.message)
+        $('.toast').toast('show')
+      },
+    },
+    columnDefs: [
+      {
+        targets: 0,
+        data: 'image',
+        render: function (data, _, _, meta) {
+          let image = 'assets/images/default-img.png'
+          const uploadPath = meta.settings.json.uploadPath
+          if (data) {
+            image = `${uploadPath}/${data}`
+          }
+          return tableImageCellElement(image)
+        },
+      },
+      {
+        targets: 1,
+        data: 'event_name',
+        render: function (data) {
+          return tableCellElement('Event', data)
+        },
+      },
+      {
+        targets: 2,
+        data: 'start_date',
+        render: function (data) {
+          return tableCellElement('Start', moment(data).format('DD/MM/YY hh:mm A'))
+        },
+      },
+      {
+        targets: 3,
+        data: 'end_date',
+        render: function (data) {
+          return tableCellElement('End', moment(data).format('DD/MM/YY hh:mm A'))
+        },
+      },
+      {
+        targets: 4,
+        data: 'location',
+        render: function (data) {
+          return tableCellElement('Location', data)
+        },
+      },
+      {
+        targets: 5,
+        data: null,
+        render: function (_, _, row) {
+          return `
+            <div class="card-action-container">
+              <button class="edit-button" onclick="onClickEditEvent(${row.event_id})"><i class="fa-solid fa-pen"></i></button>
+              <div class="card-divider" onclick="onClickDeleteEvent(${row.event_id})"></div>
+              <button class="delete-button"><i class="fa-solid fa-trash"></i></button>
+            </div>
+            <div class="table-action-container">
+              <button onclick="onClickEditEvent(${row.event_id})" class="app-button sm outline-primary edit-button">Edit</button>
+              <button onclick="onClickDeleteEvent(${row.event_id})" class="app-button sm outline-danger delete-button">Delete</button>
+            </div>
+          </div>`
+        },
+      },
+    ],
+    paging: true,
+    pageLength: 7,
   })
 }
 
@@ -61,46 +153,47 @@ function resetForm() {
   setDateRangePicker(start, end)
 }
 
-function fetchData() {
-  $.ajax({
-    url: `event-management.inc.php?action=fetchData`,
-    type: 'GET',
-    success: function (response) {
-      const res = JSON.parse(response)
-      if (res.statusCode === 200) {
-        // load event row that will be insert in table
-        $.ajax({
-          url: 'components/event-row.php',
-          type: 'GET',
-          success: function (element) {
-            table.clear().draw()
-            $.each(res.data, function (_, value) {
-              let elem = element
-              const start = moment(value.start_date)
-              const end = moment(value.end_date)
-              elem = elem.replace('$event_id', value.event_id)
-              elem = elem.replace('$event_name', value.event_name)
-              elem = elem.replace('$start_date', start.format('DD/MM/YYYY'))
-              elem = elem.replace('$end_date', end.format('DD/MM/YYYY'))
-              elem = elem.replace('$time', `${start.format('H:mm')} - ${end.format('H:mm')}`)
-              elem = elem.replace('$location', value.location)
-              if (value.image) {
-                elem = elem.replace('$image', `${res.uploadPath}/${value.image}`)
-              } else {
-                elem = elem.replace('$image', 'assets/images/default-img.png')
-              }
-              table.row.add($(elem)).draw()
-            })
-          },
-        })
-      } else {
-        $('.toast').toast('hide')
-        $('.toast-body').text(res.message)
-        $('.toast').toast('show')
-      }
-    },
-  })
-}
+// function fetchData() {
+//   $.ajax({
+//     url: `event-management.inc.php?action=fetchData`,
+//     type: 'GET',
+//     success: function (response) {
+//       console.log('TLOG ~ response:', response)
+//       const res = JSON.parse(response)
+//       if (res.statusCode === 200) {
+//         // load event row that will be insert in table
+//         $.ajax({
+//           url: 'components/event-row.php',
+//           type: 'GET',
+//           success: function (element) {
+//             table.clear().draw()
+//             $.each(res.data, function (_, value) {
+//               let elem = element
+//               const start = moment(value.start_date)
+//               const end = moment(value.end_date)
+//               elem = elem.replace('$event_id', value.event_id)
+//               elem = elem.replace('$event_name', value.event_name)
+//               elem = elem.replace('$start_date', start.format('DD/MM/YYYY'))
+//               elem = elem.replace('$end_date', end.format('DD/MM/YYYY'))
+//               elem = elem.replace('$time', `${start.format('H:mm')} - ${end.format('H:mm')}`)
+//               elem = elem.replace('$location', value.location)
+//               if (value.image) {
+//                 elem = elem.replace('$image', `${res.uploadPath}/${value.image}`)
+//               } else {
+//                 elem = elem.replace('$image', 'assets/images/default-img.png')
+//               }
+//               table.row.add($(elem)).draw()
+//             })
+//           },
+//         })
+//       } else {
+//         $('.toast').toast('hide')
+//         $('.toast-body').text(res.message)
+//         $('.toast').toast('show')
+//       }
+//     },
+//   })
+// }
 
 function fetchDataById($eventId) {
   $.ajax({
@@ -148,12 +241,11 @@ function onSubmitForm() {
     processData: false,
     success: function (response) {
       try {
-        console.log('TLOG ~ response:', response)
         const res = JSON.parse(response)
         if (res.statusCode === 200) {
           $('#error-message').hide()
           formModal.hide()
-          fetchData()
+          table.ajax.reload()
         } else {
           $('#error-message').text(res.message)
           $('#error-message').show()
@@ -177,7 +269,7 @@ function confirmDeleteEvent() {
     success: function (res) {
       try {
         if (res.statusCode === 200) {
-          fetchData()
+          table.ajax.reload()
         } else {
           $('.toast').toast('hide')
           $('.toast-body').text(res.message)
@@ -199,16 +291,15 @@ function onClickAddEvent() {
   formModal.show()
 }
 
-function onClickEditEvent() {
-  const eventId = $(this).closest('tr').attr('id')
+function onClickEditEvent(eventId) {
   $('#form-modal .modal-title').text('Edit Event')
   action = 'updateData'
   formModal.show()
   fetchDataById(eventId)
 }
 
-function onClickDeleteEvent() {
-  deleteEventId = $(this).closest('tr').attr('id')
+function onClickDeleteEvent(eventId) {
+  deleteEventId = eventId
   deleteModal.show()
 }
 
@@ -218,15 +309,16 @@ function onClickDeleteImage() {
   $('#event-form .preview-image-container').hide()
 }
 
+function onSearch() {
+  table.ajax.reload()
+}
+
 $(document).ready(function () {
   showDataTable()
-  fetchData()
   resetForm()
 
   // open modal
   $('button.add-button').click(onClickAddEvent)
-  $('#event-table').on('click', 'button.edit-button', onClickEditEvent)
-  $('#event-table').on('click', 'button.delete-button', onClickDeleteEvent)
 
   // upload image
   $('input.app-image-uploader').change(onImageChange)
@@ -236,6 +328,9 @@ $(document).ready(function () {
 
   // reset uploaded image
   $('.preview-image-container > a').click(onClickDeleteImage)
+
+  // search
+  $('.search-button').click(onSearch)
 
   // submit form
   $('.submit-button').click(onSubmitForm)

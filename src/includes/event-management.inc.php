@@ -7,13 +7,20 @@ include "../controllers/event-management.controller.php";
 
 if ($_GET['action'] === 'fetchData') {
   try {
-    $manager = new EventManagementController();
-    $data = $manager->getEvents();
+    $limit = $_GET['length'];
+    $offset = $_GET['start'];
+    $keyword = $_GET['keyword'];
 
+    $manager = new EventManagementController();
+    $result = $manager->getEvents($keyword, (int) $limit, (int) $offset);
+
+    header('Content-Type: application/json');
     echo json_encode([
       "statusCode" => 200,
       "message" => "Fetch events sucessfully",
-      "data" => $data,
+      "data" => $result["data"],
+      "recordsTotal" => $result["total"],
+      "recordsFiltered" => $result["total"],
       "uploadPath" => UPLOADS_PATH
     ]);
   } catch (Exception $e) {

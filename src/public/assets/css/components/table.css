@@ -116,6 +116,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 18px;
+  margin-bottom: 10px;
 }
 
 .app-table.table .table-image {
@@ -134,9 +136,12 @@
   margin-top: 8px;
 }
 
-.app-table.table td.image-cell {
-  padding: 20px;
-  padding-bottom: 10px;
+.app-table.table tr:has(td.dt-empty) {
+  box-shadow: none;
+}
+
+.app-table.table td.dt-empty {
+  text-align: center;
 }
 
 @media (min-width: 992px) {
@@ -248,7 +253,7 @@
     padding: 8px;
   }
 
-  .app-table.table td.image-cell {
-    padding: 8px;
+  .app-table.table .table-image-container {
+    margin: 0;
   }
 }

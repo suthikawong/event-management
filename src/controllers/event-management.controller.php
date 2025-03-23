@@ -2,14 +2,19 @@
 
 class EventManagementController extends Event
 {
-  public function getEvents()
+  public function getEvents($keyword = '', $limit = null, $offset = null)
   {
-    return $this->get();
+    return $this->get($keyword, $limit, $offset);
   }
 
   public function getEventById($id)
   {
     return $this->getById($id);
+  }
+
+  public function getEventCount()
+  {
+    return $this->getCount();
   }
 
   public function insertEvent($eventName, $description, $image, $startDate, $endDate, $location)

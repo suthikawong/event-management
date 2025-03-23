@@ -3,25 +3,48 @@
 class Event extends DB
 {
 
-  protected function get($limit = null, $offset = null)
+  protected function get($keyword, $limit, $offset)
   {
-    $statement = '';
+    $sql = 'SELECT * FROM events';
+    $sqlCount = 'SELECT event_id FROM events';
+
+    if (!empty($keyword)) {
+      $search = ' WHERE event_name LIKE :keyword OR location LIKE :keyword';
+      $sql = $sql . $search;
+      $sqlCount = $sqlCount . $search;
+    }
     if (is_int($limit) && is_int($offset)) {
-      $statement = $this->connect()->prepare('SELECT * FROM events LIMIT :limit OFFSET :offset');
-      $statement->bindParam(':limit', $limit, PDO::PARAM_INT);
-      $statement->bindParam(':offset', $offset, PDO::PARAM_INT);
-    } else {
-      $statement = $this->connect()->prepare('SELECT * FROM events');
+      $sql = $sql . ' LIMIT :limit OFFSET :offset';
     }
 
-    if (!$statement->execute()) {
+    $statement = $this->connect()->prepare($sql);
+    $statementCount = $this->connect()->prepare($sqlCount);
+
+    if (!empty($keyword)) {
+      $preparedKeyword = "%$keyword%";
+      $statement->bindParam(':keyword', $preparedKeyword, PDO::PARAM_STR);
+      $statementCount->bindParam(':keyword', $preparedKeyword, PDO::PARAM_STR);
+    }
+    if (is_int($limit) && is_int($offset)) {
+      $statement->bindParam(':limit', $limit, PDO::PARAM_INT);
+      $statement->bindParam(':offset', $offset, PDO::PARAM_INT);
+    }
+
+    if (!$statement->execute() || !$statementCount->execute()) {
       $statement = null;
+      $statementCount = null;
       throw new Exception("Something went wrong. Please try again.", 500);
     }
 
     $data = $statement->fetchAll(PDO::FETCH_ASSOC);
+    $total = $statementCount->rowCount();
     $statement = null;
-    return $data;
+    $statementCount = null;
+
+    return array(
+      "data" => $data,
+      "total" => $total,
+    );
   }
 
   protected function getById($id)
