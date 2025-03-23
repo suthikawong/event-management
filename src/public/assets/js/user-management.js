@@ -48,13 +48,6 @@ function showDataTable() {
           return tableCellElement('Username', data)
         },
       },
-      // {
-      //   targets: 2,
-      //   data: 'last_name',
-      //   render: function (data) {
-      //     return tableCellElement('Last name', data)
-      //   },
-      // },
       {
         targets: 2,
         data: 'email',
@@ -76,8 +69,8 @@ function showDataTable() {
           return `
             <div class="card-action-container">
               <button class="edit-button" onclick="onClickEditUser(${row.user_id})"><i class="fa-solid fa-pen"></i></button>
-              <div class="card-divider" onclick="onClickDeleteUser(${row.user_id})"></div>
-              <button class="delete-button"><i class="fa-solid fa-trash"></i></button>
+              <div class="card-divider"></div>
+              <button class="delete-button" onclick="onClickDeleteUser(${row.user_id})"><i class="fa-solid fa-trash"></i></button>
             </div>
             <div class="table-action-container">
               <button onclick="onClickEditUser(${row.user_id})" class="app-button sm outline-primary edit-button">Edit</button>
