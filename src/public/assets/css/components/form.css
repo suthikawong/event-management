@@ -9,3 +9,9 @@
 .app-form .form-item > .form-item-label {
   margin-bottom: 10px;
 }
+
+.app-form .form-item.required > .form-item-label::after {
+  content: '*';
+  color: var(--danger-color);
+  margin-left: 4px;
+}

@@ -75,7 +75,7 @@ $title = 'Event Management';
                 </div>
               </div>
             </div>
-            <div class="form-item">
+            <div class="form-item required">
               <label class="form-item-label">Event</label>
               <input class="app-text-input" name="event" type="text">
             </div>
@@ -83,11 +83,11 @@ $title = 'Event Management';
               <label class="form-item-label">Description</label>
               <textarea class="app-text-area" name="description"></textarea>
             </div>
-            <div class="form-item">
+            <div class="form-item required">
               <label class="form-item-label">Duration</label>
               <input type="text" name="duration" class="app-date-picker" />
             </div>
-            <div class="form-item">
+            <div class="form-item required">
               <label class="form-item-label">Location</label>
               <input class="app-text-input" name="location" type="text">
             </div>
