@@ -116,12 +116,12 @@ class User extends DB
     $statement = null;
   }
 
-  protected function update($userId, $username, $hashedPassword, $email, $firstName, $lastName, $isAdmin)
+  protected function update($userId, $username, $email, $firstName, $lastName, $isAdmin)
   {
     $this->getById($userId);
-    $statement = $this->connect()->prepare("UPDATE users SET `username` = ?, `password` = ?, `email` = ?, `first_name` = ?, `last_name` = ?, `is_admin` = ? WHERE user_id = ?");
+    $statement = $this->connect()->prepare("UPDATE users SET `username` = ?, `email` = ?, `first_name` = ?, `last_name` = ?, `is_admin` = ? WHERE user_id = ?");
 
-    if (!$statement->execute(array($username, $hashedPassword, $email, $firstName, $lastName, $isAdmin, $userId))) {
+    if (!$statement->execute(array($username, $email, $firstName, $lastName, $isAdmin, $userId))) {
       $statement = null;
       throw new Exception("Something went wrong. Please try again.", 500);
     }

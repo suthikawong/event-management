@@ -21,7 +21,7 @@ class UserManagementController extends User
   public function updateUser($userId, $username, $email, $firstName, $lastName, $isAdmin)
   {
     $this->validateInput($username, $email, $firstName, $lastName, $isAdmin, $userId);
-    return $this->update($userId, $username, null, $email, $firstName, $lastName, $isAdmin);
+    return $this->update($userId, $username, $email, $firstName, $lastName, $isAdmin);
   }
 
   public function deleteUser($userId)
@@ -64,7 +64,7 @@ class UserManagementController extends User
 
   private function checkInvalidEmail($email)
   {
-    if (!filter_var($email)) {
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
       return false;
     }
     return true;
