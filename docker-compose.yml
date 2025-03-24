@@ -8,7 +8,6 @@ services:
       dockerfile: Dockerfile
     volumes:
       - D:/Installation/xampp/htdocs/event-management/src:/var/www/html
-    command: /bin/sh -c "chmod -R 777 /var/www/html/uploads && apache2-foreground"
     ports:
       - '80:80'
     networks:
