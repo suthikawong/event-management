@@ -19,7 +19,7 @@ function showDataTable() {
     processing: true,
     serverSide: true,
     ajax: {
-      url: `event-management.inc.php?action=fetchData`,
+      url: `includes/event-management.inc.php?action=fetchData`,
       type: 'GET',
       data: function (param) {
         param.keyword = $('#search-keyword').val()
@@ -140,7 +140,7 @@ function resetForm() {
 
 // function fetchData() {
 //   $.ajax({
-//     url: `event-management.inc.php?action=fetchData`,
+//     url: `includes/event-management.inc.php?action=fetchData`,
 //     type: 'GET',
 //     success: function (response) {
 //       console.log('TLOG ~ response:', response)
@@ -182,7 +182,7 @@ function resetForm() {
 
 function fetchDataById($eventId) {
   $.ajax({
-    url: `event-management.inc.php?action=fetchById&id=${$eventId}`,
+    url: `includes/event-management.inc.php?action=fetchById&id=${$eventId}`,
     type: 'GET',
     success: function (response) {
       const res = JSON.parse(response)
@@ -218,7 +218,7 @@ function onSubmitForm() {
   formData.append('endDate', endDate)
 
   $.ajax({
-    url: `event-management.inc.php?action=${action}`,
+    url: `includes/event-management.inc.php?action=${action}`,
     type: 'POST',
     data: formData,
     contentType: false,
@@ -247,7 +247,7 @@ function onSubmitForm() {
 function confirmDeleteEvent() {
   $('#delete-modal .delete-button').attr('disabled', 'disabled')
   $.ajax({
-    url: `event-management.inc.php?action=deleteData`,
+    url: `includes/event-management.inc.php?action=deleteData`,
     type: 'POST',
     dataType: 'json',
     data: { id: deleteEventId },

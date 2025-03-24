@@ -19,7 +19,7 @@ function showDataTable() {
     processing: true,
     serverSide: true,
     ajax: {
-      url: `user-management.inc.php?action=fetchData`,
+      url: `includes/user-management.inc.php?action=fetchData`,
       type: 'GET',
       data: function (param) {
         param.keyword = $('#search-keyword').val()
@@ -129,7 +129,7 @@ function resetForm() {
 
 function fetchDataById($userId) {
   $.ajax({
-    url: `user-management.inc.php?action=fetchById&id=${$userId}`,
+    url: `includes/user-management.inc.php?action=fetchById&id=${$userId}`,
     type: 'GET',
     success: function (response) {
       const res = JSON.parse(response)
@@ -160,7 +160,7 @@ function onSubmitForm() {
   formData.set('isAdmin', formData.get('isAdmin') === '' ? true : false)
 
   $.ajax({
-    url: `user-management.inc.php?action=${action}`,
+    url: `includes/user-management.inc.php?action=${action}`,
     type: 'POST',
     data: formData,
     contentType: false,
@@ -189,7 +189,7 @@ function onSubmitForm() {
 function confirmDeleteUser() {
   $('#delete-modal .delete-button').attr('disabled', 'disabled')
   $.ajax({
-    url: `user-management.inc.php?action=deleteData`,
+    url: `includes/user-management.inc.php?action=deleteData`,
     type: 'POST',
     dataType: 'json',
     data: { id: deleteUserId },

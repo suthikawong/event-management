@@ -3,7 +3,7 @@ function onSubmitForm(e) {
   e.preventDefault()
   const formData = new FormData($('#login-form')[0])
   $.ajax({
-    url: 'login.inc.php?action=login',
+    url: 'includes/login.inc.php?action=login',
     type: 'POST',
     data: formData,
     contentType: false,

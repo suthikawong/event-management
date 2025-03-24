@@ -6,7 +6,7 @@ function fetchEvents() {
   offset += limit
   // load event data
   $.ajax({
-    url: `home.inc.php?action=fetchData&length=${limit}&start=${offset}&keyword=${keyword}`,
+    url: `includes/home.inc.php?action=fetchData&length=${limit}&start=${offset}&keyword=${keyword}`,
     type: 'GET',
     success: function (res) {
       // load event-card.php to render event cards

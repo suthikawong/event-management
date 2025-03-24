@@ -16,7 +16,7 @@ function onClickLogin() {
 
 function onClickLogout() {
   $.ajax({
-    url: 'logout.inc.php',
+    url: 'includes/logout.inc.php',
     type: 'POST',
     success: function () {
       window.location.href = '../public/home'

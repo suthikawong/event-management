@@ -11,18 +11,14 @@ function splitUrl()
 function loadController()
 {
   $url = splitUrl();
-  $filename = explode('.', $url[0]);
-  $filepath = "../pages/" . $url[0] . ".php";
+  $pagePath = "../pages/" . $url[0] . ".php";
+  $filepath = "../" . $_GET['url'];
 
-  // fix redirect to <filename>.inc.php
-  if (count($filename) > 1 && $filename[1] == 'inc') {
-    require "../includes/" . $url[0];
+  // if match with page path
+  if (file_exists($pagePath)) {
+    require $pagePath;
   }
-  // fix redirect to components/*
-  else if (count($url) > 1 && $url[0] === 'components' && file_exists("../" . join('/', $url))) {
-    require "../" . join('/', $url);
-  }
-  // if path match controller name
+  // if match with other path
   else if (file_exists($filepath)) {
     require $filepath;
   }

@@ -3,7 +3,7 @@ const onSubmitForm = (e) => {
   e.preventDefault()
   const formData = new FormData($('#signup-form')[0])
   $.ajax({
-    url: 'signup.inc.php?action=insertData',
+    url: 'includes/signup.inc.php?action=insertData',
     type: 'POST',
     data: formData,
     contentType: false,
