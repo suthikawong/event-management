@@ -1,12 +1,10 @@
 <?php
 
-if (isset($_SESSION["userId"])) {
-  $abbreviation = strtoupper($_SESSION["firstName"][0]) . strtoupper($_SESSION["lastName"][0]);
-  $fullname = $_SESSION["firstName"] . " " . $_SESSION["lastName"];
-  $role = 'User';
-  if ($_SESSION["isAdmin"]) {
-    $role = 'Administrator';
-  }
+$abbreviation = strtoupper($_SESSION["firstName"][0]) . strtoupper($_SESSION["lastName"][0]);
+$fullname = $_SESSION["firstName"] . " " . $_SESSION["lastName"];
+$role = 'User';
+if ($_SESSION["isAdmin"]) {
+  $role = 'Administrator';
 }
 ?>
 

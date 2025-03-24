@@ -97,7 +97,7 @@ class User extends DB
   //   $statement = null;
   // }
 
-  protected function insert($username, $hashedPassword = null, $email, $firstName, $lastName, $isAdmin)
+  protected function insert($username, $hashedPassword, $email, $firstName, $lastName, $isAdmin)
   {
     $sql = 'INSERT INTO users (username, first_name, last_name, email, is_admin) VALUES (?, ?, ?, ?, ?);';
     $params = array($username, $firstName, $lastName, $email, $isAdmin);

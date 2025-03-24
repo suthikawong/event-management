@@ -1,11 +1,3 @@
-<?php
-
-// only allow admin to access dashboard
-if (!isset($_SESSION["userId"]) || !$_SESSION["isAdmin"]) {
-  header("Location: ../public/home");
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
