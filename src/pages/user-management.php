@@ -3,6 +3,7 @@ $title = 'User Management';
 ?>
 
 <?php ob_start(); ?>
+<link rel="stylesheet" href="<?= PUBLIC_PATH ?>/assets/css/pages/user-management.css">
 <script defer src="<?= PUBLIC_PATH ?>/assets/js/user-management.js"></script>
 <?php $jsFiles = ob_get_clean(); ?>
 
