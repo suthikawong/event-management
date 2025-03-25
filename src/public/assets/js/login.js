@@ -13,9 +13,9 @@ function onSubmitForm(e) {
       const res = JSON.parse(response)
       if (res.statusCode === 200) {
         if (res.user['is_admin']) {
-          window.location.href = '../public/event-management'
+          window.location.href = `${publicPath}/event-management`
         } else {
-          window.location.href = '../public/home'
+          window.location.href = `${publicPath}/home`
         }
       } else {
         $('#error-message').text(res.message)
@@ -27,7 +27,7 @@ function onSubmitForm(e) {
 }
 
 function onClickSignupLink() {
-  window.location.href = '../public/signup'
+  window.location.href = `${publicPath}/signup`
 }
 
 $(document).ready(function () {

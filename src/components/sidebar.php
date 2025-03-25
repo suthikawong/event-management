@@ -22,13 +22,13 @@ if ($_SESSION["isAdmin"]) {
     <div class="body-container">
       <div class="menu-list">
         <div class="menu-item">
-          <a href="../public/event-management">
+          <a href="<?= PUBLIC_PATH ?>/event-management">
             <i class="fa-solid fa-calendar"></i>
             Event Management
           </a>
         </div>
         <div class="menu-item">
-          <a href="../public/user-management">
+          <a href="<?= PUBLIC_PATH ?>/user-management">
             <i class="fa-solid fa-user"></i>
             User Management
           </a>
@@ -64,13 +64,13 @@ if ($_SESSION["isAdmin"]) {
         <div class="body-container">
           <div class="menu-list">
             <div class="menu-item">
-              <a href="../public/event-management">
+              <a href="<?= PUBLIC_PATH ?>/event-management">
                 <i class="fa-solid fa-calendar"></i>
                 Event Management
               </a>
             </div>
             <div class="menu-item">
-              <a href="../public/user-management">
+              <a href="<?= PUBLIC_PATH ?>/user-management">
                 <i class="fa-solid fa-user"></i>
                 User Management
               </a>

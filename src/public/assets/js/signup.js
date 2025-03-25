@@ -12,7 +12,7 @@ const onSubmitForm = (e) => {
     success: function (response) {
       const res = JSON.parse(response)
       if (res.statusCode === 200) {
-        window.location.href = '../public/home'
+        window.location.href = `${publicPath}/home`
       } else {
         $('#error-message').text(res.message)
         $('#error-message').show()
@@ -23,7 +23,7 @@ const onSubmitForm = (e) => {
 }
 
 const onClickLoginLink = () => {
-  window.location.href = '../public/login'
+  window.location.href = `${publicPath}/login`
 }
 
 $(document).ready(function () {

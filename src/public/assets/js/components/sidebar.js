@@ -3,7 +3,7 @@ function onClickLogout() {
     url: 'includes/logout.inc.php',
     type: 'POST',
     success: function () {
-      window.location.href = '../public/home'
+      window.location.href = `${publicPath}/home`
     },
   })
 }

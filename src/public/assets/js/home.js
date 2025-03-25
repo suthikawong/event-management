@@ -73,7 +73,7 @@ function onSearch() {
 }
 
 function onClickEventCard(eventId) {
-  window.location.href = `../public/home/${eventId}`
+  window.location.href = `${publicPath}/home/${eventId}`
 }
 
 $(document).ready(function () {
