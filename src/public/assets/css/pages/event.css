@@ -1,0 +1,203 @@
+.event-page {
+  background-color: var(--light-color);
+}
+
+.event-page .image-container {
+  position: relative;
+}
+
+.event-page .event-img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.event-page .event-img-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
+
+.event-page .overlay {
+  background-color: black;
+  opacity: 0.4;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.event-page .back-button.desktop {
+  display: none;
+}
+
+.event-page .back-button.mobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 80px;
+}
+
+.event-page .event-container {
+  position: relative;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.event-page .event-title {
+  color: var(--dark-color);
+  font-size: var(--text-3xl);
+  margin-top: 28px;
+  margin: 20px 0 0;
+}
+
+.event-page .event-desc {
+  color: var(--dark-color);
+  font-size: var(--text-xl);
+  margin-top: 40px;
+}
+
+.event-page .event-desc-content {
+  color: var(--gray);
+}
+
+.event-page .event-datetime {
+  color: var(--dark-color);
+  font-size: var(--text-xl);
+  margin-top: 30px;
+}
+
+.event-page .event-datetime-content {
+  color: var(--gray);
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.event-page .event-datetime-content > div > span {
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-left: 6px;
+  font-size: var(--text-sm);
+}
+
+.event-page .event-location {
+  color: var(--dark-color);
+  font-size: var(--text-xl);
+  margin-top: 30px;
+}
+
+.event-page .event-location-content {
+  color: var(--gray);
+}
+
+.event-page .book-button {
+  margin-top: 30px;
+}
+
+.event-page .success-icon {
+  color: var(--success-color);
+  font-size: 70px;
+}
+
+.event-page .failed-icon {
+  color: var(--danger-color);
+  font-size: 70px;
+}
+
+.event-page .modal-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 32px 16px;
+}
+
+.event-page .modal-body .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.event-page .modal-body .btn-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 20px;
+}
+
+@media (min-width: 576px) {
+  .event-page .event-title {
+    font-size: var(--text-3xl);
+  }
+
+  .event-page .event-img {
+    height: 400px;
+  }
+}
+
+@media (min-width: 768px) {
+  .event-page .event-img {
+    height: 450px;
+  }
+}
+
+@media (min-width: 992px) {
+  .event-page {
+    border-radius: 10px;
+    margin-bottom: 40px;
+  }
+
+  .event-page .event-img-content {
+    padding: 40px;
+  }
+
+  .event-page .image-container {
+    padding: 20px 20px 0;
+  }
+
+  .event-page .event-img {
+    border-radius: 10px;
+    height: 520px;
+  }
+
+  .event-page .event-container {
+    padding-bottom: 40px;
+  }
+
+  .event-page .back-button.mobile {
+    display: none;
+  }
+
+  .event-page .back-button.desktop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 16px;
+    width: 80px;
+  }
+
+  .event-page .event-title {
+    font-size: var(--text-5xl);
+  }
+
+  .event-page .book-button {
+    margin-top: 30px;
+    width: fit-content;
+    align-self: flex-end;
+  }
+}
+
+@media (min-width: 1200px) {
+  .event-page .event-img {
+    height: 580px;
+  }
+}

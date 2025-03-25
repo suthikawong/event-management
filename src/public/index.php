@@ -8,11 +8,17 @@ function splitUrl()
   return explode('/', trim($url, "/"));
 }
 
+function getInternalFilePath($url)
+{
+  $shiftUrl = array_slice($url, count($url) - 2);
+  return "../" . implode('/', $shiftUrl);
+}
+
 function loadController()
 {
   $url = splitUrl();
-  $pagePath = "../pages/" . $url[0] . ".php";
-  $filepath = "../" . $_GET['url'];
+  $pagePath = "../pages/" . $_GET['url'] . ".php";
+  $internalFilepath = getInternalFilePath($url);
   $adminPages = array("event-management", "user-management");
 
   // if match with page path
@@ -22,9 +28,13 @@ function loadController()
     }
     require $pagePath;
   }
+  // if match home path with event id
+  else if ($url[0] == "home" && count($url) === 2) {
+    require "../pages/event.php";
+  }
   // if match with other path
-  else if (file_exists($filepath)) {
-    require $filepath;
+  else if (file_exists($internalFilepath)) {
+    require $internalFilepath;
   }
   // if path not match any controller then show 404 page
   else {

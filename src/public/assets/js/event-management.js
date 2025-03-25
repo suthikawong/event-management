@@ -180,9 +180,9 @@ function resetForm() {
 //   })
 // }
 
-function fetchDataById($eventId) {
+function fetchDataById(eventId) {
   $.ajax({
-    url: `includes/event-management.inc.php?action=fetchById&id=${$eventId}`,
+    url: `includes/event-management.inc.php?action=fetchById&id=${eventId}`,
     type: 'GET',
     success: function (response) {
       const res = JSON.parse(response)
@@ -321,5 +321,5 @@ $(document).ready(function () {
   $('.submit-button').click(onSubmitForm)
 
   // delete event
-  $('#delete-modal .delete-button').click(confirmDeleteEvent)
+  // $('#delete-modal .delete-button').click(confirmDeleteEvent)
 })

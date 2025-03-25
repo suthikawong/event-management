@@ -12,6 +12,10 @@
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
   <script defer type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
   <script defer src="<?= PUBLIC_PATH ?>/assets/js/components/nav.js"></script>
+  <script defer type="text/javascript">
+    var publicPath = "<?= PUBLIC_PATH ?>";
+    var loginUserId = <?php echo json_encode($_SESSION['userId'] ?? ''); ?>;
+  </script>
   <link rel="stylesheet" href="<?= PUBLIC_PATH ?>/assets/css/styles.css">
   <link rel="stylesheet" href="<?= PUBLIC_PATH ?>/assets/css/layout/landing.css">
 

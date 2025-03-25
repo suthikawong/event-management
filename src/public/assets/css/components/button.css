@@ -42,6 +42,15 @@
   background-color: var(--magnolia);
 }
 
+.app-button.success {
+  background-color: var(--success-color);
+  color: var(--light-color);
+}
+
+.app-button.success:hover {
+  background-color: var(--success-hover-color);
+}
+
 .app-button.danger {
   background-color: var(--danger-color);
   color: var(--light-color);

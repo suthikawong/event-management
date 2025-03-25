@@ -9,12 +9,12 @@ function fetchEvents() {
     url: `includes/home.inc.php?action=fetchData&length=${limit}&start=${offset}&keyword=${keyword}`,
     type: 'GET',
     success: function (res) {
-      // load event-card.php to render event cards
-      $.ajax({
-        url: 'components/event-card.php',
-        type: 'GET',
-        success: function (element) {
-          if (res.statusCode === 200) {
+      if (res.statusCode === 200) {
+        // load event-card.php to render event cards
+        $.ajax({
+          url: 'components/event-card.php',
+          type: 'GET',
+          success: function (element) {
             // if there are events then replace event data in card
             if (res.data.length > 0) {
               res.data.forEach((event) => {
@@ -30,6 +30,7 @@ function fetchEvents() {
                 }
                 // render event cared
                 $('#event-card-container').append($(html))
+                $('#event-card-container .event-card:last-child').click(() => onClickEventCard(event.event_id))
               })
             }
             // if there is no event then show "No events found" message
@@ -49,13 +50,13 @@ function fetchEvents() {
             } else {
               $('button.load-button').show()
             }
-          } else {
-            $('.toast').toast('hide')
-            $('.toast-body').text(res.message)
-            $('.toast').toast('show')
-          }
-        },
-      })
+          },
+        })
+      } else {
+        $('.toast').toast('hide')
+        $('.toast-body').text(res.message ?? 'Something went wrong. Please try again.')
+        $('.toast').toast('show')
+      }
     },
   })
 }
@@ -69,6 +70,10 @@ function onSearch() {
   keyword = $('#search-keyword').val()
   $('#event-card-container').empty()
   fetchEvents()
+}
+
+function onClickEventCard(eventId) {
+  window.location.href = `../public/home/${eventId}`
 }
 
 $(document).ready(function () {

@@ -11,7 +11,7 @@ function triggerPopover() {
 }
 
 function onClickLogin() {
-  window.location.href = '../public/login'
+  window.location.href = `${publicPath}/login`
 }
 
 function onClickLogout() {
@@ -19,7 +19,7 @@ function onClickLogout() {
     url: 'includes/logout.inc.php',
     type: 'POST',
     success: function () {
-      window.location.href = '../public/home'
+      window.location.href = `${publicPath}/home`
     },
   })
 }

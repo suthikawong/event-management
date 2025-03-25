@@ -3,6 +3,7 @@ $title = 'Home';
 ?>
 
 <?php ob_start(); ?>
+<link rel="stylesheet" href="<?= PUBLIC_PATH ?>/assets/css/pages/home.css">
 <script defer src="<?= PUBLIC_PATH ?>/assets/js/home.js"></script>
 <?php $jsFiles = ob_get_clean(); ?>
 

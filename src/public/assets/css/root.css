@@ -15,11 +15,14 @@
   --red-ribbon: #dc3545;
   --well-read: #b7192c;
   --lavender-blush: #fff1f3;
+  --apple: #28a745;
+  --emerald: #32b550;
 
   --primary-color: var(--electric-violet);
   --primary-hover-color: var(--fuchsia-blue);
   --secondary-color: var(--brink-pink);
-  --success-color: #28a745;
+  --success-color: var(--apple);
+  --success-hover-color: var(--emerald);
   --info-color: #17a2b8;
   --warning-color: #ffc107;
   --danger-color: var(--red-ribbon);

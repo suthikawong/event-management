@@ -1,0 +1,76 @@
+<?php
+$title = 'Event';
+?>
+
+<?php ob_start(); ?>
+<link rel="stylesheet" href="<?= PUBLIC_PATH ?>/assets/css/pages/event.css">
+<script defer src="<?= PUBLIC_PATH ?>/assets/js/event.js"></script>
+<?php $jsFiles = ob_get_clean(); ?>
+
+<?php ob_start(); ?>
+<div class="event-page">
+  <section class="image-container">
+    <img class="event-img" src="<?= PUBLIC_PATH ?>/assets/images/default-img-large.png" alt="event image">
+    <div class="event-img-content">
+      <button class="app-button primary back-button desktop">
+        <i class="fa-solid fa-chevron-left"></i>
+        <div>Back</div>
+      </button>
+    </div>
+  </section>
+  <section class="event-container">
+    <button class="app-button primary back-button mobile">
+      <i class="fa-solid fa-chevron-left"></i>
+      <div>Back</div>
+    </button>
+    <h2 class="event-title"></h2>
+    <h3 class="event-desc">Description</h3>
+    <div class="event-desc-content"></div>
+    <h3 class="event-datetime">Date & Time</h3>
+    <div class="event-datetime-content">
+      <div>Start: <span></span></div>
+      <div>End: <span></span></div>
+    </div>
+    <h3 class="event-location">Event location</h3>
+    <div class="event-location-content"></div>
+    <button class="app-button primary book-button">Book now</button>
+  </section>
+
+  <!-- Sent email successfully modal -->
+  <div class="modal fade app-modal confirm" id="success-modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          <i class="fa-solid fa-circle-check success-icon"></i>
+          <div class="content">
+            <h2>Thank you!</h2>
+            <p>Event detail has been successfully sent to your email.</p>
+          </div>
+          <button type="button" class="app-button close-button">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sent email failed modal -->
+  <div class="modal fade app-modal confirm" id="failed-modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          <i class="fa-solid fa-circle-xmark failed-icon"></i>
+          <div class="content">
+            <h2>Error</h2>
+            <p>Send email failed. Please try again.</p>
+          </div>
+          <button type="button" class="app-button close-button">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<?php $content = ob_get_clean(); ?>
+
+<?php include "../components/layout/landing.php"; ?>
