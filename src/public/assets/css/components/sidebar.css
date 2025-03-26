@@ -119,6 +119,25 @@
   cursor: pointer;
 }
 
+.app-sidebar .home-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.app-sidebar a > .home-button {
+  padding: 12px 20px;
+  border-radius: 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.app-sidebar a:hover > .home-button {
+  background-color: var(--gray-lighter);
+}
+
 @media (min-width: 992px) {
   .app-sidebar .mobile-sidebar-container > * {
     display: none;

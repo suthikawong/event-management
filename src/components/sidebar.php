@@ -35,6 +35,14 @@ if ($_SESSION["isAdmin"]) {
         </div>
       </div>
     </div>
+    <div class="home-button-container">
+      <a href="<?= PUBLIC_PATH ?>/home">
+        <div class="home-button">
+          <i class="fa-solid fa-house"></i>
+          <div>Home</div>
+        </div>
+      </a>
+    </div>
     <div class="divider"></div>
     <div class="menu-item">
       <a class="logout-button">
@@ -76,6 +84,14 @@ if ($_SESSION["isAdmin"]) {
               </a>
             </div>
           </div>
+        </div>
+        <div class="home-button-container">
+          <a href="<?= PUBLIC_PATH ?>/home">
+            <div class="home-button">
+              <i class="fa-solid fa-house"></i>
+              <div>Home</div>
+            </div>
+          </a>
         </div>
         <div class="divider"></div>
         <div class="menu-item">

@@ -34,19 +34,29 @@ if (isset($_SESSION["userId"])) {
         </div>
         <div hidden>
           <div data-name="popover-content" class="popover-content">
-            <div class="profile-container">
-              <div class="profile-img"><?= $abbreviation ?></div>
-              <div>
-                <div class="profile-name"><?= $fullname ?></div>
-                <div class="profile-role"><?= $role ?></div>
+            <div class="upper-container">
+              <div class="profile-container">
+                <div class="profile-img"><?= $abbreviation ?></div>
+                <div>
+                  <div class="profile-name"><?= $fullname ?></div>
+                  <div class="profile-role"><?= $role ?></div>
+                </div>
+              </div>
+              <div class="popover-menu-item">
+                <a href="<?= PUBLIC_PATH ?>/event-management">
+                  <i class="fa-solid fa-chart-simple"></i>
+                  <div>Dashboard</div>
+                </a>
               </div>
             </div>
             <div class="divider"></div>
-            <div class="popover-menu-item">
-              <a class="logout-button">
-                <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                <div>Logout</div>
-              </a>
+            <div class="lower-container">
+              <div class="popover-menu-item">
+                <a class="logout-button">
+                  <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                  <div>Logout</div>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -95,6 +105,14 @@ if (isset($_SESSION["userId"])) {
               </a>
             </div>
           </div>
+        </div>
+        <div class="dashboard-button-container">
+          <a href="<?= PUBLIC_PATH ?>/event-management">
+            <div class="dashboard-button">
+              <i class="fa-solid fa-chart-simple"></i>
+              <div>Dashboard</div>
+            </div>
+          </a>
         </div>
         <div class="divider"></div>
         <div class="menu-item">

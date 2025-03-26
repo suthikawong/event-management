@@ -80,6 +80,7 @@
   flex-direction: row;
   align-items: center;
   gap: 16px;
+  margin-bottom: 12px;
 }
 
 .profile-img {
@@ -115,13 +116,35 @@
   width: 100%;
 }
 
-.app-navbar .login-button {
+.app-navbar .login-button,
+.app-navbar .dashboard-button {
   cursor: pointer;
 }
 
 .app-navbar .logout-button,
-.popover-content .logout-button {
+.popover-content .logout-button,
+.app-navbar .dashboard-button,
+.popover-content .dashboard-button {
   cursor: pointer;
+}
+
+.app-navbar .dashboard-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.app-navbar a > .dashboard-button {
+  padding: 12px 20px;
+  border-radius: 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.app-navbar a:hover > .dashboard-button {
+  background-color: var(--gray-lighter);
 }
 
 @media (min-width: 992px) {
@@ -168,6 +191,7 @@
   .app-navbar .right-container {
     display: flex;
     align-items: center;
+    gap: 20px;
   }
 
   .profile-container {
@@ -181,7 +205,6 @@
   }
 
   .app-navbar .icon-container {
-    margin-left: 20px;
     cursor: pointer;
   }
 
@@ -201,8 +224,14 @@
     width: 100%;
   }
 
-  .popover-content > div:first-child,
-  .popover-content > div:last-child {
+  .popover-content .upper-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 14px 20px;
+  }
+
+  .popover-content .lower-container {
     padding: 14px 20px;
   }
 
