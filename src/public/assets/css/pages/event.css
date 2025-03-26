@@ -98,8 +98,21 @@
   color: var(--gray);
 }
 
-.event-page .book-button {
+.event-page .button-container {
+  display: flex;
+  flex-direction: column;
   margin-top: 30px;
+  align-items: center;
+}
+
+.event-page .booking-text {
+  display: none;
+  color: var(--success-color);
+  margin-bottom: 10px;
+}
+
+.event-page .booking-button {
+  width: 100%;
 }
 
 .event-page .success-icon {
@@ -189,10 +202,19 @@
     font-size: var(--text-5xl);
   }
 
-  .event-page .book-button {
-    margin-top: 30px;
+  .event-page .button-container {
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    justify-content: end;
+  }
+
+  .event-page .booking-text {
+    margin: 0;
+  }
+
+  .event-page .booking-button {
     width: fit-content;
-    align-self: flex-end;
   }
 }
 

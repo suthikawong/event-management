@@ -33,7 +33,10 @@ $title = 'Event';
     </div>
     <h3 class="event-location">Event location</h3>
     <div class="event-location-content"></div>
-    <button class="app-button primary book-button">Book now</button>
+    <div class="button-container">
+      <div class="booking-text">You already booked this event!</div>
+      <button class="app-button primary booking-button">Book now</button>
+    </div>
   </section>
 
   <!-- Sent email successfully modal -->

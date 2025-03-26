@@ -13,6 +13,11 @@
   font-size: var(--text-sm);
 }
 
+.app-button.disabled {
+  background-color: var(--gray-light) !important;
+  color: var(--gray) !important;
+}
+
 .app-button.primary {
   background-color: var(--primary-color);
   color: var(--light-color);
