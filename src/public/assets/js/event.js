@@ -2,6 +2,8 @@ const successModalElement = document.querySelector('#success-modal')
 const successModal = bootstrap.Modal.getOrCreateInstance(successModalElement)
 const failedModalElement = document.querySelector('#failed-modal')
 const failedModal = bootstrap.Modal.getOrCreateInstance(failedModalElement)
+const ticketModalElement = document.querySelector('#ticket-modal')
+const ticketModal = bootstrap.Modal.getOrCreateInstance(ticketModalElement)
 
 function fetchEventById(eventId) {
   $.ajax({
@@ -48,7 +50,7 @@ function isBookedByUser(eventId) {
           if (booking.event_id == eventId) {
             $('.booking-button').attr('disabled', 'disabled')
             $('.booking-button').addClass('disabled')
-            $('.booking-text').css('display', 'block')
+            $('.view-button').css('display', 'block')
           }
         })
       } else {
@@ -65,6 +67,9 @@ function onClickBook(eventId) {
     window.location.href = `${publicPath}/login`
     return
   }
+  $('.booking-button').attr('disabled', 'disabled')
+  $('.booking-button').addClass('disabled')
+
   $.ajax({
     url: `includes/event.inc.php?action=bookEvent&eventId=${eventId}`,
     type: 'GET',
@@ -72,10 +77,9 @@ function onClickBook(eventId) {
       const res = JSON.parse(response)
       if (res.statusCode === 200) {
         successModal.show()
-        $('.booking-button').attr('disabled', 'disabled')
-        $('.booking-button').addClass('disabled')
-        $('.booking-text').css('display', 'block')
+        $('.view-button').css('display', 'block')
       } else {
+        $('.booking-button').removeClass('disabled')
         failedModal.show()
       }
     },
@@ -85,6 +89,31 @@ function onClickBook(eventId) {
 function onClickClose() {
   successModal.hide()
   failedModal.hide()
+  ticketModal.hide()
+}
+
+function generateQRCode(eventId) {
+  const url = `${publicPath}/home/${eventId}`
+  $('#qrcode').empty()
+  new QRCode($('#qrcode')[0], {
+    text: url,
+    width: 180,
+    height: 180,
+    colorDark: '#000',
+    colorLight: '#fff',
+    correctLevel: QRCode.CorrectLevel.H,
+  })
+  $('.event-page input[name=qrcode-link]').val(url)
+}
+
+function onClickViewTicket(eventId) {
+  ticketModal.show()
+  generateQRCode(eventId)
+}
+
+function onClickCopyText() {
+  const copyText = $('.event-page input[name=qrcode-link]').val()
+  navigator.clipboard.writeText(copyText)
 }
 
 $(document).ready(function () {
@@ -93,10 +122,13 @@ $(document).ready(function () {
     fetchEventById(eventId)
     isBookedByUser(eventId)
     $('.event-page .booking-button').click(() => onClickBook(eventId))
+    $('.event-page .view-button').click(() => onClickViewTicket(eventId))
   }
   $('.event-page .back-button').click(onClickBack)
 
   $('.modal .close-button').click(onClickClose)
+
+  $('#ticket-modal .copy-button').click(onClickCopyText)
 
   // $('#delete-modal .delete-button').click(confirmDeleteEvent)
 })

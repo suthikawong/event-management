@@ -14,7 +14,7 @@
 }
 
 .app-button.disabled {
-  background-color: var(--gray-light) !important;
+  background-color: var(--gray-lighter) !important;
   color: var(--gray) !important;
 }
 

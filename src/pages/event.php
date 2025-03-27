@@ -5,6 +5,7 @@ $title = 'Event';
 <?php ob_start(); ?>
 <link rel="stylesheet" href="<?= PUBLIC_PATH ?>/assets/css/pages/event.css">
 <script defer src="<?= PUBLIC_PATH ?>/assets/js/event.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
 <?php $jsFiles = ob_get_clean(); ?>
 
 <?php ob_start(); ?>
@@ -34,12 +35,12 @@ $title = 'Event';
     <h3 class="event-location">Event location</h3>
     <div class="event-location-content"></div>
     <div class="button-container">
-      <div class="booking-text">You already booked this event!</div>
+      <button class="app-button outline-primary view-button">View QR Code</button>
       <button class="app-button primary booking-button">Book now</button>
     </div>
   </section>
 
-  <!-- Sent email successfully modal -->
+  <!-- Booking event successfully modal -->
   <div class="modal fade app-modal confirm" id="success-modal" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -56,7 +57,7 @@ $title = 'Event';
     </div>
   </div>
 
-  <!-- Sent email failed modal -->
+  <!-- Booking event failed modal -->
   <div class="modal fade app-modal confirm" id="failed-modal" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -68,6 +69,32 @@ $title = 'Event';
             <p>Send email failed. Please try again.</p>
           </div>
           <button type="button" class="app-button close-button">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- View QR Code modal -->
+  <div class="modal fade app-modal confirm" id="ticket-modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          <div class="content">
+            <h2>Scan QR Code</h2>
+            <p>Scan this code to verify your booking</p>
+            <div id="qrcode"></div>
+          </div>
+          <div class="divider-with-text">
+            <div class="divider"></div>
+            <div class="text">or enter the code manually</div>
+            <div class="divider"></div>
+          </div>
+          <div class="link-container">
+            <input class="app-text-input" name="qrcode-link" type="text">
+            <button class="app-button outline copy-button"><i class="fa-regular fa-copy"></i></button>
+          </div>
+          <button type="button" class="app-button primary close-button">Close</button>
         </div>
       </div>
     </div>

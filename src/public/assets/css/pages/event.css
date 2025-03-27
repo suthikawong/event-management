@@ -111,6 +111,10 @@
   margin-bottom: 10px;
 }
 
+.event-page .view-button {
+  display: none;
+}
+
 .event-page .booking-button {
   width: 100%;
 }
@@ -144,6 +148,44 @@
   top: 0;
   right: 0;
   margin: 20px;
+}
+
+.event-page .divider {
+  border-top: 1px solid var(--gray-light);
+  width: 100%;
+}
+
+.event-page #qrcode {
+  padding: 10px;
+  border: 1px solid var(--gray-light);
+  border-radius: 10px;
+}
+
+.event-page .divider-with-text {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--text-sm);
+}
+
+.event-page .divider-with-text > div.text {
+  text-wrap: nowrap;
+}
+
+.event-page .link-container {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.event-page .copy-button {
+  padding: 0 12px;
+}
+
+.event-page .copy-button:active {
+  background-color: var(--gray-lightest);
 }
 
 @media (min-width: 576px) {

@@ -47,15 +47,15 @@ class BookingController extends Booking
       $publicPath = PUBLIC_PATH;
 
       $mail->isHTML(true);
-      $html = "<p>Your booking for $eventName is confirmed! Below are your details:</p>
+      $html = "<p>Your booking for $eventName is confirmed! Below are your booking details:</p>
               <br>
               <p>📅 Date: $eventDate</p>
               <p>⏰ Time: $eventTime</p>
               <p>📍 Location: $location</p>
               <br>
-              <p>🎟️ Your Ticket:</p>
-              <p>Access your ticket anytime here:</p>
-              <a href='$publicPath/home/$eventId'>View or Download Ticket</a>";
+              <p>🔍 Next Steps:</p>
+              <p>View your event details and access your QR code here:</p>
+              <a href='$publicPath/home/$eventId'>View Event & QR Code</a>";
 
       $mail->Subject = 'Your Booking Confirmation';
       $mail->Body    = $html;
