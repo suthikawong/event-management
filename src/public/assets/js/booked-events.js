@@ -1,7 +1,3 @@
-var limit = 3
-var offset = -limit
-var keyword = ''
-
 function fetchBookedEvents() {
   $.ajax({
     url: `includes/booked-events.inc.php?action=fetchBookingByUserId`,
@@ -28,17 +24,17 @@ function fetchBookedEvents() {
                   html = html.replace('$image', 'assets/images/default-img.png')
                 }
                 // render event cared
+                $('#event-card-container').removeClass('flex')
+                $('#event-card-container').addClass('grid')
                 $('#event-card-container').append($(html))
                 $('#event-card-container .event-card:last-child').click(() => onClickEventCard(event.event_id))
               })
             }
             // if there is no booked event then show "No events found" message
-            else if (offset === 0) {
-              html = `
-              <div></div>
-              <div style="margin: auto;">No events found</div>
-              <div></div>
-              `
+            else {
+              $('#event-card-container').removeClass('grid')
+              $('#event-card-container').addClass('flex')
+              html = '<div>No events found</div>'
               $('#event-card-container').html(html)
             }
           },
