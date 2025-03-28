@@ -13,7 +13,7 @@ $title = 'Booked Events';
     <div class="event-header">
       <span class="event-title">
         <h1>Booked</h1>
-        <h1>Event</h1>
+        <h1>Events</h1>
       </span>
     </div>
     <div id="event-card-container">

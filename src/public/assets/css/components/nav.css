@@ -38,6 +38,10 @@
   align-self: flex-start;
 }
 
+.app-navbar .logo {
+  width: 120px;
+}
+
 .app-navbar .menu-list {
   list-style-type: none;
   padding: 0;
@@ -164,6 +168,10 @@
     display: flex;
     gap: 40px;
     align-items: center;
+  }
+
+  .app-navbar .logo {
+    width: 160px;
   }
 
   .app-navbar .menu-list {

@@ -13,7 +13,7 @@ if (isset($_SESSION["userId"])) {
 <nav class="app-navbar">
   <div class="desktop-nav-container">
     <div class="menu-container">
-      <h1>Logo</h1>
+      <img class="logo" src="<?= PUBLIC_PATH ?>/assets/images/logo.png" alt="logo">
       <div class="menu-list">
         <div class="menu-item"><a href="<?= PUBLIC_PATH ?>/home">Home</a></div>
         <?php if (isset($_SESSION["userId"])) { ?>
@@ -93,7 +93,7 @@ if (isset($_SESSION["userId"])) {
           <?php
           } else {
           ?>
-            <div>LOGO</div>
+            <img class="logo" src="<?= PUBLIC_PATH ?>/assets/images/logo.png" alt="logo">
           <?php } ?>
           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
         </div>
