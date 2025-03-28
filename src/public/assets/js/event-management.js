@@ -81,8 +81,8 @@ function showDataTable() {
           return `
             <div class="card-action-container">
               <button class="edit-button" onclick="onClickEditEvent(${row.event_id})"><i class="fa-solid fa-pen"></i></button>
-              <div class="card-divider" onclick="onClickDeleteEvent(${row.event_id})"></div>
-              <button class="delete-button"><i class="fa-solid fa-trash"></i></button>
+              <div class="card-divider"></div>
+              <button class="delete-button" onclick="onClickDeleteEvent(${row.event_id})"><i class="fa-solid fa-trash"></i></button>
             </div>
             <div class="table-action-container">
               <button onclick="onClickEditEvent(${row.event_id})" class="app-button sm outline-primary edit-button">Edit</button>
