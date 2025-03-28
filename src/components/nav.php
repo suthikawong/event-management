@@ -16,6 +16,7 @@ if (isset($_SESSION["userId"])) {
       <h1>Logo</h1>
       <div class="menu-list">
         <div class="menu-item"><a href="<?= PUBLIC_PATH ?>/home">Home</a></div>
+        <div class="menu-item"><a href="<?= PUBLIC_PATH ?>/booked-events">Booked Events</a></div>
       </div>
     </div>
     <?php
@@ -102,6 +103,12 @@ if (isset($_SESSION["userId"])) {
               <a href="<?= PUBLIC_PATH ?>/home">
                 <i class="fa-solid fa-house"></i>
                 Home
+              </a>
+            </div>
+            <div class="menu-item">
+              <a href="<?= PUBLIC_PATH ?>/booked-events">
+                <i class="fa-solid fa-house"></i>
+                Booked Events
               </a>
             </div>
           </div>

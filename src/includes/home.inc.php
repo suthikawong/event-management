@@ -19,7 +19,6 @@ if ($_GET['action'] === "fetchData") {
       "message" => "Fetch events sucessfully",
       "data" => $result["data"],
       "recordsTotal" => $result["total"],
-      "uploadPath" => UPLOADS_PATH
     ]);
   } catch (Exception $e) {
     if ($e->getCode()) {

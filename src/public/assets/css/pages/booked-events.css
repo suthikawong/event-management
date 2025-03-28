@@ -1,0 +1,74 @@
+.booked-events-page .event-container {
+  position: relative;
+  margin-top: 40px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.booked-events-page .event-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.booked-events-page #event-card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  width: 100%;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.booked-events-page .event-title {
+  display: flex;
+  gap: 10px;
+}
+
+.booked-events-page .event-title > h1 {
+  font-size: var(--text-4xl);
+  font-weight: 700;
+}
+
+.booked-events-page .event-title > h1:last-child {
+  color: var(--primary-color);
+}
+
+.booked-events-page .event-card {
+  border-radius: 10px;
+  padding: 20px;
+  background-color: var(--light-color);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  cursor: pointer;
+}
+
+.booked-events-page .event-card:hover {
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+}
+
+.booked-events-page .event-img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.booked-events-page .event-name {
+  font-weight: 600;
+}
+
+.booked-events-page .event-date {
+  font-size: var(--text-xs);
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.booked-events-page .event-where {
+  font-size: var(--text-xs);
+  color: var(--gray);
+  font-weight: 500;
+}

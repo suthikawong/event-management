@@ -2,13 +2,12 @@ var limit = 3
 var offset = -limit
 var keyword = ''
 
-function fetchEvents() {
-  offset += limit
-  // load event data
+function fetchBookedEvents() {
   $.ajax({
-    url: `includes/home.inc.php?action=fetchData&length=${limit}&start=${offset}&keyword=${keyword}`,
+    url: `includes/booked-events.inc.php?action=fetchBookingByUserId`,
     type: 'GET',
-    success: function (res) {
+    success: function (response) {
+      const res = JSON.parse(response)
       if (res.statusCode === 200) {
         // load event-card.php to render event cards
         $.ajax({
@@ -33,7 +32,7 @@ function fetchEvents() {
                 $('#event-card-container .event-card:last-child').click(() => onClickEventCard(event.event_id))
               })
             }
-            // if there is no event then show "No events found" message
+            // if there is no booked event then show "No events found" message
             else if (offset === 0) {
               html = `
               <div></div>
@@ -41,14 +40,6 @@ function fetchEvents() {
               <div></div>
               `
               $('#event-card-container').html(html)
-            }
-
-            const eventCount = $('#event-card-container .event-card').length
-            // hide/show load more button
-            if (eventCount === 0 || eventCount === res.recordsTotal) {
-              $('button.load-button').hide()
-            } else {
-              $('button.load-button').show()
             }
           },
         })
@@ -61,25 +52,11 @@ function fetchEvents() {
   })
 }
 
-function onClickLoadMore() {
-  fetchEvents()
-}
-
-function onSearch() {
-  offset = -limit
-  keyword = $('#search-keyword').val()
-  $('#event-card-container').empty()
-  fetchEvents()
-}
-
 function onClickEventCard(eventId) {
   window.location.href = `${publicPath}/home/${eventId}`
 }
 
 $(document).ready(function () {
-  fetchEvents()
-  $('button.load-button').click(fetchEvents)
-
-  // search
-  $('.search-button').click(onSearch)
+  fetchBookedEvents()
+  $('button.load-button').click(fetchBookedEvents)
 })

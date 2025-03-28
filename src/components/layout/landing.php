@@ -14,6 +14,7 @@
   <script defer src="<?= PUBLIC_PATH ?>/assets/js/components/nav.js"></script>
   <script defer type="text/javascript">
     var publicPath = "<?= PUBLIC_PATH ?>";
+    var uploadsPath = "<?= UPLOADS_PATH ?>";
     var loginUserId = <?php echo json_encode($_SESSION['userId'] ?? ''); ?>;
   </script>
   <link rel="stylesheet" href="<?= PUBLIC_PATH ?>/assets/css/styles.css">
