@@ -20,10 +20,13 @@ function loadController()
   $pagePath = "../pages/" . $_GET['url'] . ".php";
   $internalFilepath = getInternalFilePath($url);
   $adminPages = array("event-management", "user-management");
+  $loginPages = array("booked-events");
 
   // if match with page path
   if (file_exists($pagePath)) {
     if (in_array($url[0], $adminPages) && (!isset($_SESSION["userId"]) || !$_SESSION["isAdmin"])) {
+      header("Location: ../public/home");
+    } else if (in_array($url[0], $loginPages) && (!isset($_SESSION["userId"]))) {
       header("Location: ../public/home");
     }
     require $pagePath;
