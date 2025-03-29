@@ -1,6 +1,5 @@
 var action = null
 var startDate = null
-// var endDate = null
 var table
 var deleteEventId = null
 const formModalElement = document.querySelector('#form-modal')
@@ -105,24 +104,6 @@ function onImageChange() {
 }
 
 function setDateTimePicker(start) {
-  // startDate = start.format('YYYY-MM-DDTHH:mm:ss')
-  // endDate = end.format('YYYY-MM-DDTHH:mm:ss')
-  // $('input[name="duration"]').daterangepicker(
-  //   {
-  //     timePicker: true,
-  //     drops: 'up',
-  //     startDate: start,
-  //     endDate: end,
-  //     locale: {
-  //       format: 'DD/MM/YYYY H:mm',
-  //     },
-  //   },
-  //   function (start, end) {
-  //     startDate = start.format('YYYY-MM-DDTHH:mm:ss')
-  //     endDate = end.format('YYYY-MM-DDTHH:mm:ss')
-  //   }
-  // )
-
   startDate = start.format('YYYY-MM-DDTHH:mm:ss')
   $('input[name="date"]').daterangepicker(
     {
@@ -132,7 +113,6 @@ function setDateTimePicker(start) {
       showDropdowns: true,
       minDate: moment().startOf('hour').add(1, 'hour'),
       startDate: start,
-      // maxYear: parseInt(moment().format('YYYY'),10)
       locale: {
         format: 'DD/MM/YYYY H:mm',
       },
@@ -147,56 +127,12 @@ function resetForm() {
   // clear form
   $('#event-form').trigger('reset')
   $('#error-message').hide()
-  $('.preview-image-container').hide()
-  $('.uploader-container').show()
+  onClickDeleteImage()
 
   // reset datepicker to initial value
   const start = moment().startOf('hour')
-  // const end = moment().startOf('hour').add(1, 'hour')
   setDateTimePicker(start)
 }
-
-// function fetchData() {
-//   $.ajax({
-//     url: `includes/event-management.inc.php?action=fetchData`,
-//     type: 'GET',
-//     success: function (response) {
-//       console.log('TLOG ~ response:', response)
-//       const res = JSON.parse(response)
-//       if (res.statusCode === 200) {
-//         // load event row that will be insert in table
-//         $.ajax({
-//           url: 'components/event-row.php',
-//           type: 'GET',
-//           success: function (element) {
-//             table.clear().draw()
-//             $.each(res.data, function (_, value) {
-//               let elem = element
-//               const start = moment(value.start_date)
-//               const end = moment(value.end_date)
-//               elem = elem.replace('$event_id', value.event_id)
-//               elem = elem.replace('$event_name', value.event_name)
-//               elem = elem.replace('$start_date', start.format('DD/MM/YYYY'))
-//               elem = elem.replace('$end_date', end.format('DD/MM/YYYY'))
-//               elem = elem.replace('$time', `${start.format('H:mm')} - ${end.format('H:mm')}`)
-//               elem = elem.replace('$location', value.location)
-//               if (value.image) {
-//                 elem = elem.replace('$image', `${uploadsPath}/${value.image}`)
-//               } else {
-//                 elem = elem.replace('$image', 'assets/images/default-img.png')
-//               }
-//               table.row.add($(elem)).draw()
-//             })
-//           },
-//         })
-//       } else {
-//         $('.toast').toast('hide')
-//         $('.toast-body').text(res.message)
-//         $('.toast').toast('show')
-//       }
-//     },
-//   })
-// }
 
 function fetchDataById(eventId) {
   $.ajax({
@@ -219,8 +155,7 @@ function fetchDataById(eventId) {
         } else {
           $('#event-form input[name=imageName]').val('')
         }
-        const start = moment(data.start_date)
-        // const end = moment(data.end_date)
+        const start = moment(data.date)
         setDateTimePicker(start)
       } else {
         $('.toast').toast('hide')
@@ -237,7 +172,6 @@ function onSubmitForm() {
   $('.submit-button').attr('disabled', 'disabled')
   const formData = new FormData($('#event-form')[0])
   formData.append('date', startDate)
-  // formData.append('endDate', endDate)
 
   $('.submit-button').attr('disabled', 'disabled')
   $('.submit-button').addClass('disabled')
