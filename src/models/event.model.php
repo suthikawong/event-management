@@ -23,6 +23,8 @@ class Event extends DB
       $sqlCount = $sqlCount . $where;
     }
 
+    $sql = $sql . ' ORDER BY date ASC';
+
     if (is_int($limit) && is_int($offset)) {
       $sql = $sql . ' LIMIT :limit OFFSET :offset';
     }
