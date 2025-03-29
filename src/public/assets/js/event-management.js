@@ -217,6 +217,9 @@ function onSubmitForm() {
   formData.append('startDate', startDate)
   formData.append('endDate', endDate)
 
+  $('.submit-button').attr('disabled', 'disabled')
+  $('.submit-button').addClass('disabled')
+
   $.ajax({
     url: `includes/event-management.inc.php?action=${action}`,
     type: 'POST',
@@ -239,6 +242,7 @@ function onSubmitForm() {
         console.error(e)
       } finally {
         $('.submit-button').removeAttr('disabled')
+        $('.submit-button').removeClass('disabled')
       }
     },
   })
