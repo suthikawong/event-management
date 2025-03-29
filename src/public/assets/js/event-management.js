@@ -37,11 +37,10 @@ function showDataTable() {
       {
         targets: 0,
         data: 'image',
-        render: function (data, _, _, meta) {
+        render: function (data) {
           let image = 'assets/images/default-img.png'
-          const uploadPath = meta.settings.json.uploadPath
           if (data) {
-            image = `${uploadPath}/${data}`
+            image = `${uploadsPath}/${data}`
           }
           return tableImageCellElement(image)
         },
@@ -163,7 +162,7 @@ function resetForm() {
 //               elem = elem.replace('$time', `${start.format('H:mm')} - ${end.format('H:mm')}`)
 //               elem = elem.replace('$location', value.location)
 //               if (value.image) {
-//                 elem = elem.replace('$image', `${res.uploadPath}/${value.image}`)
+//                 elem = elem.replace('$image', `${uploadsPath}/${value.image}`)
 //               } else {
 //                 elem = elem.replace('$image', 'assets/images/default-img.png')
 //               }
@@ -195,7 +194,10 @@ function fetchDataById(eventId) {
         if (data.image) {
           $('#event-form .uploader-container').hide()
           $('#event-form .preview-image-container').show()
-          $('#event-form .preview-image').attr('src', `${res.uploadPath}/${data.image}`)
+          $('#event-form input[name=imageName]').val(data.image)
+          $('#event-form .preview-image').attr('src', `${uploadsPath}/${data.image}`)
+        } else {
+          $('#event-form input[name=imageName]').val('')
         }
         const start = moment(data.start_date)
         const end = moment(data.end_date)
@@ -210,12 +212,17 @@ function fetchDataById(eventId) {
 }
 
 function onSubmitForm() {
+  console.log('action : ', action)
   if (!action) return
 
   $('.submit-button').attr('disabled', 'disabled')
   const formData = new FormData($('#event-form')[0])
   formData.append('startDate', startDate)
   formData.append('endDate', endDate)
+
+  for (let [key, value] of formData.entries()) {
+    console.log(`${key}: ${JSON.stringify(value)}`)
+  }
 
   $('.submit-button').attr('disabled', 'disabled')
   $('.submit-button').addClass('disabled')
@@ -230,6 +237,7 @@ function onSubmitForm() {
     success: function (response) {
       try {
         const res = JSON.parse(response)
+        console.log('TLOG ~ res:', res)
         if (res.statusCode === 200) {
           $('#error-message').hide()
           formModal.hide()
@@ -294,6 +302,7 @@ function onClickDeleteEvent(eventId) {
 
 function onClickDeleteImage() {
   $('#event-form input[name=image]').val('')
+  $('#event-form input[name=imageName]').val('')
   $('#event-form .uploader-container').show()
   $('#event-form .preview-image-container').hide()
 }

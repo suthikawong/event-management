@@ -19,7 +19,7 @@ function fetchEventById(eventId) {
         $('.event-datetime-content > div:last-child > span').text(moment(data.end_date).format('DD/MM/YY hh:mm A'))
         $('.event-location-content').text(data.location)
         if (data.image) {
-          $('.event-img').attr('src', `${res.uploadPath}/${data.image}`)
+          $('.event-img').attr('src', `${uploadsPath}/${data.image}`)
         }
       } else {
         $('.toast').toast('hide')

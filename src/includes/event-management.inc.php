@@ -21,7 +21,6 @@ if ($_GET['action'] === 'fetchData') {
       "data" => $result["data"],
       "recordsTotal" => $result["total"],
       "recordsFiltered" => $result["total"],
-      "uploadPath" => UPLOADS_PATH
     ]);
   } catch (Exception $e) {
     if ($e->getCode()) {
@@ -47,8 +46,7 @@ if ($_GET['action'] === 'fetchById') {
     echo json_encode([
       "statusCode" => 200,
       "message" => "Fetch event sucessfully",
-      "data" => $data,
-      "uploadPath" => UPLOADS_PATH
+      "data" => $data
     ]);
   } catch (Exception $e) {
     if ($e->getCode()) {
@@ -65,13 +63,15 @@ if ($_GET['action'] === 'fetchById') {
   }
 }
 
-function getFilePath()
+function uploadImage()
 {
   $originaImagelName = $_FILES["image"]["name"];
   if ($originaImagelName) {
     $newImageName = uniqid() . time() . "." . pathinfo($originaImagelName, PATHINFO_EXTENSION);
     move_uploaded_file($_FILES["image"]['tmp_name'], UPLOADS_PATH . '/' . $newImageName);
     return $newImageName;
+  } else if (!empty($_POST["imageName"])) {
+    return $_POST["imageName"];
   }
   return null;
 }
@@ -84,7 +84,7 @@ if ($_GET['action'] === 'insertData') {
     $startDate = $_POST["startDate"];
     $endDate = $_POST["endDate"];
     $location = $_POST["location"];
-    $image = getFilePath();
+    $image = uploadImage();
 
     $manager = new EventManagementController();
     $manager->insertEvent($event, $description, $image, $startDate, $endDate, $location);
@@ -118,7 +118,7 @@ if ($_GET['action'] === 'updateData') {
     $startDate = $_POST["startDate"];
     $endDate = $_POST["endDate"];
     $location = $_POST["location"];
-    $image = getFilePath();
+    $image = uploadImage();
 
     $manager = new EventManagementController();
     $manager->updateEvent((int) $id, $event, $description, $image, $startDate, $endDate, $location);

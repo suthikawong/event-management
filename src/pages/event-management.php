@@ -66,6 +66,7 @@ $title = 'Event Management';
             <div class="form-item">
               <div class="image-uploader">
                 <div class="uploader-container">
+                  <input name="imageName" type="hidden">
                   <input name="image" type="file" accept="image/*" class="image app-image-uploader">
                   <i class="fa-solid fa-cloud-arrow-up"></i>
                   <span>Drag & Drop your image or Browse</span>

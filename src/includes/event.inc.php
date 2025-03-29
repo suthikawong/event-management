@@ -17,7 +17,6 @@ if ($_GET['action'] === 'fetchById') {
       "statusCode" => 200,
       "message" => "Fetch event sucessfully",
       "data" => $data,
-      "uploadPath" => UPLOADS_PATH
     ]);
   } catch (Exception $e) {
     if ($e->getCode()) {

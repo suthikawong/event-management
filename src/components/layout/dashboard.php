@@ -23,6 +23,7 @@
   <script defer src="<?= PUBLIC_PATH ?>/assets/js/components/table.js"></script>
   <script defer type="text/javascript">
     var publicPath = "<?= PUBLIC_PATH ?>";
+    var uploadsPath = "<?= UPLOADS_PATH ?>";
   </script>
 
   <?php echo $jsFiles; ?>
