@@ -17,7 +17,7 @@ if (isset($_SESSION["userId"])) {
       <div class="menu-list">
         <div class="menu-item"><a href="<?= PUBLIC_PATH ?>/home">Home</a></div>
         <?php if (isset($_SESSION["userId"])) { ?>
-          <div class="menu-item"><a href="<?= PUBLIC_PATH ?>/booked-events">Booked Events</a></div>
+          <div class="menu-item"><a href="<?= PUBLIC_PATH ?>/my-booking">My Booking</a></div>
         <?php } ?>
       </div>
     </div>
@@ -109,9 +109,9 @@ if (isset($_SESSION["userId"])) {
             </div>
             <?php if (isset($_SESSION["userId"])) { ?>
               <div class="menu-item">
-                <a href="<?= PUBLIC_PATH ?>/booked-events">
-                  <i class="fa-solid fa-house"></i>
-                  Booked Events
+                <a href="<?= PUBLIC_PATH ?>/my-booking">
+                  <i class="fa-solid fa-calendar"></i>
+                  My Booking
                 </a>
               </div>
             <?php } ?>

@@ -1,6 +1,6 @@
 function fetchBookedEvents() {
   $.ajax({
-    url: `includes/booked-events.inc.php?action=fetchBookingByUserId`,
+    url: `includes/my-booking.inc.php?action=fetchBookingByUserId`,
     type: 'GET',
     success: function (response) {
       const res = JSON.parse(response)

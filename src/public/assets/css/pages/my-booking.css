@@ -1,4 +1,4 @@
-.booked-events-page .event-container {
+.my-booking-page .event-container {
   position: relative;
   margin-top: 40px;
   padding: 20px;
@@ -6,14 +6,14 @@
   flex-direction: column;
 }
 
-.booked-events-page .event-header {
+.my-booking-page .event-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
 }
 
-.booked-events-page #event-card-container.grid {
+.my-booking-page #event-card-container.grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   width: 100%;
@@ -21,28 +21,28 @@
   margin-bottom: 40px;
 }
 
-.booked-events-page #event-card-container.flex {
+.my-booking-page #event-card-container.flex {
   display: flex;
   justify-content: center;
   width: 100%;
   margin-bottom: 40px;
 }
 
-.booked-events-page .event-title {
+.my-booking-page .event-title {
   display: flex;
   gap: 10px;
 }
 
-.booked-events-page .event-title > h1 {
+.my-booking-page .event-title > h1 {
   font-size: var(--text-4xl);
   font-weight: 700;
 }
 
-.booked-events-page .event-title > h1:last-child {
+.my-booking-page .event-title > h1:last-child {
   color: var(--primary-color);
 }
 
-.booked-events-page .event-card {
+.my-booking-page .event-card {
   border-radius: 10px;
   padding: 20px;
   background-color: var(--light-color);
@@ -53,28 +53,28 @@
   cursor: pointer;
 }
 
-.booked-events-page .event-card:hover {
+.my-booking-page .event-card:hover {
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3);
 }
 
-.booked-events-page .event-img {
+.my-booking-page .event-img {
   width: 100%;
   height: 240px;
   object-fit: cover;
   border-radius: 10px;
 }
 
-.booked-events-page .event-name {
+.my-booking-page .event-name {
   font-weight: 600;
 }
 
-.booked-events-page .event-date {
+.my-booking-page .event-date {
   font-size: var(--text-xs);
   color: var(--primary-color);
   font-weight: 500;
 }
 
-.booked-events-page .event-where {
+.my-booking-page .event-where {
   font-size: var(--text-xs);
   color: var(--gray);
   font-weight: 500;

@@ -20,7 +20,7 @@ function loadController()
   $pagePath = "../pages/" . $_GET['url'] . ".php";
   $internalFilepath = getInternalFilePath($url);
   $adminPages = array("event-management", "user-management");
-  $loginPages = array("booked-events");
+  $loginPages = array("my-booking");
 
   // if match with page path
   if (file_exists($pagePath)) {

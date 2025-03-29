@@ -1,19 +1,19 @@
 <?php
-$title = 'Booked Events';
+$title = 'My Booking';
 ?>
 
 <?php ob_start(); ?>
-<link rel="stylesheet" href="<?= PUBLIC_PATH ?>/assets/css/pages/booked-events.css">
-<script defer src="<?= PUBLIC_PATH ?>/assets/js/booked-events.js"></script>
+<link rel="stylesheet" href="<?= PUBLIC_PATH ?>/assets/css/pages/my-booking.css">
+<script defer src="<?= PUBLIC_PATH ?>/assets/js/my-booking.js"></script>
 <?php $jsFiles = ob_get_clean(); ?>
 
 <?php ob_start(); ?>
-<div class="booked-events-page">
+<div class="my-booking-page">
   <section class="event-container">
     <div class="event-header">
       <span class="event-title">
-        <h1>Booked</h1>
-        <h1>Events</h1>
+        <h1>My</h1>
+        <h1>Booking</h1>
       </span>
     </div>
     <div id="event-card-container">
