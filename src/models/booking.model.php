@@ -5,7 +5,7 @@ class Booking extends DB
 
   protected function getBookingByUserId($userId)
   {
-    $statement = $this->connect()->prepare('SELECT e.* FROM booking b LEFT JOIN events e ON e.event_id = b.event_id WHERE user_id = ?');
+    $statement = $this->connect()->prepare('SELECT e.* FROM bookings b LEFT JOIN events e ON e.event_id = b.event_id WHERE user_id = ?');
 
     if (!$statement->execute(array($userId))) {
       $statement = null;

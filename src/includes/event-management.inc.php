@@ -81,13 +81,13 @@ if ($_GET['action'] === 'insertData') {
     // get form data
     $event = $_POST["event"];
     $description = $_POST["description"];
-    $startDate = $_POST["startDate"];
-    $endDate = $_POST["endDate"];
+    $date = $_POST["date"];
+    $category = $_POST["category"];
     $location = $_POST["location"];
     $image = uploadImage();
 
     $manager = new EventManagementController();
-    $manager->insertEvent($event, $description, $image, $startDate, $endDate, $location);
+    $manager->insertEvent($event, $description, $image, $date, $category, $location);
 
     echo json_encode([
       "statusCode" => 200,
@@ -115,13 +115,13 @@ if ($_GET['action'] === 'updateData') {
     $id = $_POST["id"];
     $event = $_POST["event"];
     $description = $_POST["description"];
-    $startDate = $_POST["startDate"];
-    $endDate = $_POST["endDate"];
+    $date = $_POST["date"];
+    $category = $_POST["category"];
     $location = $_POST["location"];
     $image = uploadImage();
 
     $manager = new EventManagementController();
-    $manager->updateEvent((int) $id, $event, $description, $image, $startDate, $endDate, $location);
+    $manager->updateEvent((int) $id, $event, $description, $image, $date, $category, $location);
 
     echo json_encode([
       "statusCode" => 200,

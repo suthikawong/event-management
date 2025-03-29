@@ -3,7 +3,7 @@
 class Event extends DB
 {
 
-  protected function get($keyword, $limit, $offset)
+  protected function get($keyword, $limit, $offset, $startDate = null, $endDate = null)
   {
     $sql = 'SELECT * FROM events';
     $sqlCount = 'SELECT event_id FROM events';
@@ -80,23 +80,23 @@ class Event extends DB
     return $count;
   }
 
-  protected function insert($eventName, $description, $image, $startDate, $endDate, $location)
+  protected function insert($eventName, $description, $image, $date, $category, $location)
   {
-    $statement = $this->connect()->prepare("INSERT INTO events(`event_name`, `description`, `image`, `start_date`, `end_date`, `location`) VALUES (?, ?, ?, ?, ?, ?)");
+    $statement = $this->connect()->prepare("INSERT INTO events(`event_name`, `description`, `image`, `date`, `category`, `location`) VALUES (?, ?, ?, ?, ?, ?)");
 
-    if (!$statement->execute(array($eventName, $description, $image, $startDate, $endDate, $location))) {
+    if (!$statement->execute(array($eventName, $description, $image, $date, $category, $location))) {
       $statement = null;
       throw new Exception("Something went wrong. Please try again.", 500);
     }
     $statement = null;
   }
 
-  protected function update($eventId, $eventName, $description, $image, $startDate, $endDate, $location)
+  protected function update($eventId, $eventName, $description, $image, $date, $category, $location)
   {
     $this->getById($eventId);
-    $statement = $this->connect()->prepare("UPDATE events SET `event_name` = ?, `description` = ?, `image` = ?, `start_date` = ?, `end_date` = ?, `location` = ? WHERE event_id = ?");
+    $statement = $this->connect()->prepare("UPDATE events SET `event_name` = ?, `description` = ?, `image` = ?, `date` = ?, `category` = ?, `location` = ? WHERE event_id = ?");
 
-    if (!$statement->execute(array($eventName, $description, $image, $startDate, $endDate, $location, $eventId))) {
+    if (!$statement->execute(array($eventName, $description, $image, $date, $category, $location, $eventId))) {
       $statement = null;
       throw new Exception("Something went wrong. Please try again.", 500);
     }

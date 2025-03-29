@@ -1,6 +1,6 @@
 var action = null
 var startDate = null
-var endDate = null
+// var endDate = null
 var table
 var deleteEventId = null
 const formModalElement = document.querySelector('#form-modal')
@@ -54,16 +54,16 @@ function showDataTable() {
       },
       {
         targets: 2,
-        data: 'start_date',
+        data: 'date',
         render: function (data) {
-          return tableCellElement('Start', moment(data).format('DD/MM/YY hh:mm A'))
+          return tableCellElement('Date', moment(data).format('DD/MM/YY hh:mm A'))
         },
       },
       {
         targets: 3,
-        data: 'end_date',
+        data: 'category',
         render: function (data) {
-          return tableCellElement('End', moment(data).format('DD/MM/YY hh:mm A'))
+          return tableCellElement('Category', data)
         },
       },
       {
@@ -104,22 +104,41 @@ function onImageChange() {
   $('.preview-image-container').show()
 }
 
-function setDateRangePicker(start, end) {
+function setDateTimePicker(start) {
+  // startDate = start.format('YYYY-MM-DDTHH:mm:ss')
+  // endDate = end.format('YYYY-MM-DDTHH:mm:ss')
+  // $('input[name="duration"]').daterangepicker(
+  //   {
+  //     timePicker: true,
+  //     drops: 'up',
+  //     startDate: start,
+  //     endDate: end,
+  //     locale: {
+  //       format: 'DD/MM/YYYY H:mm',
+  //     },
+  //   },
+  //   function (start, end) {
+  //     startDate = start.format('YYYY-MM-DDTHH:mm:ss')
+  //     endDate = end.format('YYYY-MM-DDTHH:mm:ss')
+  //   }
+  // )
+
   startDate = start.format('YYYY-MM-DDTHH:mm:ss')
-  endDate = end.format('YYYY-MM-DDTHH:mm:ss')
-  $('input[name="duration"]').daterangepicker(
+  $('input[name="date"]').daterangepicker(
     {
+      singleDatePicker: true,
       timePicker: true,
       drops: 'up',
+      showDropdowns: true,
+      minDate: moment().startOf('hour').add(1, 'hour'),
       startDate: start,
-      endDate: end,
+      // maxYear: parseInt(moment().format('YYYY'),10)
       locale: {
         format: 'DD/MM/YYYY H:mm',
       },
     },
-    function (start, end) {
+    function (start) {
       startDate = start.format('YYYY-MM-DDTHH:mm:ss')
-      endDate = end.format('YYYY-MM-DDTHH:mm:ss')
     }
   )
 }
@@ -133,8 +152,8 @@ function resetForm() {
 
   // reset datepicker to initial value
   const start = moment().startOf('hour')
-  const end = moment().startOf('hour').add(1, 'hour')
-  setDateRangePicker(start, end)
+  // const end = moment().startOf('hour').add(1, 'hour')
+  setDateTimePicker(start)
 }
 
 // function fetchData() {
@@ -190,6 +209,7 @@ function fetchDataById(eventId) {
         $('#event-form input[name=id]').val(data.event_id)
         $('#event-form input[name=event]').val(data.event_name)
         $('#event-form textarea[name=description]').val(data.description)
+        $('#event-form input[name=category]').val(data.category)
         $('#event-form input[name=location]').val(data.location)
         if (data.image) {
           $('#event-form .uploader-container').hide()
@@ -200,8 +220,8 @@ function fetchDataById(eventId) {
           $('#event-form input[name=imageName]').val('')
         }
         const start = moment(data.start_date)
-        const end = moment(data.end_date)
-        setDateRangePicker(start, end)
+        // const end = moment(data.end_date)
+        setDateTimePicker(start)
       } else {
         $('.toast').toast('hide')
         $('.toast-body').text(res.message)
@@ -216,8 +236,8 @@ function onSubmitForm() {
 
   $('.submit-button').attr('disabled', 'disabled')
   const formData = new FormData($('#event-form')[0])
-  formData.append('startDate', startDate)
-  formData.append('endDate', endDate)
+  formData.append('date', startDate)
+  // formData.append('endDate', endDate)
 
   $('.submit-button').attr('disabled', 'disabled')
   $('.submit-button').addClass('disabled')

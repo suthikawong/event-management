@@ -17,16 +17,16 @@ class EventManagementController extends Event
     return $this->getCount();
   }
 
-  public function insertEvent($eventName, $description, $image, $startDate, $endDate, $location)
+  public function insertEvent($eventName, $description, $image, $date, $category, $location)
   {
-    $this->validateInput($eventName, $startDate, $endDate, $location);
-    return $this->insert($eventName, $description, $image, $startDate, $endDate, $location);
+    $this->validateInput($eventName, $date, $category, $location);
+    return $this->insert($eventName, $description, $image, $date, $category, $location);
   }
 
-  public function updateEvent($eventId, $eventName, $description, $image, $startDate, $endDate, $location)
+  public function updateEvent($eventId, $eventName, $description, $image, $date, $category, $location)
   {
-    $this->validateInput($eventName, $startDate, $endDate, $location);
-    return $this->update($eventId, $eventName, $description, $image, $startDate, $endDate, $location);
+    $this->validateInput($eventName, $date, $category, $location);
+    return $this->update($eventId, $eventName, $description, $image, $date, $category, $location);
   }
 
   public function deleteEvent($eventId)
@@ -34,17 +34,17 @@ class EventManagementController extends Event
     return $this->delete($eventId);
   }
 
-  private function validateInput($eventName, $startDate, $endDate, $location)
+  private function validateInput($eventName, $date, $category, $location)
   {
-    if ($this->checkEmptyInput($eventName, $startDate, $endDate, $location) == false) {
+    if ($this->checkEmptyInput($eventName, $date, $category, $location) == false) {
       throw new Exception("Please fill all required fields", 400);
     }
     return true;
   }
 
-  private function checkEmptyInput($eventName, $startDate, $endDate, $location)
+  private function checkEmptyInput($eventName, $date, $category, $location)
   {
-    if (empty($eventName) || empty($startDate) || empty($endDate) || empty($location)) {
+    if (empty($eventName) || empty($date) || empty($category) || empty($location)) {
       return false;
     }
     return true;
