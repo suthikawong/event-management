@@ -14,3 +14,7 @@
 .app-date-picker:active {
   border-color: var(--primary-color);
 }
+
+.app-date-picker.range {
+  width: 200px;
+}

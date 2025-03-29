@@ -17,7 +17,21 @@ $title = 'Home';
         <h6>Looking for</h6>
         <input type="text" id="search-keyword" class="app-text-input" placeholder="Search for event, category, location">
       </div>
-      <button class="app-button primary search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <div class="input-container">
+        <h6>When</h6>
+        <select class="app-select" name="when" id="when">
+          <option value="today">Today</option>
+          <option value="tomorrow">Tomorrow</option>
+          <option value="7days">7 Days</option>
+          <option value="30days">30 Days</option>
+          <option value="all" selected="selected">All</option>
+        </select>
+      </div>
+
+      <button class="app-button primary search-button">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <div>Search</div>
+      </button>
     </div>
   </section>
   <section class="event-container">

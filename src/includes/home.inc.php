@@ -9,9 +9,11 @@ if ($_GET['action'] === "fetchData") {
     $limit = $_GET['length'];
     $offset = $_GET['start'];
     $keyword = $_GET['keyword'];
+    $startDate = isset($_GET['startDate']) ? $_GET['startDate'] : null;
+    $endDate = isset($_GET['endDate']) ? $_GET['endDate'] : null;
 
     $home = new HomeController();
-    $result = $home->loadMoreEvents($keyword, (int) $limit, (int) $offset);
+    $result = $home->loadMoreEvents($keyword, $startDate, $endDate, (int) $limit, (int) $offset);
 
     header('Content-Type: application/json');
     echo json_encode([

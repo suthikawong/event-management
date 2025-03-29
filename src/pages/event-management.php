@@ -20,18 +20,14 @@ $title = 'Event Management';
 
   <!-- Search bar -->
   <div class="search-bar">
-    <input id="search-keyword" class="app-text-input" type="text" placeholder="Search for event and location">
     <div class="filter-container">
-      <!-- <select class="app-select event-date-picker" name="filter" id="filter">
-        <option value="all">All</option>
-        <option value="upcoming">Upcoming</option>
-        <option value="past">Past</option>
-      </select> -->
-      <button class="app-button outline-primary search-button">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <div>Search</div>
-      </button>
+      <input id="search-keyword" class="app-text-input" type="text" placeholder="Search for event, category, location">
+      <input type="text" name="daterange" class="app-date-picker range daterange-picker" />
     </div>
+    <button class="app-button outline-primary search-button">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <div>Search</div>
+    </button>
   </div>
 
   <h1 class="title">Event List</h1>

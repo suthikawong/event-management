@@ -2,11 +2,42 @@ var limit = 6
 var offset = -limit
 var keyword = ''
 
+function getDatesFromSelector(when) {
+  switch (when) {
+    case 'today':
+      return {
+        startDate: moment().startOf('day').format('YYYY-MM-DDTHH:mm:ss'),
+        endDate: moment().endOf('day').format('YYYY-MM-DDTHH:mm:ss'),
+      }
+    case 'tomorrow':
+      return {
+        startDate: moment().startOf('day').add(1, 'day').format('YYYY-MM-DDTHH:mm:ss'),
+        endDate: moment().endOf('day').add(1, 'day').format('YYYY-MM-DDTHH:mm:ss'),
+      }
+    case '7days':
+      return {
+        startDate: moment().startOf('day').format('YYYY-MM-DDTHH:mm:ss'),
+        endDate: moment().endOf('day').add(7, 'day').format('YYYY-MM-DDTHH:mm:ss'),
+      }
+    case '30days':
+      return {
+        startDate: moment().startOf('day').format('YYYY-MM-DDTHH:mm:ss'),
+        endDate: moment().endOf('day').add(30, 'day').format('YYYY-MM-DDTHH:mm:ss'),
+      }
+    default:
+      return { startDate: null, endDate: null }
+  }
+}
+
 function fetchEvents() {
   offset += limit
+  when = $('#when').val()
+  const { startDate, endDate } = getDatesFromSelector(when)
   // load event data
   $.ajax({
-    url: `includes/home.inc.php?action=fetchData&length=${limit}&start=${offset}&keyword=${keyword}`,
+    url: `includes/home.inc.php?action=fetchData&length=${limit}&start=${offset}&keyword=${keyword}${
+      startDate && endDate ? `&startDate=${startDate}&endDate=${endDate}` : ''
+    }`,
     type: 'GET',
     success: function (res) {
       if (res.statusCode === 200) {

@@ -1,11 +1,32 @@
 var action = null
-var startDate = null
+var date = null
 var table
 var deleteEventId = null
 const formModalElement = document.querySelector('#form-modal')
 const formModal = bootstrap.Modal.getOrCreateInstance(formModalElement)
 const deleteModalElement = document.querySelector('#delete-modal')
 const deleteModal = bootstrap.Modal.getOrCreateInstance(deleteModalElement)
+var startDate = null
+var endDate = null
+
+function dateRangeFilter(start, end) {
+  startDate = start.format('YYYY-MM-DDTHH:mm:ss')
+  endDate = end.format('YYYY-MM-DDTHH:mm:ss')
+  $('input[name="daterange"]').daterangepicker(
+    {
+      opens: 'left',
+      startDate: start,
+      endDate: end,
+      locale: {
+        format: 'DD/MM/YYYY',
+      },
+    },
+    function (start, end) {
+      startDate = start.format('YYYY-MM-DDTHH:mm:ss')
+      endDate = end.format('YYYY-MM-DDTHH:mm:ss')
+    }
+  )
+}
 
 function showDataTable() {
   table = new DataTable('#event-table', {
@@ -22,6 +43,8 @@ function showDataTable() {
       type: 'GET',
       data: function (param) {
         param.keyword = $('#search-keyword').val()
+        param.startDate = startDate
+        param.endDate = endDate
       },
       dataSrc: function (res) {
         if (res.statusCode === 200) {
@@ -104,7 +127,7 @@ function onImageChange() {
 }
 
 function setDateTimePicker(start) {
-  startDate = start.format('YYYY-MM-DDTHH:mm:ss')
+  date = start.format('YYYY-MM-DDTHH:mm:ss')
   $('input[name="date"]').daterangepicker(
     {
       singleDatePicker: true,
@@ -118,7 +141,7 @@ function setDateTimePicker(start) {
       },
     },
     function (start) {
-      startDate = start.format('YYYY-MM-DDTHH:mm:ss')
+      date = start.format('YYYY-MM-DDTHH:mm:ss')
     }
   )
 }
@@ -171,7 +194,7 @@ function onSubmitForm() {
 
   $('.submit-button').attr('disabled', 'disabled')
   const formData = new FormData($('#event-form')[0])
-  formData.append('date', startDate)
+  formData.append('date', date)
 
   $('.submit-button').attr('disabled', 'disabled')
   $('.submit-button').addClass('disabled')
@@ -260,8 +283,9 @@ function onSearch() {
 }
 
 $(document).ready(function () {
-  showDataTable()
+  dateRangeFilter(moment().startOf('day'), moment().endOf('day').add(30, 'day'))
   resetForm()
+  showDataTable()
 
   // open modal
   $('button.add-button').click(onClickAddEvent)

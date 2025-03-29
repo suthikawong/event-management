@@ -10,9 +10,11 @@ if ($_GET['action'] === 'fetchData') {
     $limit = $_GET['length'];
     $offset = $_GET['start'];
     $keyword = $_GET['keyword'];
+    $startDate = $_GET['startDate'];
+    $endDate = $_GET['endDate'];
 
     $manager = new EventManagementController();
-    $result = $manager->getEvents($keyword, (int) $limit, (int) $offset);
+    $result = $manager->getEvents($keyword, $startDate, $endDate, (int) $limit, (int) $offset);
 
     header('Content-Type: application/json');
     echo json_encode([

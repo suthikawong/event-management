@@ -3,16 +3,26 @@
 class Event extends DB
 {
 
-  protected function get($keyword, $limit, $offset, $startDate = null, $endDate = null)
+  protected function get($keyword, $startDate, $endDate, $limit, $offset)
   {
     $sql = 'SELECT * FROM events';
     $sqlCount = 'SELECT event_id FROM events';
 
-    if (!empty($keyword)) {
-      $search = ' WHERE event_name LIKE :keyword OR category LIKE :keyword OR location LIKE :keyword';
-      $sql = $sql . $search;
-      $sqlCount = $sqlCount . $search;
+    if (!empty($keyword) || !empty($startDate) || !empty($endDate)) {
+      $conditions = array();
+      if (!empty($keyword)) {
+        $condition = '(event_name LIKE :keyword OR category LIKE :keyword OR location LIKE :keyword)';
+        array_push($conditions, $condition);
+      }
+      if (!empty($startDate) && !empty($endDate)) {
+        $condition = '(date BETWEEN :startDate AND :endDate)';
+        array_push($conditions, $condition);
+      }
+      $where = ' WHERE ' . implode(' AND ', $conditions);
+      $sql = $sql . $where;
+      $sqlCount = $sqlCount . $where;
     }
+
     if (is_int($limit) && is_int($offset)) {
       $sql = $sql . ' LIMIT :limit OFFSET :offset';
     }
@@ -24,6 +34,14 @@ class Event extends DB
       $preparedKeyword = "%$keyword%";
       $statement->bindParam(':keyword', $preparedKeyword, PDO::PARAM_STR);
       $statementCount->bindParam(':keyword', $preparedKeyword, PDO::PARAM_STR);
+    }
+    if (!empty($startDate)) {
+      $statement->bindParam(':startDate', $startDate, PDO::PARAM_STR);
+      $statementCount->bindParam(':startDate', $startDate, PDO::PARAM_STR);
+    }
+    if (!empty($endDate)) {
+      $statement->bindParam(':endDate', $endDate, PDO::PARAM_STR);
+      $statementCount->bindParam(':endDate', $endDate, PDO::PARAM_STR);
     }
     if (is_int($limit) && is_int($offset)) {
       $statement->bindParam(':limit', $limit, PDO::PARAM_INT);

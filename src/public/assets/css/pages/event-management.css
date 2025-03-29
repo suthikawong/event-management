@@ -24,7 +24,6 @@
 .event-management-page .search-bar {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
   margin-top: 30px;
   margin-bottom: 20px;
@@ -33,12 +32,13 @@
 
 .event-management-page .filter-container {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
 }
 
-.event-management-page .event-date-picker {
-  display: none;
+.event-management-page .daterange-picker {
+  width: 100%;
 }
 
 .event-management-page .search-button > div {
@@ -60,16 +60,21 @@
     display: block;
   }
 
-  .event-management-page .filter-container {
-    gap: 10px;
+  .event-management-page .search-bar {
+    flex-direction: row;
+    justify-content: space-between;
   }
 
-  .event-management-page .search-bar > input {
+  .event-management-page .filter-container {
+    flex-direction: row;
+  }
+
+  .event-management-page #search-keyword {
     max-width: 400px;
   }
 
-  .event-management-page .event-date-picker {
-    display: block;
+  .event-management-page .daterange-picker {
+    max-width: 200px;
   }
 
   .event-management-page .search-button > i {
@@ -82,10 +87,6 @@
 }
 
 @media (min-width: 992px) {
-  .event-management-page .filter-container {
-    gap: 20px;
-  }
-
   .event-management-page .search-bar {
     margin-top: 40px;
   }
