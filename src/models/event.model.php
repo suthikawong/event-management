@@ -9,7 +9,7 @@ class Event extends DB
     $sqlCount = 'SELECT event_id FROM events';
 
     if (!empty($keyword)) {
-      $search = ' WHERE event_name LIKE :keyword OR location LIKE :keyword';
+      $search = ' WHERE event_name LIKE :keyword OR category LIKE :keyword OR location LIKE :keyword';
       $sql = $sql . $search;
       $sqlCount = $sqlCount . $search;
     }

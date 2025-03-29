@@ -22,6 +22,7 @@ function fetchEvents() {
                 let html = ''
                 html = elem.replace('$event_name', event.event_name)
                 html = html.replace('$date', moment(event.date).format('lll'))
+                html = html.replace('$category', event.category)
                 html = html.replace('$location', event.location)
                 if (event.image) {
                   html = html.replace('$image', `${uploadsPath}/${event.image}`)

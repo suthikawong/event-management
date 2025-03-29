@@ -15,7 +15,7 @@ $title = 'Home';
     <div class="search-bar">
       <div class="input-container">
         <h6>Looking for</h6>
-        <input type="text" id="search-keyword" class="app-text-input" placeholder="Search for events">
+        <input type="text" id="search-keyword" class="app-text-input" placeholder="Search for event, category, location">
       </div>
       <button class="app-button primary search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
     </div>

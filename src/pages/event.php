@@ -32,6 +32,8 @@ $title = 'Event';
       <div>Date: <span></span></div>
       <div>Time: <span></span></div>
     </div>
+    <h3 class="event-category">Category</h3>
+    <div class="event-category-content"></div>
     <h3 class="event-location">Event location</h3>
     <div class="event-location-content"></div>
     <div class="button-container">

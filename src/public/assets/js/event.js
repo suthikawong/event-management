@@ -17,6 +17,7 @@ function fetchEventById(eventId) {
         $('.event-desc-content').text(data.description)
         $('.event-datetime-content > div:first-child > span').text(moment(data.date).format('DD/MM/YY'))
         $('.event-datetime-content > div:last-child > span').text(moment(data.date).format('hh:mm A'))
+        $('.event-category-content').text(data.category)
         $('.event-location-content').text(data.location)
         if (data.image) {
           $('.event-img').attr('src', `${uploadsPath}/${data.image}`)
