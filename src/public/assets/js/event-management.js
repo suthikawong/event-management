@@ -212,17 +212,12 @@ function fetchDataById(eventId) {
 }
 
 function onSubmitForm() {
-  console.log('action : ', action)
   if (!action) return
 
   $('.submit-button').attr('disabled', 'disabled')
   const formData = new FormData($('#event-form')[0])
   formData.append('startDate', startDate)
   formData.append('endDate', endDate)
-
-  for (let [key, value] of formData.entries()) {
-    console.log(`${key}: ${JSON.stringify(value)}`)
-  }
 
   $('.submit-button').attr('disabled', 'disabled')
   $('.submit-button').addClass('disabled')
@@ -237,7 +232,6 @@ function onSubmitForm() {
     success: function (response) {
       try {
         const res = JSON.parse(response)
-        console.log('TLOG ~ res:', res)
         if (res.statusCode === 200) {
           $('#error-message').hide()
           formModal.hide()
