@@ -37,12 +37,9 @@ class BookingController extends Booking
 
       $eventId = $event['event_id'];
       $eventName = $event['event_name'];
-      $startDateTime = date_create($event['start_date']);
-      $endDateTime = date_create($event['end_date']);
-      $start = date_format($startDateTime, 'd/m/Y');
-      $end = date_format($endDateTime, 'd/m/Y');
-      $eventDate = $start === $end ? $start : $start . ' - ' . $end;
-      $eventTime = date_format($startDateTime, 'h:i A') . ' - ' . date_format($endDateTime, 'h:i A');
+      $dateTime = date_create($event['date']);
+      $eventDate = date_format($dateTime, 'd/m/Y');
+      $eventTime = date_format($dateTime, 'h:i A');
       $location = $event['location'];
       $publicPath = PUBLIC_PATH;
 

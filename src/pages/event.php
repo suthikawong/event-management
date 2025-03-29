@@ -29,8 +29,8 @@ $title = 'Event';
     <div class="event-desc-content"></div>
     <h3 class="event-datetime">Date & Time</h3>
     <div class="event-datetime-content">
-      <div>Start: <span></span></div>
-      <div>End: <span></span></div>
+      <div>Date: <span></span></div>
+      <div>Time: <span></span></div>
     </div>
     <h3 class="event-location">Event location</h3>
     <div class="event-location-content"></div>

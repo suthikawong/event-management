@@ -16,7 +16,7 @@ function fetchBookedEvents() {
                 let elem = element
                 let html = ''
                 html = elem.replace('$event_name', event.event_name)
-                html = html.replace('$start_date', moment(event.start_date).format('lll'))
+                html = html.replace('$date', moment(event.date).format('lll'))
                 html = html.replace('$location', event.location)
                 if (event.image) {
                   html = html.replace('$image', `${uploadsPath}/${event.image}`)

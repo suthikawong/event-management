@@ -15,8 +15,8 @@ function fetchEventById(eventId) {
         const data = res.data
         $('.event-title').text(data.event_name)
         $('.event-desc-content').text(data.description)
-        $('.event-datetime-content > div:first-child > span').text(moment(data.start_date).format('DD/MM/YY hh:mm A'))
-        $('.event-datetime-content > div:last-child > span').text(moment(data.end_date).format('DD/MM/YY hh:mm A'))
+        $('.event-datetime-content > div:first-child > span').text(moment(data.date).format('DD/MM/YY'))
+        $('.event-datetime-content > div:last-child > span').text(moment(data.date).format('hh:mm A'))
         $('.event-location-content').text(data.location)
         if (data.image) {
           $('.event-img').attr('src', `${uploadsPath}/${data.image}`)
