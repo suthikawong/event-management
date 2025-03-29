@@ -19,7 +19,7 @@ class Booking extends DB
 
   protected function insert($userId, $eventId)
   {
-    $statement = $this->connect()->prepare("INSERT INTO booking(`user_id`, `event_id`) VALUES (?, ?)");
+    $statement = $this->connect()->prepare("INSERT INTO bookings(`user_id`, `event_id`) VALUES (?, ?)");
 
     if (!$statement->execute(array($userId, $eventId))) {
       $statement = null;
